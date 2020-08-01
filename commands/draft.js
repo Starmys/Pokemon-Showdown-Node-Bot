@@ -1,6 +1,6 @@
 'use strict';
-const initialMoney = 48000; //Money each team should start with
-const minPlayers = 5; //Forces managers to buy a certain amount of players. To disable, set this to 1
+const initialMoney = 140000; //Money each team should start with
+const minPlayers = 14; //Forces managers to buy a certain amount of players. To disable, set this to 1
 const defaultTeams = {//If you want teams set automatically, they can be placed here
         //Leaving UUPL teams so you can see how it is done
         /*"The Black City Burglars": "flcl",
@@ -11,10 +11,23 @@ const defaultTeams = {//If you want teams set automatically, they can be placed 
         "Littleroot Lindas": "shiba",
         "Dewford Town Delinquents": "fatty",
         "Pewter Porygon 2s": "Omfuga"*/
-    "Dancing Dialga":"mmrrk",
-    "Sky Fucker":"liko too",
-    "Butterfly":"EDG kangri",
-    "Handsome Penguin":"ssnoopy",
+        "Longkou Vericelli":"drogbainshenhua",
+        "Yawning Kingdra":"separation",
+        "Soul Dew":"mmrrk",
+        "Draco Kilometeor":"vusty",
+    // "Milan Bisharps":"snaga",
+    // "IFK Göteborg Gogoats":"kingkdot",
+    // "Chelsea Chatots":"ll",
+    // "Geneva Goodras":"mysteriousm",
+    // "Kaiserslautern Kingdras":"marcop9923",
+    // "Arsenal Arcanines":"tony",
+    // "Southampton Seakings":"starry",
+    // "Winchester Wobbuffets":"callousx"
+    /*
+    "Eastern Ruiners":"no41st",
+    "Adamas":"mmrrk",
+    "Creative Camp":"kitoothe",
+    "Free Palatinate of Dyrwood":"separation"*/
 };
 
 
@@ -55,7 +68,7 @@ class Draft {
     }
     
     loadPlayers (url) {
-        Tools.httpGet(url, data => {
+        Tools.httpsGet(url, data => {
             if (!data) return Bot.say(this.room, 'Could not load data. Make sure you are using a /raw/ pastebin or hastebin link.');
             let lines = data.split('\n');
             let categories = lines[0].split(',');
@@ -98,17 +111,17 @@ class Draft {
         if (!this.managers[user] || this.nomination !== this.managers[user]) return false;
         let targetId = toId(target);
         if (!this.players[targetId]) return Bot.say(this.room, 'The user ' + target + ' was not found!');
-	let team = this.teams[this.managers[user]];
-	if (team.money < 3000) return Bot.say(this.room, "You don't have enough money to perform this action!");
+	    let team = this.teams[this.managers[user]];
+	    if (team.money < 3000) return Bot.say(this.room, "You don't have enough money to perform this action!");
         let targetName = this.players[targetId].name;
         this.nominee = targetName;
 		this.state = "start";
         Bot.say(this.room, targetName + ' is up for bidding!');
         let buffer = [];
         for (let property in this.players[targetId]) {
-            if (this.players[targetId][property] === 'y') buffer.push(property);
+            if (this.players[targetId][property] === 'X') buffer.push(property);
         }
-        Bot.say(this.room, 'Tiers: ' + buffer.join(' --- '));
+        Bot.say(this.room, 'Tiers: ' + buffer.join(' & '));
         this.runBid(user, 3000);
     }
     
@@ -143,7 +156,7 @@ class Draft {
         this.bid = amount;
         this.topBidder = user;
         this.timer = setTimeout(() => {
-            Bot.say(this.room, '__8 seconds remaining!__');
+            Bot.say(this.room, '__5 seconds remaining!__');
             this.timer = setTimeout(() => {
                 Bot.say(this.room, teamName + ' have won the bid for ' + this.nominee + '!');
                 team.money -= amount;
@@ -154,8 +167,8 @@ class Draft {
                 this.nominee = null;
                 this.showAll();
                 this.save();
-            }, 8000);
-        }, 16000);
+            }, 5000); /* second left in 1k*/
+        }, 15000);
     }
     
     withdraw (user) {
@@ -257,14 +270,14 @@ exports.commands = {
                 break;
                 
             case 'pause' :
-                if (!drafts[room] || drafts[room].state !== 'start') return false;
+                if (!drafts[room] || drafts[room].state !== 'nominate') return false;
                 drafts[room].state = 'pause';
                 this.reply('The draft was paused');
                 break;
                 
             case 'resume' :
                 if (!drafts[room] || drafts[room].state !== 'pause') return false;
-                drafts[room].state = 'start';
+                drafts[room].state = 'nominate';
                 this.reply('The draft was resumed!');
                 break;
                 

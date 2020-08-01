@@ -345,9 +345,28 @@ exports.uncacheTree = function (root) {
 exports.httpGet = function (url, callback) {
 	if (typeof callback !== "function") return;
 	var http = require("http");
-	http.get(url, function (res) {
+	http.get(url, (res) => {
 		var data = '';
-		res.on('data', function (part) {
+		res.on('data', (part) => {
+			data += part;
+		});
+		res.on('end', function () {
+			callback(data);
+		});
+		res.on('error', function (e) {
+			callback(null, e);
+		});
+	}).on('error', function (e) {
+		callback(null, e);
+	});
+};
+
+exports.httpsGet = function (url, callback) {
+	if (typeof callback !== "function") return;
+	var https = require("https");
+	https.get(url, (res) => {
+		var data = '';
+		res.on('data', (part) => {
 			data += part;
 		});
 		res.on('end', function () {
