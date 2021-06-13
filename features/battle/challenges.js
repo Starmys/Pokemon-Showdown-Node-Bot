@@ -10,6 +10,7 @@ function canChallenge(i, nBattles) {
 }
 
 exports.parse = function (room, message, isIntro, spl) {
+	return Bot.say('', `/reject ${toId(spl[1])}`);
 	if (spl[0] !== 'updatechallenges') return;
 	var nBattles = Object.keys(Features['battle'].BattleBot.battles).length;
 	try {

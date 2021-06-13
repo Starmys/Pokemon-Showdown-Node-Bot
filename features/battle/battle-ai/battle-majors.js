@@ -12,7 +12,7 @@ module.exports = {
 
 	request: function (args, kwargs) {
 		args.shift();
-		this.request = JSON.parse(args.join("|"));
+		this.request = args.join("|") ? JSON.parse(args.join("|")) : '';
 		this.rqid = this.request ? this.request.rqid : -1;
 	},
 

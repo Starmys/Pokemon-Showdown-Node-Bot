@@ -6,11 +6,11 @@ var datenow = Date.now();
 
 var data = exports.data = [
 	{
-		url: "https://raw.githubusercontent.com/Zarel/Pokemon-Showdown/master/config/formats.js",
+		url: "https://raw.githubusercontent.com/CTCC1/Pokemon-Showdown/master/config/formats.ts",
 		file: "formats.js"
 	},
 	{
-		url: "https://raw.githubusercontent.com/Zarel/Pokemon-Showdown/master/data/formats-data.js",
+		url: "https://raw.githubusercontent.com/CTCC1/Pokemon-Showdown/master/data/formats-data.ts",
 		file: "formats-data.js"
 	},
 	{

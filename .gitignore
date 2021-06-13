@@ -1,6 +1,5 @@
 # Config
 config
-config.js
 config-tmp-*.js
 
 # Private files

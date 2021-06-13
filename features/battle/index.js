@@ -23,8 +23,8 @@ exports.init = function () {
 
 exports.parse = function (room, message, isIntro, spl) {
 	switch (spl[0]) {
-		case 'updatechallenges':
-			ChallManager.parse(room, message, isIntro, spl);
+		case 'pm':
+			if (spl.length > 3 && spl[3].indexOf('/challenge ') >= 0) ChallManager.parse(room, message, isIntro, spl);
 			break;
 		case 'tournament':
 			TourManager.parse(room, message, isIntro, spl);
