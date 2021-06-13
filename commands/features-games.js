@@ -76,7 +76,7 @@ exports.commands = {
 			'scissors': 's'
 		};
 		var langAliases = this.trad('aliases');
-		if (langAliases) Object.merge(aliases, langAliases);
+		if (langAliases) Object.assign(aliases, langAliases);
 		var chosenByUser = toId(arg);
 		if (aliases[chosenByUser]) chosenByUser = aliases[chosenByUser];
 		if (values.indexOf(chosenByUser) < 0) return this.restrictReply(this.trad('err'), 'games');

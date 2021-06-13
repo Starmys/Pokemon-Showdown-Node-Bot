@@ -2,90 +2,90 @@
 	Data Downloader
 */
 
-var datenow = Date.now();
+// var datenow = Date.now();
 
-var data = exports.data = [
-	{
-		url: "https://raw.githubusercontent.com/CTCC1/Pokemon-Showdown/master/config/formats.ts",
-		file: "formats.js"
-	},
-	{
-		url: "https://raw.githubusercontent.com/CTCC1/Pokemon-Showdown/master/data/formats-data.ts",
-		file: "formats-data.js"
-	},
-	{
-		url: "https://play.pokemonshowdown.com/data/pokedex.js?" + datenow,
-		file: "pokedex.js"
-	},
-	{
-		url: "https://play.pokemonshowdown.com/data/moves.js?" + datenow,
-		file: "moves.js"
-	},
-	{
-		url: "https://play.pokemonshowdown.com/data/abilities.js?" + datenow,
-		file: "abilities.js"
-	},
-	{
-		url: "https://play.pokemonshowdown.com/data/items.js?" + datenow,
-		file: "items.js"
-	},
-	{
-		url: "https://play.pokemonshowdown.com/data/learnsets-g6.js?" + datenow,
-		file: "learnsets-g6.js"
-	},
-	{
-		url: "https://play.pokemonshowdown.com/data/aliases.js?" + datenow,
-		file: "aliases.js"
-	}
-];
+// var data = exports.data = [
+// 	{
+// 		url: "https://raw.githubusercontent.com/CTCC1/Pokemon-Showdown/master/config/formats.ts",
+// 		file: "formats.js"
+// 	},
+// 	{
+// 		url: "https://raw.githubusercontent.com/CTCC1/Pokemon-Showdown/master/data/formats-data.ts",
+// 		file: "formats-data.js"
+// 	},
+// 	{
+// 		url: "https://play.pokemonshowdown.com/data/pokedex.js?" + datenow,
+// 		file: "pokedex.js"
+// 	},
+// 	{
+// 		url: "https://play.pokemonshowdown.com/data/moves.js?" + datenow,
+// 		file: "moves.js"
+// 	},
+// 	{
+// 		url: "https://play.pokemonshowdown.com/data/abilities.js?" + datenow,
+// 		file: "abilities.js"
+// 	},
+// 	{
+// 		url: "https://play.pokemonshowdown.com/data/items.js?" + datenow,
+// 		file: "items.js"
+// 	},
+// 	{
+// 		url: "https://play.pokemonshowdown.com/data/learnsets-g6.js?" + datenow,
+// 		file: "learnsets-g6.js"
+// 	},
+// 	{
+// 		url: "https://play.pokemonshowdown.com/data/aliases.js?" + datenow,
+// 		file: "aliases.js"
+// 	}
+// ];
 
-var httpsGet = function (url, callback) {
-	if (typeof callback !== "function") return;
-	var https = require("https");
-	https.get(url, function (res) {
-		var data = '';
-		res.on('data', function (part) {
-			data += part;
-		});
-		res.on('end', function () {
-			callback(data);
-		});
-		res.on('error', function (e) {
-			callback(null, e);
-		});
-	}).on('error', function (e) {
-		callback(null, e);
-	});
-};
+// var httpsGet = function (url, callback) {
+// 	if (typeof callback !== "function") return;
+// 	var https = require("https");
+// 	https.get(url, function (res) {
+// 		var data = '';
+// 		res.on('data', function (part) {
+// 			data += part;
+// 		});
+// 		res.on('end', function () {
+// 			callback(data);
+// 		});
+// 		res.on('error', function (e) {
+// 			callback(null, e);
+// 		});
+// 	}).on('error', function (e) {
+// 		callback(null, e);
+// 	});
+// };
 
-var downloadFile = exports.downloadFile = function (url, file, callback) {
-	httpsGet(url, function (data, err) {
-		if (err) {
-			if (typeof callback === "function") callback(false, err);
-			return;
-		}
-		fs.writeFile('./data/' + file, data, function (err2) {
-			if (err2) {
-				if (typeof callback === "function") callback(false, err2);
-				return;
-			}
-			try {
-				Tools.uncacheTree('./data/' + file);
-			} catch (e) {}
-			debug('Downloaded data file: ' + './data/' + file);
-			if (typeof callback === "function") callback(true);
-		});
-	});
-};
+// var downloadFile = exports.downloadFile = function (url, file, callback) {
+// 	httpsGet(url, function (data, err) {
+// 		if (err) {
+// 			if (typeof callback === "function") callback(false, err);
+// 			return;
+// 		}
+// 		fs.writeFile('./data/' + file, data, function (err2) {
+// 			if (err2) {
+// 				if (typeof callback === "function") callback(false, err2);
+// 				return;
+// 			}
+// 			try {
+// 				Tools.uncacheTree('./data/' + file);
+// 			} catch (e) {}
+// 			debug('Downloaded data file: ' + './data/' + file);
+// 			if (typeof callback === "function") callback(true);
+// 		});
+// 	});
+// };
 
 var download = exports.download = function () {
-	for (var i = 0; i < data.length; i++) {
-		downloadFile(data[i].url, data[i].file, function (s, err) {
-			if (s) return;
-			error("Data download failed: " + data[i].file + "\n" + err.message);
-			errlog(err.stack);
-		});
-	}
+	// for (var i = 0; i < data.length; i++) {
+	// 	downloadFile(data[i].url, data[i].file, function (s, err) {
+	// 		if (s) return;
+	// 		error("Data download failed: " + data[i].file + "\n" + err.message);
+	// 		errlog(err.stack);
+	// 	});
+	// }
 };
 
 exports.getPokedex = function () {
