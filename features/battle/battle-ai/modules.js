@@ -4,7 +4,7 @@
 
 var modules = exports.modules = {};
 
-var modFiles = ['singles-eff.js', 'ingame-nostatus.js'];
+var modFiles = ['singles-eff.js', 'ingame-nostatus.js', 'random.js'];
 
 modFiles.forEach(function (file) {
 	var mod;

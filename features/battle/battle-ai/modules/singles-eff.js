@@ -584,6 +584,9 @@ var getBestMove = exports.getBestMove = function (battle, decisions) {
 	var bestSW = exports.getBestSwitch(battle, decisions);
 	var damageMoves = getViableDamageMoves(battle, decisions);
 	var supportMoves = getViableSupportMoves(battle, decisions);
+	// console.log('bs', bestSW)
+	// console.log('dm', damageMoves)
+	// console.log('sm', supportMoves)
 
 	var ev = evaluatePokemon(battle, 0);
 	var evNoMega = evaluatePokemon(battle, 0, true);
