@@ -93,7 +93,7 @@ exports.getPokemon = exports.getTemplate = function (poke, gen) {
 };
 
 exports.getMove = function (move, gen) {
-	if (!gen || gen > 6 || gen < 1) gen = 6;
+	if (!gen || gen > 8 || gen < 1) gen = 8;
 	move = toId(move || "");
 	if (move.indexOf("hiddenpower") === 0) {
 		move = move.replace(/[0-9]/g, "");
@@ -116,7 +116,7 @@ exports.getMove = function (move, gen) {
 		}
 		for (var i in temp) moveData[i] = temp[i];
 	}
-	if (!moveData.id) {
+	if (!moveData.num) {
 		return {
 			num: 165,
 			accuracy: true,

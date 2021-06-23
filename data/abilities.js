@@ -1,1 +1,4457 @@
-exports.BattleAbilities = {noability:{isNonstandard:"Past",name:"No Ability",rating:0.1,num:0,desc:"Does nothing.",shortDesc:"Does nothing."},adaptability:{name:"Adaptability",rating:4,num:91,desc:"This Pokemon's moves that match one of its types have a same-type attack bonus (STAB) of 2 instead of 1.5.",shortDesc:"This Pokemon's same-type attack bonus (STAB) is 2 instead of 1.5."},aerilate:{onModifyTypePriority:-1,onBasePowerPriority:23,name:"Aerilate",rating:4,num:184,desc:"This Pokemon's Normal-type moves become Flying-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",shortDesc:"This Pokemon's Normal-type moves become Flying type and have 1.2x power."},aftermath:{name:"Aftermath",onDamagingHitOrder:1,rating:2.5,num:106,desc:"If this Pokemon is knocked out with a contact move, that move's user loses 1/4 of its maximum HP, rounded down. If any active Pokemon has the Damp Ability, this effect is prevented.",shortDesc:"If this Pokemon is KOed with a contact move, that move's user loses 1/4 its max HP."},airlock:{suppressWeather:true,name:"Air Lock",rating:2,num:76,desc:"While this Pokemon is active, the effects of weather conditions are disabled.",shortDesc:"While this Pokemon is active, the effects of weather conditions are disabled."},analytic:{onBasePowerPriority:21,name:"Analytic",rating:2.5,num:148,desc:"The power of this Pokemon's move is multiplied by 1.3 if it is the last to move in a turn. Does not affect Doom Desire and Future Sight.",shortDesc:"This Pokemon's attacks have 1.3x power if it is the last to move in a turn."},angerpoint:{name:"Anger Point",rating:1.5,num:83,desc:"If this Pokemon, but not its substitute, is struck by a critical hit, its Attack is raised by 12 stages.",shortDesc:"If this Pokemon (not its substitute) takes a critical hit, its Attack is raised 12 stages."},anticipation:{name:"Anticipation",rating:0.5,num:107,desc:"On switch-in, this Pokemon is alerted if any opposing Pokemon has an attack that is super effective on this Pokemon, or an OHKO move. Counter, Metal Burst, and Mirror Coat count as attacking moves of their respective types, Hidden Power counts as its determined type, and Judgment, Multi-Attack, Natural Gift, Revelation Dance, Techno Blast, and Weather Ball are considered Normal-type moves.",shortDesc:"On switch-in, this Pokemon shudders if any foe has a supereffective or OHKO move."},arenatrap:{name:"Arena Trap",rating:5,num:71,desc:"Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or are airborne.",shortDesc:"Prevents adjacent foes from choosing to switch unless they are airborne."},aromaveil:{isBreakable:true,name:"Aroma Veil",rating:2,num:165,desc:"This Pokemon and its allies cannot be affected by Attract, Disable, Encore, Heal Block, Taunt, or Torment.",shortDesc:"Protects user/allies from Attract, Disable, Encore, Heal Block, Taunt, and Torment."},asoneglastrier:{isPermanent:true,name:"As One (Glastrier)",rating:3.5,num:266,desc:"The combination of Unnerve and Chilling Neigh.",shortDesc:"The combination of Unnerve and Chilling Neigh."},asonespectrier:{isPermanent:true,name:"As One (Spectrier)",rating:3.5,num:267,desc:"The combination of Unnerve and Grim Neigh.",shortDesc:"The combination of Unnerve and Grim Neigh."},aurabreak:{isBreakable:true,name:"Aura Break",rating:1,num:188,desc:"While this Pokemon is active, the effects of the Dark Aura and Fairy Aura Abilities are reversed, multiplying the power of Dark- and Fairy-type moves, respectively, by 3/4 instead of 1.33.",shortDesc:"While this Pokemon is active, the Dark Aura and Fairy Aura power modifier is 0.75x."},baddreams:{onResidualOrder:28,onResidualSubOrder:2,name:"Bad Dreams",rating:1.5,num:123,desc:"Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",shortDesc:"Causes sleeping adjacent foes to lose 1/8 of their max HP at the end of each turn."},ballfetch:{name:"Ball Fetch",rating:0,num:237,desc:"No competitive use.",shortDesc:"No competitive use."},battery:{onAllyBasePowerPriority:22,name:"Battery",rating:0,num:217,desc:"This Pokemon's allies have the power of their special attacks multiplied by 1.3.",shortDesc:"This Pokemon's allies have the power of their special attacks multiplied by 1.3."},battlearmor:{onCriticalHit:false,isBreakable:true,name:"Battle Armor",rating:1,num:4,desc:"This Pokemon cannot be struck by a critical hit.",shortDesc:"This Pokemon cannot be struck by a critical hit."},battlebond:{onModifyMovePriority:-1,isPermanent:true,name:"Battle Bond",rating:4,num:210,desc:"If this Pokemon is a Greninja, it transforms into Ash-Greninja after knocking out a Pokemon. As Ash-Greninja, its Water Shuriken has 20 base power and always hits 3 times.",shortDesc:"After KOing a Pokemon: becomes Ash-Greninja, Water Shuriken: 20 power, hits 3x."},beastboost:{name:"Beast Boost",rating:3.5,num:224,desc:"This Pokemon's highest stat is raised by 1 stage if it attacks and knocks out another Pokemon.",shortDesc:"This Pokemon's highest stat is raised by 1 if it attacks and KOes another Pokemon."},berserk:{name:"Berserk",rating:2,num:201,desc:"When this Pokemon has more than 1/2 its maximum HP and takes damage from an attack bringing it to 1/2 or less of its maximum HP, its Special Attack is raised by 1 stage. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",shortDesc:"This Pokemon's Sp. Atk is raised by 1 when it reaches 1/2 or less of its max HP."},bigpecks:{isBreakable:true,name:"Big Pecks",rating:0.5,num:145,desc:"Prevents other Pokemon from lowering this Pokemon's Defense stat stage.",shortDesc:"Prevents other Pokemon from lowering this Pokemon's Defense stat stage."},blaze:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Blaze",rating:2,num:66,desc:"When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Fire-type attack.",shortDesc:"At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Fire attacks."},bulletproof:{isBreakable:true,name:"Bulletproof",rating:3,num:171,desc:"This Pokemon is immune to ballistic moves. Ballistic moves include Bullet Seed, Octazooka, Barrage, Rock Wrecker, Zap Cannon, Acid Spray, Aura Sphere, Focus Blast, and all moves with Ball or Bomb in their name.",shortDesc:"Makes user immune to ballistic moves (Shadow Ball, Sludge Bomb, Focus Blast, etc)."},cheekpouch:{name:"Cheek Pouch",rating:2,num:167,desc:"If this Pokemon eats a Berry, it restores 1/3 of its maximum HP, rounded down, in addition to the Berry's effect.",shortDesc:"If this Pokemon eats a Berry, it restores 1/3 of its max HP after the Berry's effect."},chillingneigh:{name:"Chilling Neigh",rating:3,num:264,desc:"This Pokemon's Attack is raised by 1 stage if it attacks and knocks out another Pokemon.",shortDesc:"This Pokemon's Attack is raised by 1 stage if it attacks and KOes another Pokemon."},chlorophyll:{name:"Chlorophyll",rating:3,num:34,desc:"If Sunny Day is active and this Pokemon is not holding Utility Umbrella, this Pokemon's Speed is doubled.",shortDesc:"If Sunny Day is active, this Pokemon's Speed is doubled."},clearbody:{isBreakable:true,name:"Clear Body",rating:2,num:29,desc:"Prevents other Pokemon from lowering this Pokemon's stat stages.",shortDesc:"Prevents other Pokemon from lowering this Pokemon's stat stages."},cloudnine:{suppressWeather:true,name:"Cloud Nine",rating:2,num:13,desc:"While this Pokemon is active, the effects of weather conditions are disabled.",shortDesc:"While this Pokemon is active, the effects of weather conditions are disabled."},colorchange:{name:"Color Change",rating:0,num:16,desc:"This Pokemon's type changes to match the type of the last move that hit it, unless that type is already one of its types. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",shortDesc:"This Pokemon's type changes to the type of a move it's hit by, unless it has the type."},comatose:{isPermanent:true,name:"Comatose",rating:4,num:213,desc:"This Pokemon cannot be statused, and is considered to be asleep. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",shortDesc:"This Pokemon cannot be statused, and is considered to be asleep."},competitive:{name:"Competitive",rating:2.5,num:172,desc:"This Pokemon's Special Attack is raised by 2 stages for each of its stat stages that is lowered by an opposing Pokemon.",shortDesc:"This Pokemon's Sp. Atk is raised by 2 for each of its stats that is lowered by a foe."},compoundeyes:{onSourceModifyAccuracyPriority:-1,name:"Compound Eyes",rating:3,num:14,desc:"This Pokemon's moves have their accuracy multiplied by 1.3.",shortDesc:"This Pokemon's moves have their accuracy multiplied by 1.3."},contrary:{isBreakable:true,name:"Contrary",rating:4.5,num:126,desc:"If this Pokemon has a stat stage raised it is lowered instead, and vice versa. This Ability does not affect stat stage increases received from Z-Power effects that happen before a Z-Move is used.",shortDesc:"If this Pokemon has a stat stage raised it is lowered instead, and vice versa."},corrosion:{name:"Corrosion",rating:2.5,num:212,desc:"This Pokemon can poison or badly poison other Pokemon regardless of their typing.",shortDesc:"This Pokemon can poison or badly poison other Pokemon regardless of their typing."},cottondown:{name:"Cotton Down",rating:2,num:238,desc:"When this Pokemon is hit by an attack, the Speed of all other Pokemon on the field is lowered by 1 stage.",shortDesc:"If this Pokemon is hit, it lowers the Speed of all other Pokemon on the field 1 stage."},curiousmedicine:{name:"Curious Medicine",rating:0,num:261,desc:"On switch-in, this Pokemon's allies have their stat stages reset to 0.",shortDesc:"On switch-in, this Pokemon's allies have their stat stages reset to 0."},cursedbody:{name:"Cursed Body",rating:2,num:130,desc:"If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled unless one of the attacker's moves is already disabled.",shortDesc:"If this Pokemon is hit by an attack, there is a 30% chance that move gets disabled."},cutecharm:{name:"Cute Charm",rating:0.5,num:56,desc:"There is a 30% chance a Pokemon making contact with this Pokemon will become infatuated if it is of the opposite gender.",shortDesc:"30% chance of infatuating Pokemon of the opposite gender if they make contact."},damp:{isBreakable:true,name:"Damp",rating:1,num:6,desc:"While this Pokemon is active, Explosion, Mind Blown, Misty Explosion, Self-Destruct, and the Aftermath Ability are prevented from having an effect.",shortDesc:"Prevents Explosion/Mind Blown/Misty Explosion/Self-Destruct/Aftermath while active."},dancer:{name:"Dancer",rating:1.5,num:216,desc:"After another Pokemon uses a dance move, this Pokemon uses the same move. Moves used by this Ability cannot be copied again.",shortDesc:"After another Pokemon uses a dance move, this Pokemon uses the same move."},darkaura:{onAnyBasePowerPriority:20,isBreakable:true,name:"Dark Aura",rating:3,num:186,desc:"While this Pokemon is active, the power of Dark-type moves used by active Pokemon is multiplied by 1.33.",shortDesc:"While this Pokemon is active, a Dark move used by any Pokemon has 1.33x power."},dauntlessshield:{name:"Dauntless Shield",rating:3.5,num:235,desc:"On switch-in, this Pokemon's Defense is raised by 1 stage.",shortDesc:"On switch-in, this Pokemon's Defense is raised by 1 stage."},dazzling:{isBreakable:true,name:"Dazzling",rating:2.5,num:219,desc:"While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",shortDesc:"While this Pokemon is active, allies are protected from opposing priority moves."},defeatist:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Defeatist",rating:-1,num:129,desc:"While this Pokemon has 1/2 or less of its maximum HP, its Attack and Special Attack are halved.",shortDesc:"While this Pokemon has 1/2 or less of its max HP, its Attack and Sp. Atk are halved."},defiant:{name:"Defiant",rating:2.5,num:128,desc:"This Pokemon's Attack is raised by 2 stages for each of its stat stages that is lowered by an opposing Pokemon.",shortDesc:"This Pokemon's Attack is raised by 2 for each of its stats that is lowered by a foe."},deltastream:{name:"Delta Stream",rating:4,num:191,desc:"On switch-in, the weather becomes strong winds that remove the weaknesses of the Flying type from Flying-type Pokemon. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Desolate Land or Primordial Sea.",shortDesc:"On switch-in, strong winds begin until this Ability is not active in battle."},desolateland:{name:"Desolate Land",rating:4.5,num:190,desc:"On switch-in, the weather becomes extremely harsh sunlight that prevents damaging Water-type moves from executing, in addition to all the effects of Sunny Day. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Primordial Sea.",shortDesc:"On switch-in, extremely harsh sunlight begins until this Ability is not active in battle."},disguise:{onDamagePriority:1,isBreakable:true,isPermanent:true,name:"Disguise",rating:3.5,num:209,desc:"If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",shortDesc:"(Mimikyu only) The first hit it takes is blocked, and it takes 1/8 HP damage instead."},download:{name:"Download",rating:3.5,num:88,desc:"On switch-in, this Pokemon's Attack or Special Attack is raised by 1 stage based on the weaker combined defensive stat of all opposing Pokemon. Attack is raised if their Defense is lower, and Special Attack is raised if their Special Defense is the same or lower.",shortDesc:"On switch-in, Attack or Sp. Atk is raised 1 stage based on the foes' weaker Defense."},dragonsmaw:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Dragon's Maw",rating:3.5,num:263,desc:"This Pokemon's attacking stat is multiplied by 1.5 while using a Dragon-type attack.",shortDesc:"This Pokemon's attacking stat is multiplied by 1.5 while using a Dragon-type attack."},drizzle:{name:"Drizzle",rating:4,num:2,desc:"On switch-in, this Pokemon summons Rain Dance.",shortDesc:"On switch-in, this Pokemon summons Rain Dance."},drought:{name:"Drought",rating:4,num:70,desc:"On switch-in, this Pokemon summons Sunny Day.",shortDesc:"On switch-in, this Pokemon summons Sunny Day."},dryskin:{onFoeBasePowerPriority:17,isBreakable:true,name:"Dry Skin",rating:3,num:87,desc:"This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move. The power of Fire-type moves is multiplied by 1.25 when used on this Pokemon. At the end of each turn, this Pokemon restores 1/8 of its maximum HP, rounded down, if the weather is Rain Dance, and loses 1/8 of its maximum HP, rounded down, if the weather is Sunny Day. If this Pokemon is holding Utility Umbrella, the effects of weather are nullified.",shortDesc:"This Pokemon is healed 1/4 by Water, 1/8 by Rain; is hurt 1.25x by Fire, 1/8 by Sun."},earlybird:{name:"Early Bird",rating:1.5,num:48,desc:"This Pokemon's sleep counter drops by 2 instead of 1.",shortDesc:"This Pokemon's sleep counter drops by 2 instead of 1."},effectspore:{name:"Effect Spore",rating:2,num:27,desc:"30% chance a Pokemon making contact with this Pokemon will be poisoned, paralyzed, or fall asleep.",shortDesc:"30% chance of poison/paralysis/sleep on others making contact with this Pokemon."},electricsurge:{name:"Electric Surge",rating:4,num:226,desc:"On switch-in, this Pokemon summons Electric Terrain.",shortDesc:"On switch-in, this Pokemon summons Electric Terrain."},emergencyexit:{name:"Emergency Exit",rating:1,num:194,desc:"When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",shortDesc:"This Pokemon switches out when it reaches 1/2 or less of its maximum HP."},fairyaura:{onAnyBasePowerPriority:20,isBreakable:true,name:"Fairy Aura",rating:3,num:187,desc:"While this Pokemon is active, the power of Fairy-type moves used by active Pokemon is multiplied by 1.33.",shortDesc:"While this Pokemon is active, a Fairy move used by any Pokemon has 1.33x power."},filter:{isBreakable:true,name:"Filter",rating:3,num:111,desc:"This Pokemon receives 3/4 damage from supereffective attacks.",shortDesc:"This Pokemon receives 3/4 damage from supereffective attacks."},flamebody:{name:"Flame Body",rating:2,num:49,desc:"30% chance a Pokemon making contact with this Pokemon will be burned.",shortDesc:"30% chance a Pokemon making contact with this Pokemon will be burned."},flareboost:{onBasePowerPriority:19,name:"Flare Boost",rating:2,num:138,desc:"While this Pokemon is burned, the power of its special attacks is multiplied by 1.5.",shortDesc:"While this Pokemon is burned, its special attacks have 1.5x power."},flashfire:{condition:{noCopy:true,onModifyAtkPriority:5,onModifySpAPriority:5},isBreakable:true,name:"Flash Fire",rating:3.5,num:18,desc:"This Pokemon is immune to Fire-type moves. The first time it is hit by a Fire-type move, its attacking stat is multiplied by 1.5 while using a Fire-type attack as long as it remains active and has this Ability. If this Pokemon is frozen, it cannot be defrosted by Fire-type attacks.",shortDesc:"This Pokemon's Fire attacks do 1.5x damage if hit by one Fire move; Fire immunity."},flowergift:{onAllyModifyAtkPriority:3,onAllyModifySpDPriority:4,isBreakable:true,name:"Flower Gift",rating:1,num:122,desc:"If this Pokemon is a Cherrim and Sunny Day is active, it changes to Sunshine Form and the Attack and Special Defense of it and its allies are multiplied by 1.5. If this Pokemon is a Cherrim and it is holding Utility Umbrella, it remains in its regular form and the Attack and Special Defense stats of it and its allies are not boosted. If this Pokemon is a Cherrim in its Sunshine form and is given Utility Umbrella, it will immediately switch back to its regular form. If this Pokemon is a Cherrim holding Utility Umbrella and its item is removed while Sunny Day is active, it will transform into its Sunshine Form. If an ally is holding Utility Umbrella while Cherrim is in its Sunshine Form, they will not receive the Attack and Special Defense boosts.",shortDesc:"If user is Cherrim and Sunny Day is active, it and allies' Attack and Sp. Def are 1.5x."},flowerveil:{isBreakable:true,name:"Flower Veil",rating:0,num:166,desc:"Grass-type Pokemon on this Pokemon's side cannot have their stat stages lowered by other Pokemon or have a non-volatile status condition inflicted on them by other Pokemon.",shortDesc:"This side's Grass types can't have stats lowered or status inflicted by other Pokemon."},fluffy:{isBreakable:true,name:"Fluffy",rating:3.5,num:218,desc:"This Pokemon receives 1/2 damage from contact moves, but double damage from Fire moves.",shortDesc:"This Pokemon takes 1/2 damage from contact moves, 2x damage from Fire moves."},forecast:{name:"Forecast",rating:2,num:59,desc:"If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm. If this Pokemon is holding Utility Umbrella and the weather condition is Sunny Day, Desolate Land, Rain Dance, or Primordial Sea, it will not change types.",shortDesc:"Castform's type changes to the current weather condition's type, except Sandstorm."},forewarn:{name:"Forewarn",rating:0.5,num:108,desc:"On switch-in, this Pokemon is alerted to the move with the highest power, at random, known by an opposing Pokemon.",shortDesc:"On switch-in, this Pokemon is alerted to the foes' move with the highest power."},friendguard:{name:"Friend Guard",isBreakable:true,rating:0,num:132,desc:"This Pokemon's allies receive 3/4 damage from other Pokemon's attacks.",shortDesc:"This Pokemon's allies receive 3/4 damage from other Pokemon's attacks."},frisk:{name:"Frisk",rating:1.5,num:119,desc:"On switch-in, this Pokemon identifies the held items of all opposing Pokemon.",shortDesc:"On switch-in, this Pokemon identifies the held items of all opposing Pokemon."},fullmetalbody:{name:"Full Metal Body",rating:2,num:230,desc:"Prevents other Pokemon from lowering this Pokemon's stat stages. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",shortDesc:"Prevents other Pokemon from lowering this Pokemon's stat stages."},furcoat:{onModifyDefPriority:6,isBreakable:true,name:"Fur Coat",rating:4,num:169,desc:"This Pokemon's Defense is doubled.",shortDesc:"This Pokemon's Defense is doubled."},galewings:{name:"Gale Wings",rating:3,num:177,desc:"If this Pokemon is at full HP, its Flying-type moves have their priority increased by 1.",shortDesc:"If this Pokemon is at full HP, its Flying-type moves have their priority increased by 1."},galvanize:{onModifyTypePriority:-1,onBasePowerPriority:23,name:"Galvanize",rating:4,num:206,desc:"This Pokemon's Normal-type moves become Electric-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",shortDesc:"This Pokemon's Normal-type moves become Electric type and have 1.2x power."},gluttony:{name:"Gluttony",rating:1.5,num:82,desc:"When this Pokemon has 1/2 or less of its maximum HP, it uses certain Berries early.",shortDesc:"When this Pokemon has 1/2 or less of its maximum HP, it uses certain Berries early."},gooey:{name:"Gooey",rating:2,num:183,desc:"Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",shortDesc:"Pokemon making contact with this Pokemon have their Speed lowered by 1 stage."},gorillatactics:{onModifyAtkPriority:1,name:"Gorilla Tactics",rating:4.5,num:255,desc:"This Pokemon's Attack is 1.5x, but it can only select the first move it executes.",shortDesc:"This Pokemon's Attack is 1.5x, but it can only select the first move it executes."},grasspelt:{onModifyDefPriority:6,isBreakable:true,name:"Grass Pelt",rating:0.5,num:179,desc:"If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5.",shortDesc:"If Grassy Terrain is active, this Pokemon's Defense is multiplied by 1.5."},grassysurge:{name:"Grassy Surge",rating:4,num:229,desc:"On switch-in, this Pokemon summons Grassy Terrain.",shortDesc:"On switch-in, this Pokemon summons Grassy Terrain."},grimneigh:{name:"Grim Neigh",rating:3,num:265,desc:"This Pokemon's Special Attack is raised by 1 stage if it attacks and knocks out another Pokemon.",shortDesc:"This Pokemon's Sp. Atk is raised by 1 stage if it attacks and KOes another Pokemon."},gulpmissile:{isPermanent:true,name:"Gulp Missile",rating:2.5,num:241,desc:"If this Pokemon is a Cramorant, it changes forme when it hits a target with Surf or uses the first turn of Dive successfully. It becomes Gulping Form with an Arrokuda in its mouth if it has more than 1/2 of its maximum HP remaining, or Gorging Form with a Pikachu in its mouth if it has 1/2 or less of its maximum HP remaining. If Cramorant gets hit in Gulping or Gorging Form, it spits the Arrokuda or Pikachu at its attacker, even if it has no HP remaining. The projectile deals damage equal to 1/4 of the target's maximum HP, rounded down; this damage is blocked by the Magic Guard Ability but not by a substitute. An Arrokuda also lowers the target's Defense by 1 stage, and a Pikachu paralyzes the target. Cramorant will return to normal if it spits out a projectile, switches out, or Dynamaxes.",shortDesc:"When hit after Surf/Dive, attacker takes 1/4 max HP and -1 Defense or paralysis."},guts:{onModifyAtkPriority:5,name:"Guts",rating:3,num:62,desc:"If this Pokemon has a non-volatile status condition, its Attack is multiplied by 1.5; burn's physical damage halving is ignored.",shortDesc:"If this Pokemon is statused, its Attack is 1.5x; ignores burn halving physical damage."},harvest:{name:"Harvest",onResidualOrder:28,onResidualSubOrder:2,rating:2.5,num:139,desc:"If the last item this Pokemon used is a Berry, there is a 50% chance it gets restored at the end of each turn. If Sunny Day is active, this chance is 100%.",shortDesc:"If last item used is a Berry, 50% chance to restore it each end of turn. 100% in Sun."},healer:{name:"Healer",onResidualOrder:5,onResidualSubOrder:3,rating:0,num:131,desc:"There is a 30% chance of curing an adjacent ally's non-volatile status condition at the end of each turn.",shortDesc:"30% chance of curing an adjacent ally's status at the end of each turn."},heatproof:{onSourceBasePowerPriority:18,isBreakable:true,name:"Heatproof",rating:2,num:85,desc:"The power of Fire-type attacks against this Pokemon is halved, and burn damage taken is halved.",shortDesc:"The power of Fire-type attacks against this Pokemon is halved; burn damage halved."},heavymetal:{onModifyWeightPriority:1,isBreakable:true,name:"Heavy Metal",rating:0,num:134,desc:"This Pokemon's weight is doubled.",shortDesc:"This Pokemon's weight is doubled."},honeygather:{name:"Honey Gather",rating:0,num:118,desc:"No competitive use.",shortDesc:"No competitive use."},hugepower:{onModifyAtkPriority:5,name:"Huge Power",rating:5,num:37,desc:"This Pokemon's Attack is doubled.",shortDesc:"This Pokemon's Attack is doubled."},hungerswitch:{onResidualOrder:29,name:"Hunger Switch",rating:1,num:258,desc:"If Morpeko, it changes between Full Belly and Hangry Mode at the end of each turn.",shortDesc:"If Morpeko, it changes between Full Belly and Hangry Mode at the end of each turn."},hustle:{onModifyAtkPriority:5,onSourceModifyAccuracyPriority:-1,name:"Hustle",rating:3.5,num:55,desc:"This Pokemon's Attack is multiplied by 1.5 and the accuracy of its physical attacks is multiplied by 0.8.",shortDesc:"This Pokemon's Attack is 1.5x and accuracy of its physical attacks is 0.8x."},hydration:{onResidualOrder:5,onResidualSubOrder:3,name:"Hydration",rating:1.5,num:93,desc:"This Pokemon has its non-volatile status condition cured at the end of each turn if Rain Dance is active. If this Pokemon is holding Utility Umbrella, its non-volatile status condition will not be cured.",shortDesc:"This Pokemon has its status cured at the end of each turn if Rain Dance is active."},hypercutter:{isBreakable:true,name:"Hyper Cutter",rating:1.5,num:52,desc:"Prevents other Pokemon from lowering this Pokemon's Attack stat stage.",shortDesc:"Prevents other Pokemon from lowering this Pokemon's Attack stat stage."},icebody:{name:"Ice Body",rating:1,num:115,desc:"If Hail is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Hail.",shortDesc:"If Hail is active, this Pokemon heals 1/16 of its max HP each turn; immunity to Hail."},iceface:{onDamagePriority:1,isBreakable:true,isPermanent:true,name:"Ice Face",rating:3,num:248,desc:"If this Pokemon is an Eiscue, the first physical hit it takes in battle deals 0 neutral damage. Its ice face is then broken and it changes forme to Noice Face. Eiscue regains its Ice Face forme when Hail begins or when Eiscue switches in while Hail is active. Confusion damage also breaks the ice face.",shortDesc:"If Eiscue, the first physical hit it takes deals 0 damage. This effect is restored in Hail."},icescales:{isBreakable:true,name:"Ice Scales",rating:4,num:246,desc:"This Pokemon receives 1/2 damage from special attacks.",shortDesc:"This Pokemon receives 1/2 damage from special attacks."},illuminate:{name:"Illuminate",rating:0,num:35,desc:"No competitive use.",shortDesc:"No competitive use."},illusion:{name:"Illusion",rating:4.5,num:149,desc:"When this Pokemon switches in, it appears as the last unfainted Pokemon in its party until it takes direct damage from another Pokemon's attack. This Pokemon's actual level and HP are displayed instead of those of the mimicked Pokemon.",shortDesc:"This Pokemon appears as the last Pokemon in the party until it takes direct damage."},immunity:{isBreakable:true,name:"Immunity",rating:2,num:17,desc:"This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it.",shortDesc:"This Pokemon cannot be poisoned. Gaining this Ability while poisoned cures it."},imposter:{name:"Imposter",rating:5,num:150,desc:"On switch-in, this Pokemon Transforms into the opposing Pokemon that is facing it. If there is no Pokemon at that position, this Pokemon does not Transform.",shortDesc:"On switch-in, this Pokemon Transforms into the opposing Pokemon that is facing it."},infiltrator:{name:"Infiltrator",rating:2.5,num:151,desc:"This Pokemon's moves ignore substitutes and the opposing side's Reflect, Light Screen, Safeguard, Mist and Aurora Veil.",shortDesc:"Moves ignore substitutes and foe's Reflect/Light Screen/Safeguard/Mist/Aurora Veil."},innardsout:{name:"Innards Out",onDamagingHitOrder:1,rating:4,num:215,desc:"If this Pokemon is knocked out with a move, that move's user loses HP equal to the amount of damage inflicted on this Pokemon.",shortDesc:"If this Pokemon is KOed with a move, that move's user loses an equal amount of HP."},innerfocus:{isBreakable:true,name:"Inner Focus",rating:1.5,num:39,desc:"This Pokemon cannot be made to flinch. Immune to Intimidate.",shortDesc:"This Pokemon cannot be made to flinch. Immune to Intimidate."},insomnia:{isBreakable:true,name:"Insomnia",rating:2,num:15,desc:"This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it.",shortDesc:"This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it."},intimidate:{name:"Intimidate",rating:3.5,num:22,desc:"On switch-in, this Pokemon lowers the Attack of adjacent opposing Pokemon by 1 stage. Inner Focus, Oblivious, Own Tempo, Scrappy, and Pokemon behind a substitute are immune.",shortDesc:"On switch-in, this Pokemon lowers the Attack of adjacent opponents by 1 stage."},intrepidsword:{name:"Intrepid Sword",rating:4,num:234,desc:"On switch-in, this Pokemon's Attack is raised by 1 stage.",shortDesc:"On switch-in, this Pokemon's Attack is raised by 1 stage."},ironbarbs:{onDamagingHitOrder:1,name:"Iron Barbs",rating:2.5,num:160,desc:"Pokemon making contact with this Pokemon lose 1/8 of their maximum HP, rounded down.",shortDesc:"Pokemon making contact with this Pokemon lose 1/8 of their max HP."},ironfist:{onBasePowerPriority:23,name:"Iron Fist",rating:3,num:89,desc:"This Pokemon's punch-based attacks have their power multiplied by 1.2.",shortDesc:"This Pokemon's punch-based attacks have 1.2x power. Sucker Punch is not boosted."},justified:{name:"Justified",rating:2.5,num:154,desc:"This Pokemon's Attack is raised by 1 stage after it is damaged by a Dark-type move.",shortDesc:"This Pokemon's Attack is raised by 1 stage after it is damaged by a Dark-type move."},keeneye:{isBreakable:true,name:"Keen Eye",rating:0.5,num:51,desc:"Prevents other Pokemon from lowering this Pokemon's accuracy stat stage. This Pokemon ignores a target's evasiveness stat stage.",shortDesc:"This Pokemon's accuracy can't be lowered by others; ignores their evasiveness stat."},klutz:{name:"Klutz",rating:-1,num:103,desc:"This Pokemon's held item has no effect. This Pokemon cannot use Fling successfully. Macho Brace, Power Anklet, Power Band, Power Belt, Power Bracer, Power Lens, and Power Weight still have their effects.",shortDesc:"This Pokemon's held item has no effect, except Macho Brace. Fling cannot be used."},leafguard:{isBreakable:true,name:"Leaf Guard",rating:0.5,num:102,desc:"If Sunny Day is active and this Pokemon is not holding Utility Umbrella, this Pokemon cannot gain a non-volatile status condition and Rest will fail for it.",shortDesc:"If Sunny Day is active, this Pokemon cannot be statused and Rest will fail for it."},levitate:{isBreakable:true,name:"Levitate",rating:3.5,num:26,desc:"This Pokemon is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability. The effects of Gravity, Ingrain, Smack Down, Thousand Arrows, and Iron Ball nullify the immunity.",shortDesc:"This Pokemon is immune to Ground; Gravity/Ingrain/Smack Down/Iron Ball nullify it."},libero:{name:"Libero",rating:4.5,num:236,desc:"This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",shortDesc:"This Pokemon's type changes to match the type of the move it is about to use."},lightmetal:{isBreakable:true,name:"Light Metal",rating:1,num:135,desc:"This Pokemon's weight is halved.",shortDesc:"This Pokemon's weight is halved."},lightningrod:{isBreakable:true,name:"Lightning Rod",rating:3,num:31,desc:"This Pokemon is immune to Electric-type moves and raises its Special Attack by 1 stage when hit by an Electric-type move. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move.",shortDesc:"This Pokemon draws Electric moves to itself to raise Sp. Atk by 1; Electric immunity."},limber:{isBreakable:true,name:"Limber",rating:2,num:7,desc:"This Pokemon cannot be paralyzed. Gaining this Ability while paralyzed cures it.",shortDesc:"This Pokemon cannot be paralyzed. Gaining this Ability while paralyzed cures it."},liquidooze:{name:"Liquid Ooze",rating:1.5,num:64,desc:"This Pokemon damages those draining HP from it for as much as they would heal.",shortDesc:"This Pokemon damages those draining HP from it for as much as they would heal."},liquidvoice:{onModifyTypePriority:-1,name:"Liquid Voice",rating:1.5,num:204,desc:"This Pokemon's sound-based moves become Water-type moves. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",shortDesc:"This Pokemon's sound-based moves become Water type."},longreach:{name:"Long Reach",rating:1,num:203,desc:"This Pokemon's attacks do not make contact with the target.",shortDesc:"This Pokemon's attacks do not make contact with the target."},magicbounce:{name:"Magic Bounce",onTryHitPriority:1,condition:{duration:1},isBreakable:true,rating:4,num:156,desc:"This Pokemon blocks certain status moves and instead uses the move against the original user.",shortDesc:"This Pokemon blocks certain status moves and bounces them back to the user."},magicguard:{name:"Magic Guard",rating:4,num:98,desc:"This Pokemon can only be damaged by direct attacks. Curse and Substitute on use, Belly Drum, Pain Split, Struggle recoil, and confusion damage are considered direct damage.",shortDesc:"This Pokemon can only be damaged by direct attacks."},magician:{name:"Magician",rating:1.5,num:170,desc:"If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack. Does not affect Doom Desire and Future Sight.",shortDesc:"If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack."},magmaarmor:{isBreakable:true,name:"Magma Armor",rating:1,num:40,desc:"This Pokemon cannot be frozen. Gaining this Ability while frozen cures it.",shortDesc:"This Pokemon cannot be frozen. Gaining this Ability while frozen cures it."},magnetpull:{name:"Magnet Pull",rating:4,num:42,desc:"Prevents adjacent opposing Steel-type Pokemon from choosing to switch out unless they are immune to trapping.",shortDesc:"Prevents adjacent Steel-type foes from choosing to switch."},marvelscale:{onModifyDefPriority:6,isBreakable:true,name:"Marvel Scale",rating:2.5,num:63,desc:"If this Pokemon has a non-volatile status condition, its Defense is multiplied by 1.5.",shortDesc:"If this Pokemon is statused, its Defense is 1.5x."},megalauncher:{onBasePowerPriority:19,name:"Mega Launcher",rating:3,num:178,desc:"This Pokemon's pulse moves have their power multiplied by 1.5. Heal Pulse restores 3/4 of a target's maximum HP, rounded half down.",shortDesc:"This Pokemon's pulse moves have 1.5x power. Heal Pulse heals 3/4 target's max HP."},merciless:{name:"Merciless",rating:1.5,num:196,desc:"This Pokemon's attacks are critical hits if the target is poisoned.",shortDesc:"This Pokemon's attacks are critical hits if the target is poisoned."},mimicry:{condition:{},name:"Mimicry",rating:0.5,num:250,desc:"This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends.",shortDesc:"This Pokemon's type changes to match the Terrain. Type reverts when Terrain ends."},minus:{onModifySpAPriority:5,name:"Minus",rating:0,num:58,desc:"If an active ally has this Ability or the Plus Ability, this Pokemon's Special Attack is multiplied by 1.5.",shortDesc:"If an active ally has this Ability or the Plus Ability, this Pokemon's Sp. Atk is 1.5x."},mirrorarmor:{isBreakable:true,name:"Mirror Armor",rating:2,num:240,desc:"When one of this Pokemon's stat stages would be lowered by another Pokemon, that Pokemon's stat stage is lowered instead. This effect does not happen if this Pokemon's stat stage was already -6.",shortDesc:"If this Pokemon's stat stages would be lowered, the attacker's are lowered instead."},mistysurge:{name:"Misty Surge",rating:3.5,num:228,desc:"On switch-in, this Pokemon summons Misty Terrain.",shortDesc:"On switch-in, this Pokemon summons Misty Terrain."},moldbreaker:{name:"Mold Breaker",rating:3.5,num:104,desc:"This Pokemon's moves and their effects ignore certain Abilities of other Pokemon. The Abilities that can be negated are Aroma Veil, Aura Break, Battle Armor, Big Pecks, Bulletproof, Clear Body, Contrary, Damp, Dark Aura, Dazzling, Disguise, Dry Skin, Fairy Aura, Filter, Flash Fire, Flower Gift, Flower Veil, Fluffy, Friend Guard, Fur Coat, Grass Pelt, Heatproof, Heavy Metal, Hyper Cutter, Ice Face, Ice Scales, Immunity, Inner Focus, Insomnia, Keen Eye, Leaf Guard, Levitate, Light Metal, Lightning Rod, Limber, Magic Bounce, Magma Armor, Marvel Scale, Mirror Armor, Motor Drive, Multiscale, Oblivious, Overcoat, Own Tempo, Pastel Veil, Punk Rock, Queenly Majesty, Sand Veil, Sap Sipper, Shell Armor, Shield Dust, Simple, Snow Cloak, Solid Rock, Soundproof, Sticky Hold, Storm Drain, Sturdy, Suction Cups, Sweet Veil, Tangled Feet, Telepathy, Thick Fat, Unaware, Vital Spirit, Volt Absorb, Water Absorb, Water Bubble, Water Veil, White Smoke, Wonder Guard, and Wonder Skin. This affects every other Pokemon on the field, whether or not it is a target of this Pokemon's move, and whether or not their Ability is beneficial to this Pokemon.",shortDesc:"This Pokemon's moves and their effects ignore the Abilities of other Pokemon."},moody:{onResidualOrder:28,onResidualSubOrder:2,name:"Moody",rating:5,num:141,desc:"This Pokemon has a random stat other than accuracy or evasion raised by 2 stages and another stat lowered by 1 stage at the end of each turn.",shortDesc:"Boosts a random stat (except accuracy/evasion) +2 and another stat -1 every turn."},motordrive:{isBreakable:true,name:"Motor Drive",rating:3,num:78,desc:"This Pokemon is immune to Electric-type moves and raises its Speed by 1 stage when hit by an Electric-type move.",shortDesc:"This Pokemon's Speed is raised 1 stage if hit by an Electric move; Electric immunity."},moxie:{name:"Moxie",rating:3,num:153,desc:"This Pokemon's Attack is raised by 1 stage if it attacks and knocks out another Pokemon.",shortDesc:"This Pokemon's Attack is raised by 1 stage if it attacks and KOes another Pokemon."},multiscale:{isBreakable:true,name:"Multiscale",rating:3.5,num:136,desc:"If this Pokemon is at full HP, damage taken from attacks is halved.",shortDesc:"If this Pokemon is at full HP, damage taken from attacks is halved."},multitype:{isPermanent:true,name:"Multitype",rating:4,num:121,desc:"If this Pokemon is an Arceus, its type changes to match its held Plate or Z-Crystal.",shortDesc:"If this Pokemon is an Arceus, its type changes to match its held Plate or Z-Crystal."},mummy:{name:"Mummy",rating:2,num:152,desc:"Pokemon making contact with this Pokemon have their Ability changed to Mummy. Does not affect a Pokemon which already has Mummy or the Abilities As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, and Zen Mode.",shortDesc:"Pokemon making contact with this Pokemon have their Ability changed to Mummy."},naturalcure:{name:"Natural Cure",rating:2.5,num:30,desc:"This Pokemon has its non-volatile status condition cured when it switches out.",shortDesc:"This Pokemon has its non-volatile status condition cured when it switches out."},neuroforce:{name:"Neuroforce",rating:2.5,num:233,desc:"This Pokemon's attacks that are super effective against the target do 1.25x damage.",shortDesc:"This Pokemon's attacks that are super effective against the target do 1.25x damage."},neutralizinggas:{name:"Neutralizing Gas",rating:4,num:256,desc:"While this Pokemon is active, Abilities have no effect. Does not affect the Abilities As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode.",shortDesc:"While this Pokemon is active, Abilities have no effect."},noguard:{onAnyInvulnerabilityPriority:1,name:"No Guard",rating:4,num:99,desc:"Every move used by or against this Pokemon will always hit.",shortDesc:"Every move used by or against this Pokemon will always hit."},normalize:{onModifyTypePriority:1,onBasePowerPriority:23,name:"Normalize",rating:0,num:96,desc:"This Pokemon's moves are changed to be Normal type and have their power multiplied by 1.2. This effect comes before other effects that change a move's type.",shortDesc:"This Pokemon's moves are changed to be Normal type and have 1.2x power."},oblivious:{isBreakable:true,name:"Oblivious",rating:1.5,num:12,desc:"This Pokemon cannot be infatuated or taunted. Gaining this Ability while affected cures it. Immune to Intimidate.",shortDesc:"This Pokemon cannot be infatuated or taunted. Immune to Intimidate."},overcoat:{onTryHitPriority:1,isBreakable:true,name:"Overcoat",rating:2,num:142,desc:"This Pokemon is immune to powder moves and damage from Sandstorm or Hail.",shortDesc:"This Pokemon is immune to powder moves and damage from Sandstorm or Hail."},overgrow:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Overgrow",rating:2,num:65,desc:"When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Grass-type attack.",shortDesc:"At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Grass attacks."},owntempo:{isBreakable:true,name:"Own Tempo",rating:1.5,num:20,desc:"This Pokemon cannot be confused. Gaining this Ability while confused cures it. Immune to Intimidate.",shortDesc:"This Pokemon cannot be confused. Immune to Intimidate."},parentalbond:{name:"Parental Bond",rating:4.5,num:185,desc:"This Pokemon's damaging moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect multi-hit moves or moves that have multiple targets.",shortDesc:"This Pokemon's damaging moves hit twice. The second hit has its damage quartered."},pastelveil:{isBreakable:true,name:"Pastel Veil",rating:2,num:257,desc:"This Pokemon and its allies cannot be poisoned. On switch-in, cures poisoned allies.",shortDesc:"This Pokemon and its allies cannot be poisoned. On switch-in, cures poisoned allies."},perishbody:{name:"Perish Body",rating:1,num:253,desc:"Making contact with this Pokemon starts the Perish Song effect for it and the attacker. This effect does not happen if this Pokemon already has a perish count.",shortDesc:"Making contact with this Pokemon starts the Perish Song effect for it and the attacker."},pickpocket:{name:"Pickpocket",rating:1,num:124,desc:"If this Pokemon has no item and is hit by a contact move, it steals the attacker's item. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect.",shortDesc:"If this Pokemon has no item and is hit by a contact move, it steals the attacker's item."},pickup:{onResidualOrder:28,onResidualSubOrder:2,name:"Pickup",rating:0.5,num:53,desc:"If this Pokemon has no item, it finds one used by an adjacent Pokemon this turn.",shortDesc:"If this Pokemon has no item, it finds one used by an adjacent Pokemon this turn."},pixilate:{onModifyTypePriority:-1,onBasePowerPriority:23,name:"Pixilate",rating:4,num:182,desc:"This Pokemon's Normal-type moves become Fairy-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",shortDesc:"This Pokemon's Normal-type moves become Fairy type and have 1.2x power."},plus:{onModifySpAPriority:5,name:"Plus",rating:0,num:57,desc:"If an active ally has this Ability or the Minus Ability, this Pokemon's Special Attack is multiplied by 1.5.",shortDesc:"If an active ally has this Ability or the Minus Ability, this Pokemon's Sp. Atk is 1.5x."},poisonheal:{onDamagePriority:1,name:"Poison Heal",rating:4,num:90,desc:"If this Pokemon is poisoned, it restores 1/8 of its maximum HP, rounded down, at the end of each turn instead of losing HP.",shortDesc:"This Pokemon is healed by 1/8 of its max HP each turn when poisoned; no HP loss."},poisonpoint:{name:"Poison Point",rating:1.5,num:38,desc:"30% chance a Pokemon making contact with this Pokemon will be poisoned.",shortDesc:"30% chance a Pokemon making contact with this Pokemon will be poisoned."},poisontouch:{name:"Poison Touch",rating:2,num:143,desc:"This Pokemon's contact moves have a 30% chance of poisoning.",shortDesc:"This Pokemon's contact moves have a 30% chance of poisoning."},powerconstruct:{onResidualOrder:29,isPermanent:true,name:"Power Construct",rating:5,num:211,desc:"If this Pokemon is a Zygarde in its 10% or 50% Forme, it changes to Complete Forme when it has 1/2 or less of its maximum HP at the end of the turn.",shortDesc:"If Zygarde 10%/50%, changes to Complete if at 1/2 max HP or less at end of turn."},powerofalchemy:{name:"Power of Alchemy",rating:0,num:223,desc:"This Pokemon copies the Ability of an ally that faints. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",shortDesc:"This Pokemon copies the Ability of an ally that faints."},powerspot:{onAllyBasePowerPriority:22,name:"Power Spot",rating:1,num:249,desc:"This Pokemon's allies have the power of their moves multiplied by 1.3.",shortDesc:"This Pokemon's allies have the power of their moves multiplied by 1.3."},prankster:{name:"Prankster",rating:4,num:158,desc:"This Pokemon's Status moves have priority raised by 1, but Dark types are immune.",shortDesc:"This Pokemon's Status moves have priority raised by 1, but Dark types are immune."},pressure:{name:"Pressure",rating:2.5,num:46,desc:"If this Pokemon is the target of an opposing Pokemon's move, that move loses one additional PP.",shortDesc:"If this Pokemon is the target of a foe's move, that move loses one additional PP."},primordialsea:{name:"Primordial Sea",rating:4.5,num:189,desc:"On switch-in, the weather becomes heavy rain that prevents damaging Fire-type moves from executing, in addition to all the effects of Rain Dance. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by Delta Stream or Desolate Land.",shortDesc:"On switch-in, heavy rain begins until this Ability is not active in battle."},prismarmor:{name:"Prism Armor",rating:3,num:232,desc:"This Pokemon receives 3/4 damage from supereffective attacks. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",shortDesc:"This Pokemon receives 3/4 damage from supereffective attacks."},propellertail:{onModifyMovePriority:1,name:"Propeller Tail",rating:0,num:239,desc:"This Pokemon's moves cannot be redirected to a different target by any effect.",shortDesc:"This Pokemon's moves cannot be redirected to a different target by any effect."},protean:{name:"Protean",rating:4.5,num:168,desc:"This Pokemon's type changes to match the type of the move it is about to use. This effect comes after all effects that change a move's type.",shortDesc:"This Pokemon's type changes to match the type of the move it is about to use."},psychicsurge:{name:"Psychic Surge",rating:4,num:227,desc:"On switch-in, this Pokemon summons Psychic Terrain.",shortDesc:"On switch-in, this Pokemon summons Psychic Terrain."},punkrock:{onBasePowerPriority:7,isBreakable:true,name:"Punk Rock",rating:3.5,num:244,desc:"This Pokemon's sound-based moves have their power multiplied by 1.3. This Pokemon takes halved damage from sound-based moves.",shortDesc:"This Pokemon receives 1/2 damage from sound moves. Its own have 1.3x power."},purepower:{onModifyAtkPriority:5,name:"Pure Power",rating:5,num:74,desc:"This Pokemon's Attack is doubled.",shortDesc:"This Pokemon's Attack is doubled."},queenlymajesty:{isBreakable:true,name:"Queenly Majesty",rating:2.5,num:214,desc:"While this Pokemon is active, priority moves from opposing Pokemon targeted at allies are prevented from having an effect.",shortDesc:"While this Pokemon is active, allies are protected from opposing priority moves."},quickdraw:{onFractionalPriorityPriority:-1,name:"Quick Draw",rating:2.5,num:259,desc:"This Pokemon has a 30% chance to move first in its priority bracket with attacking moves.",shortDesc:"This Pokemon has a 30% chance to move first in its priority bracket with attacking moves."},quickfeet:{name:"Quick Feet",rating:2.5,num:95,desc:"If this Pokemon has a non-volatile status condition, its Speed is multiplied by 1.5; the Speed drop from paralysis is ignored.",shortDesc:"If this Pokemon is statused, its Speed is 1.5x; ignores Speed drop from paralysis."},raindish:{name:"Rain Dish",rating:1.5,num:44,desc:"If Rain Dance is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. If this Pokemon is holding Utility Umbrella, its HP does not get restored.",shortDesc:"If Rain Dance is active, this Pokemon heals 1/16 of its max HP each turn."},rattled:{name:"Rattled",rating:1.5,num:155,desc:"This Pokemon's Speed is raised by 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidate.",shortDesc:"Speed is raised 1 stage if hit by a Bug-, Dark-, or Ghost-type attack, or Intimidated."},receiver:{name:"Receiver",rating:0,num:222,desc:"This Pokemon copies the Ability of an ally that faints. Abilities that cannot be copied are \"No Ability\", As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, Wonder Guard, and Zen Mode.",shortDesc:"This Pokemon copies the Ability of an ally that faints."},reckless:{onBasePowerPriority:23,name:"Reckless",rating:3,num:120,desc:"This Pokemon's attacks with recoil or crash damage have their power multiplied by 1.2. Does not affect Struggle.",shortDesc:"This Pokemon's attacks with recoil or crash damage have 1.2x power; not Struggle."},refrigerate:{onModifyTypePriority:-1,onBasePowerPriority:23,name:"Refrigerate",rating:4,num:174,desc:"This Pokemon's Normal-type moves become Ice-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",shortDesc:"This Pokemon's Normal-type moves become Ice type and have 1.2x power."},regenerator:{name:"Regenerator",rating:4.5,num:144,desc:"This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out.",shortDesc:"This Pokemon restores 1/3 of its maximum HP, rounded down, when it switches out."},ripen:{onSourceModifyDamagePriority:-1,onTryEatItemPriority:-1,name:"Ripen",rating:2,num:247,desc:"When this Pokemon eats a Berry, its effect is doubled.",shortDesc:"When this Pokemon eats a Berry, its effect is doubled."},rivalry:{onBasePowerPriority:24,name:"Rivalry",rating:0,num:79,desc:"This Pokemon's attacks have their power multiplied by 1.25 against targets of the same gender or multiplied by 0.75 against targets of the opposite gender. There is no modifier if either this Pokemon or the target is genderless.",shortDesc:"This Pokemon's attacks do 1.25x on same gender targets; 0.75x on opposite gender."},rkssystem:{isPermanent:true,name:"RKS System",rating:4,num:225,desc:"If this Pokemon is a Silvally, its type changes to match its held Memory.",shortDesc:"If this Pokemon is a Silvally, its type changes to match its held Memory."},rockhead:{name:"Rock Head",rating:3,num:69,desc:"This Pokemon does not take recoil damage besides Struggle, Life Orb, and crash damage.",shortDesc:"This Pokemon does not take recoil damage besides Struggle/Life Orb/crash damage."},roughskin:{onDamagingHitOrder:1,name:"Rough Skin",rating:2.5,num:24,desc:"Pokemon making contact with this Pokemon lose 1/8 of their maximum HP, rounded down.",shortDesc:"Pokemon making contact with this Pokemon lose 1/8 of their max HP."},runaway:{name:"Run Away",rating:0,num:50,desc:"No competitive use.",shortDesc:"No competitive use."},sandforce:{onBasePowerPriority:21,name:"Sand Force",rating:2,num:159,desc:"If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm.",shortDesc:"This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it."},sandrush:{name:"Sand Rush",rating:3,num:146,desc:"If Sandstorm is active, this Pokemon's Speed is doubled. This Pokemon takes no damage from Sandstorm.",shortDesc:"If Sandstorm is active, this Pokemon's Speed is doubled; immunity to Sandstorm."},sandspit:{name:"Sand Spit",rating:2,num:245,desc:"When this Pokemon is hit by an attack, Sandstorm begins. This effect happens after the effects of Max and G-Max Moves.",shortDesc:"When this Pokemon is hit, Sandstorm begins."},sandstream:{name:"Sand Stream",rating:4,num:45,desc:"On switch-in, this Pokemon summons Sandstorm.",shortDesc:"On switch-in, this Pokemon summons Sandstorm."},sandveil:{onModifyAccuracyPriority:-1,isBreakable:true,name:"Sand Veil",rating:1.5,num:8,desc:"If Sandstorm is active, this Pokemon's evasiveness is multiplied by 1.25. This Pokemon takes no damage from Sandstorm.",shortDesc:"If Sandstorm is active, this Pokemon's evasiveness is 1.25x; immunity to Sandstorm."},sapsipper:{onTryHitPriority:1,isBreakable:true,name:"Sap Sipper",rating:3,num:157,desc:"This Pokemon is immune to Grass-type moves and raises its Attack by 1 stage when hit by a Grass-type move.",shortDesc:"This Pokemon's Attack is raised 1 stage if hit by a Grass move; Grass immunity."},schooling:{onResidualOrder:29,isPermanent:true,name:"Schooling",rating:3,num:208,desc:"On switch-in, if this Pokemon is a Wishiwashi that is level 20 or above and has more than 1/4 of its maximum HP left, it changes to School Form. If it is in School Form and its HP drops to 1/4 of its maximum HP or less, it changes to Solo Form at the end of the turn. If it is in Solo Form and its HP is greater than 1/4 its maximum HP at the end of the turn, it changes to School Form.",shortDesc:"If user is Wishiwashi, changes to School Form if it has > 1/4 max HP, else Solo Form."},scrappy:{onModifyMovePriority:-5,name:"Scrappy",rating:3,num:113,desc:"This Pokemon can hit Ghost types with Normal- and Fighting-type moves. Immune to Intimidate.",shortDesc:"Fighting, Normal moves hit Ghost. Immune to Intimidate."},screencleaner:{name:"Screen Cleaner",rating:2,num:251,desc:"On switch-in, the effects of Aurora Veil, Light Screen, and Reflect end for both sides.",shortDesc:"On switch-in, the effects of Aurora Veil, Light Screen, and Reflect end for both sides."},serenegrace:{onModifyMovePriority:-2,name:"Serene Grace",rating:3.5,num:32,desc:"This Pokemon's moves have their secondary effect chance doubled.",shortDesc:"This Pokemon's moves have their secondary effect chance doubled."},shadowshield:{name:"Shadow Shield",rating:3.5,num:231,desc:"If this Pokemon is at full HP, damage taken from attacks is halved. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",shortDesc:"If this Pokemon is at full HP, damage taken from attacks is halved."},shadowtag:{name:"Shadow Tag",rating:5,num:23,desc:"Prevents adjacent opposing Pokemon from choosing to switch out unless they are immune to trapping or also have this Ability.",shortDesc:"Prevents adjacent foes from choosing to switch unless they also have this Ability."},shedskin:{onResidualOrder:5,onResidualSubOrder:3,name:"Shed Skin",rating:3,num:61,desc:"This Pokemon has a 33% chance to have its non-volatile status condition cured at the end of each turn.",shortDesc:"This Pokemon has a 33% chance to have its status cured at the end of each turn."},sheerforce:{onBasePowerPriority:21,name:"Sheer Force",rating:3.5,num:125,desc:"This Pokemon's attacks with secondary effects have their power multiplied by 1.3, but the secondary effects are removed. If a secondary effect was removed, it also removes the user's Life Orb recoil and Shell Bell recovery, and prevents the target's Berserk, Color Change, Emergency Exit, Pickpocket, Wimp Out, Red Card, Eject Button, Kee Berry, and Maranga Berry from activating.",shortDesc:"This Pokemon's attacks with secondary effects have 1.3x power; nullifies the effects."},shellarmor:{onCriticalHit:false,isBreakable:true,name:"Shell Armor",rating:1,num:75,desc:"This Pokemon cannot be struck by a critical hit.",shortDesc:"This Pokemon cannot be struck by a critical hit."},shielddust:{isBreakable:true,name:"Shield Dust",rating:2,num:19,desc:"This Pokemon is not affected by the secondary effect of another Pokemon's attack.",shortDesc:"This Pokemon is not affected by the secondary effect of another Pokemon's attack."},shieldsdown:{onResidualOrder:29,isPermanent:true,name:"Shields Down",rating:3,num:197,desc:"If this Pokemon is a Minior, it changes to its Core forme if it has 1/2 or less of its maximum HP, and changes to Meteor Form if it has more than 1/2 its maximum HP. This check is done on switch-in and at the end of each turn. While in its Meteor Form, it cannot become affected by non-volatile status conditions. Moongeist Beam, Sunsteel Strike, and the Mold Breaker, Teravolt, and Turboblaze Abilities cannot ignore this Ability.",shortDesc:"If Minior, switch-in/end of turn it changes to Core at 1/2 max HP or less, else Meteor."},simple:{isBreakable:true,name:"Simple",rating:4,num:86,desc:"When this Pokemon's stat stages are raised or lowered, the effect is doubled instead. This Ability does not affect stat stage increases received from Z-Power effects that happen before a Z-Move is used.",shortDesc:"When this Pokemon's stat stages are raised or lowered, the effect is doubled instead."},skilllink:{name:"Skill Link",rating:3,num:92,desc:"This Pokemon's multi-hit attacks always hit the maximum number of times.",shortDesc:"This Pokemon's multi-hit attacks always hit the maximum number of times."},slowstart:{condition:{duration:5,onResidualOrder:28,onResidualSubOrder:2,onModifyAtkPriority:5},name:"Slow Start",rating:-1,num:112,desc:"On switch-in, this Pokemon's Attack and Speed are halved for 5 turns.",shortDesc:"On switch-in, this Pokemon's Attack and Speed are halved for 5 turns."},slushrush:{name:"Slush Rush",rating:3,num:202,desc:"If Hail is active, this Pokemon's Speed is doubled.",shortDesc:"If Hail is active, this Pokemon's Speed is doubled."},sniper:{name:"Sniper",rating:2,num:97,desc:"If this Pokemon strikes with a critical hit, the damage is multiplied by 1.5.",shortDesc:"If this Pokemon strikes with a critical hit, the damage is multiplied by 1.5."},snowcloak:{onModifyAccuracyPriority:-1,isBreakable:true,name:"Snow Cloak",rating:1.5,num:81,desc:"If Hail is active, this Pokemon's evasiveness is multiplied by 1.25. This Pokemon takes no damage from Hail.",shortDesc:"If Hail is active, this Pokemon's evasiveness is 1.25x; immunity to Hail."},snowwarning:{name:"Snow Warning",rating:4,num:117,desc:"On switch-in, this Pokemon summons Hail.",shortDesc:"On switch-in, this Pokemon summons Hail."},solarpower:{onModifySpAPriority:5,name:"Solar Power",rating:2,num:94,desc:"If Sunny Day is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. If this Pokemon is holding Utility Umbrella, its Special Attack remains the same and it does not lose any HP.",shortDesc:"If Sunny Day is active, this Pokemon's Sp. Atk is 1.5x; loses 1/8 max HP per turn."},solidrock:{isBreakable:true,name:"Solid Rock",rating:3,num:116,desc:"This Pokemon receives 3/4 damage from supereffective attacks.",shortDesc:"This Pokemon receives 3/4 damage from supereffective attacks."},soulheart:{onAnyFaintPriority:1,name:"Soul-Heart",rating:3.5,num:220,desc:"This Pokemon's Special Attack is raised by 1 stage when another Pokemon faints.",shortDesc:"This Pokemon's Sp. Atk is raised by 1 stage when another Pokemon faints."},soundproof:{isBreakable:true,name:"Soundproof",rating:1.5,num:43,desc:"This Pokemon is immune to sound-based moves, including Heal Bell.",shortDesc:"This Pokemon is immune to sound-based moves, including Heal Bell."},speedboost:{onResidualOrder:28,onResidualSubOrder:2,name:"Speed Boost",rating:4.5,num:3,desc:"This Pokemon's Speed is raised by 1 stage at the end of each full turn it has been on the field.",shortDesc:"This Pokemon's Speed is raised 1 stage at the end of each full turn on the field."},stakeout:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Stakeout",rating:4.5,num:198,desc:"This Pokemon's attacking stat is doubled against a target that switched in this turn.",shortDesc:"This Pokemon's attacking stat is doubled against a target that switched in this turn."},stall:{onFractionalPriority:-0.1,name:"Stall",rating:-1,num:100,desc:"This Pokemon moves last among Pokemon using the same or greater priority moves.",shortDesc:"This Pokemon moves last among Pokemon using the same or greater priority moves."},stalwart:{onModifyMovePriority:1,name:"Stalwart",rating:0,num:242,desc:"This Pokemon's moves cannot be redirected to a different target by any effect.",shortDesc:"This Pokemon's moves cannot be redirected to a different target by any effect."},stamina:{name:"Stamina",rating:3.5,num:192,desc:"This Pokemon's Defense is raised by 1 stage after it is damaged by a move.",shortDesc:"This Pokemon's Defense is raised by 1 stage after it is damaged by a move."},stancechange:{onModifyMovePriority:1,isPermanent:true,name:"Stance Change",rating:4,num:176,desc:"If this Pokemon is an Aegislash, it changes to Blade Forme before attempting to use an attacking move, and changes to Shield Forme before attempting to use King's Shield.",shortDesc:"If Aegislash, changes Forme to Blade before attacks and Shield before King's Shield."},static:{name:"Static",rating:2,num:9,desc:"30% chance a Pokemon making contact with this Pokemon will be paralyzed.",shortDesc:"30% chance a Pokemon making contact with this Pokemon will be paralyzed."},steadfast:{name:"Steadfast",rating:1,num:80,desc:"If this Pokemon flinches, its Speed is raised by 1 stage.",shortDesc:"If this Pokemon flinches, its Speed is raised by 1 stage."},steamengine:{name:"Steam Engine",rating:2,num:243,desc:"This Pokemon's Speed is raised by 6 stages after it is damaged by Fire/Water moves.",shortDesc:"This Pokemon's Speed is raised by 6 stages after it is damaged by Fire/Water moves."},steelworker:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Steelworker",rating:3.5,num:200,desc:"This Pokemon's attacking stat is multiplied by 1.5 while using a Steel-type attack.",shortDesc:"This Pokemon's attacking stat is multiplied by 1.5 while using a Steel-type attack."},steelyspirit:{onAllyBasePowerPriority:22,name:"Steely Spirit",rating:3.5,num:252,desc:"This Pokemon and its allies' Steel-type moves have their power multiplied by 1.5.",shortDesc:"This Pokemon and its allies' Steel-type moves have their power multiplied by 1.5."},stench:{onModifyMovePriority:-1,name:"Stench",rating:0.5,num:1,desc:"This Pokemon's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch.",shortDesc:"This Pokemon's attacks without a chance to flinch gain a 10% chance to flinch."},stickyhold:{isBreakable:true,name:"Sticky Hold",rating:2,num:60,desc:"This Pokemon cannot lose its held item due to another Pokemon's attack.",shortDesc:"This Pokemon cannot lose its held item due to another Pokemon's attack."},stormdrain:{isBreakable:true,name:"Storm Drain",rating:3,num:114,desc:"This Pokemon is immune to Water-type moves and raises its Special Attack by 1 stage when hit by a Water-type move. If this Pokemon is not the target of a single-target Water-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move.",shortDesc:"This Pokemon draws Water moves to itself to raise Sp. Atk by 1; Water immunity."},strongjaw:{onBasePowerPriority:19,name:"Strong Jaw",rating:3,num:173,desc:"This Pokemon's bite-based attacks have their power multiplied by 1.5.",shortDesc:"This Pokemon's bite-based attacks have 1.5x power. Bug Bite is not boosted."},sturdy:{onDamagePriority:-30,isBreakable:true,name:"Sturdy",rating:3,num:5,desc:"If this Pokemon is at full HP, it survives one hit with at least 1 HP. OHKO moves fail when used against this Pokemon.",shortDesc:"If this Pokemon is at full HP, it survives one hit with at least 1 HP. Immune to OHKO."},suctioncups:{onDragOutPriority:1,isBreakable:true,name:"Suction Cups",rating:1,num:21,desc:"This Pokemon cannot be forced to switch out by another Pokemon's attack or item.",shortDesc:"This Pokemon cannot be forced to switch out by another Pokemon's attack or item."},superluck:{name:"Super Luck",rating:1.5,num:105,desc:"This Pokemon's critical hit ratio is raised by 1 stage.",shortDesc:"This Pokemon's critical hit ratio is raised by 1 stage."},surgesurfer:{name:"Surge Surfer",rating:3,num:207,desc:"If Electric Terrain is active, this Pokemon's Speed is doubled.",shortDesc:"If Electric Terrain is active, this Pokemon's Speed is doubled."},swarm:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Swarm",rating:2,num:68,desc:"When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Bug-type attack.",shortDesc:"At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Bug attacks."},sweetveil:{name:"Sweet Veil",isBreakable:true,rating:2,num:175,desc:"This Pokemon and its allies cannot fall asleep.",shortDesc:"This Pokemon and its allies cannot fall asleep."},swiftswim:{name:"Swift Swim",rating:3,num:33,desc:"If Rain Dance is active and this Pokemon is not holding Utility Umbrella, this Pokemon's Speed is doubled.",shortDesc:"If Rain Dance is active, this Pokemon's Speed is doubled."},symbiosis:{name:"Symbiosis",rating:0,num:180,desc:"If an ally uses its item, this Pokemon gives its item to that ally immediately. Does not activate if the ally's item was stolen or knocked off.",shortDesc:"If an ally uses its item, this Pokemon gives its item to that ally immediately."},synchronize:{name:"Synchronize",rating:2,num:28,desc:"If another Pokemon burns, paralyzes, poisons, or badly poisons this Pokemon, that Pokemon receives the same non-volatile status condition.",shortDesc:"If another Pokemon burns/poisons/paralyzes this Pokemon, it also gets that status."},tangledfeet:{onModifyAccuracyPriority:-1,isBreakable:true,name:"Tangled Feet",rating:1,num:77,desc:"This Pokemon's evasiveness is doubled as long as it is confused.",shortDesc:"This Pokemon's evasiveness is doubled as long as it is confused."},tanglinghair:{name:"Tangling Hair",rating:2,num:221,desc:"Pokemon making contact with this Pokemon have their Speed lowered by 1 stage.",shortDesc:"Pokemon making contact with this Pokemon have their Speed lowered by 1 stage."},technician:{onBasePowerPriority:30,name:"Technician",rating:3.5,num:101,desc:"This Pokemon's moves of 60 power or less have their power multiplied by 1.5. Does affect Struggle.",shortDesc:"This Pokemon's moves of 60 power or less have 1.5x power. Includes Struggle."},telepathy:{isBreakable:true,name:"Telepathy",rating:0,num:140,desc:"This Pokemon does not take damage from attacks made by its allies.",shortDesc:"This Pokemon does not take damage from attacks made by its allies."},teravolt:{name:"Teravolt",rating:3.5,num:164,desc:"This Pokemon's moves and their effects ignore certain Abilities of other Pokemon. The Abilities that can be negated are Aroma Veil, Aura Break, Battle Armor, Big Pecks, Bulletproof, Clear Body, Contrary, Damp, Dark Aura, Dazzling, Disguise, Dry Skin, Fairy Aura, Filter, Flash Fire, Flower Gift, Flower Veil, Fluffy, Friend Guard, Fur Coat, Grass Pelt, Heatproof, Heavy Metal, Hyper Cutter, Ice Face, Ice Scales, Immunity, Inner Focus, Insomnia, Keen Eye, Leaf Guard, Levitate, Light Metal, Lightning Rod, Limber, Magic Bounce, Magma Armor, Marvel Scale, Mirror Armor, Motor Drive, Multiscale, Oblivious, Overcoat, Own Tempo, Pastel Veil, Punk Rock, Queenly Majesty, Sand Veil, Sap Sipper, Shell Armor, Shield Dust, Simple, Snow Cloak, Solid Rock, Soundproof, Sticky Hold, Storm Drain, Sturdy, Suction Cups, Sweet Veil, Tangled Feet, Telepathy, Thick Fat, Unaware, Vital Spirit, Volt Absorb, Water Absorb, Water Bubble, Water Veil, White Smoke, Wonder Guard, and Wonder Skin. This affects every other Pokemon on the field, whether or not it is a target of this Pokemon's move, and whether or not their Ability is beneficial to this Pokemon.",shortDesc:"This Pokemon's moves and their effects ignore the Abilities of other Pokemon."},thickfat:{onSourceModifyAtkPriority:6,onSourceModifySpAPriority:5,isBreakable:true,name:"Thick Fat",rating:3.5,num:47,desc:"If a Pokemon uses a Fire- or Ice-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon.",shortDesc:"Fire/Ice-type moves against this Pokemon deal damage with a halved attacking stat."},tintedlens:{name:"Tinted Lens",rating:4,num:110,desc:"This Pokemon's attacks that are not very effective on a target deal double damage.",shortDesc:"This Pokemon's attacks that are not very effective on a target deal double damage."},torrent:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Torrent",rating:2,num:67,desc:"When this Pokemon has 1/3 or less of its maximum HP, rounded down, its attacking stat is multiplied by 1.5 while using a Water-type attack.",shortDesc:"At 1/3 or less of its max HP, this Pokemon's attacking stat is 1.5x with Water attacks."},toughclaws:{onBasePowerPriority:21,name:"Tough Claws",rating:3.5,num:181,desc:"This Pokemon's contact moves have their power multiplied by 1.3.",shortDesc:"This Pokemon's contact moves have their power multiplied by 1.3."},toxicboost:{onBasePowerPriority:19,name:"Toxic Boost",rating:2.5,num:137,desc:"While this Pokemon is poisoned, the power of its physical attacks is multiplied by 1.5.",shortDesc:"While this Pokemon is poisoned, its physical attacks have 1.5x power."},trace:{name:"Trace",rating:2.5,num:36,desc:"On switch-in, or when this Pokemon acquires this ability, this Pokemon copies a random adjacent opposing Pokemon's Ability. However, if one or more adjacent Pokemon has the Ability \"No Ability\", Trace won't copy anything even if there is another valid Ability it could normally copy. Otherwise, if there is no Ability that can be copied at that time, this Ability will activate as soon as an Ability can be copied. Abilities that cannot be copied are the previously mentioned \"No Ability\", as well as As One, Battle Bond, Comatose, Disguise, Flower Gift, Forecast, Gulp Missile, Hunger Switch, Ice Face, Illusion, Imposter, Multitype, Neutralizing Gas, Power Construct, Power of Alchemy, Receiver, RKS System, Schooling, Shields Down, Stance Change, Trace, and Zen Mode.",shortDesc:"On switch-in, or when it can, this Pokemon copies a random adjacent foe's Ability."},transistor:{onModifyAtkPriority:5,onModifySpAPriority:5,name:"Transistor",rating:3.5,num:262,desc:"This Pokemon's attacking stat is multiplied by 1.5 while using an Electric-type attack.",shortDesc:"This Pokemon's attacking stat is multiplied by 1.5 while using an Electric-type attack."},triage:{name:"Triage",rating:3.5,num:205,desc:"This Pokemon's healing moves have their priority increased by 3.",shortDesc:"This Pokemon's healing moves have their priority increased by 3."},truant:{onBeforeMovePriority:9,condition:{},name:"Truant",rating:-1,num:54,desc:"This Pokemon skips every other turn instead of using a move.",shortDesc:"This Pokemon skips every other turn instead of using a move."},turboblaze:{name:"Turboblaze",rating:3.5,num:163,desc:"This Pokemon's moves and their effects ignore certain Abilities of other Pokemon. The Abilities that can be negated are Aroma Veil, Aura Break, Battle Armor, Big Pecks, Bulletproof, Clear Body, Contrary, Damp, Dark Aura, Dazzling, Disguise, Dry Skin, Fairy Aura, Filter, Flash Fire, Flower Gift, Flower Veil, Fluffy, Friend Guard, Fur Coat, Grass Pelt, Heatproof, Heavy Metal, Hyper Cutter, Ice Face, Ice Scales, Immunity, Inner Focus, Insomnia, Keen Eye, Leaf Guard, Levitate, Light Metal, Lightning Rod, Limber, Magic Bounce, Magma Armor, Marvel Scale, Mirror Armor, Motor Drive, Multiscale, Oblivious, Overcoat, Own Tempo, Pastel Veil, Punk Rock, Queenly Majesty, Sand Veil, Sap Sipper, Shell Armor, Shield Dust, Simple, Snow Cloak, Solid Rock, Soundproof, Sticky Hold, Storm Drain, Sturdy, Suction Cups, Sweet Veil, Tangled Feet, Telepathy, Thick Fat, Unaware, Vital Spirit, Volt Absorb, Water Absorb, Water Bubble, Water Veil, White Smoke, Wonder Guard, and Wonder Skin. This affects every other Pokemon on the field, whether or not it is a target of this Pokemon's move, and whether or not their Ability is beneficial to this Pokemon.",shortDesc:"This Pokemon's moves and their effects ignore the Abilities of other Pokemon."},unaware:{name:"Unaware",isBreakable:true,rating:4,num:109,desc:"This Pokemon ignores other Pokemon's Attack, Special Attack, and accuracy stat stages when taking damage, and ignores other Pokemon's Defense, Special Defense, and evasiveness stat stages when dealing damage.",shortDesc:"This Pokemon ignores other Pokemon's stat stages when taking or doing damage."},unburden:{condition:{},name:"Unburden",rating:3.5,num:84,desc:"If this Pokemon loses its held item for any reason, its Speed is doubled. This boost is lost if it switches out or gains a new item or Ability.",shortDesc:"Speed is doubled on held item loss; boost is lost if it switches, gets new item/Ability."},unnerve:{name:"Unnerve",rating:1.5,num:127,desc:"While this Pokemon is active, it prevents opposing Pokemon from using their Berries. Activation message broadcasts before other Abilities regardless of the Pokemon's Speed tiers.",shortDesc:"While this Pokemon is active, it prevents opposing Pokemon from using their Berries."},unseenfist:{name:"Unseen Fist",rating:2,num:260,desc:"All of this Pokemon's moves that make contact bypass protection.",shortDesc:"All contact moves hit through protection."},victorystar:{onAnyModifyAccuracyPriority:-1,name:"Victory Star",rating:2,num:162,desc:"This Pokemon and its allies' moves have their accuracy multiplied by 1.1.",shortDesc:"This Pokemon and its allies' moves have their accuracy multiplied by 1.1."},vitalspirit:{isBreakable:true,name:"Vital Spirit",rating:2,num:72,desc:"This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it.",shortDesc:"This Pokemon cannot fall asleep. Gaining this Ability while asleep cures it."},voltabsorb:{isBreakable:true,name:"Volt Absorb",rating:3.5,num:10,desc:"This Pokemon is immune to Electric-type moves and restores 1/4 of its maximum HP, rounded down, when hit by an Electric-type move.",shortDesc:"This Pokemon heals 1/4 of its max HP when hit by Electric moves; Electric immunity."},wanderingspirit:{name:"Wandering Spirit",rating:2.5,num:254,desc:"Pokemon making contact with this Pokemon have their Ability swapped with this one. Does not affect a Pokemon which has the Ability As One, Battle Bond, Comatose, Disguise, Gulp Missile, Hunger Switch, Ice Face, Illusion, Multitype, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode.",shortDesc:"Pokemon making contact with this Pokemon have their Ability swapped with this one."},waterabsorb:{isBreakable:true,name:"Water Absorb",rating:3.5,num:11,desc:"This Pokemon is immune to Water-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Water-type move.",shortDesc:"This Pokemon heals 1/4 of its max HP when hit by Water moves; Water immunity."},waterbubble:{onSourceModifyAtkPriority:5,onSourceModifySpAPriority:5,isBreakable:true,name:"Water Bubble",rating:4.5,num:199,desc:"This Pokemon's attacking stat is doubled while using a Water-type attack. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's attacking stat is halved when calculating the damage to this Pokemon. This Pokemon cannot be burned. Gaining this Ability while burned cures it.",shortDesc:"This Pokemon's Water power is 2x; it can't be burned; Fire power against it is halved."},watercompaction:{name:"Water Compaction",rating:1.5,num:195,desc:"This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move.",shortDesc:"This Pokemon's Defense is raised 2 stages after it is damaged by a Water-type move."},waterveil:{isBreakable:true,name:"Water Veil",rating:2,num:41,desc:"This Pokemon cannot be burned. Gaining this Ability while burned cures it.",shortDesc:"This Pokemon cannot be burned. Gaining this Ability while burned cures it."},weakarmor:{name:"Weak Armor",rating:1,num:133,desc:"If a physical attack hits this Pokemon, its Defense is lowered by 1 stage and its Speed is raised by 2 stages.",shortDesc:"If a physical attack hits this Pokemon, Defense is lowered by 1, Speed is raised by 2."},whitesmoke:{isBreakable:true,name:"White Smoke",rating:2,num:73,desc:"Prevents other Pokemon from lowering this Pokemon's stat stages.",shortDesc:"Prevents other Pokemon from lowering this Pokemon's stat stages."},wimpout:{name:"Wimp Out",rating:1,num:193,desc:"When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move; Sheer Force prevents it from activating if the move has a secondary effect. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",shortDesc:"This Pokemon switches out when it reaches 1/2 or less of its maximum HP."},wonderguard:{isBreakable:true,name:"Wonder Guard",rating:5,num:25,desc:"This Pokemon can only be damaged by supereffective moves and indirect damage.",shortDesc:"This Pokemon can only be damaged by supereffective moves and indirect damage."},wonderskin:{onModifyAccuracyPriority:10,isBreakable:true,name:"Wonder Skin",rating:2,num:147,desc:"All non-damaging moves that check accuracy have their accuracy changed to 50% when used on this Pokemon. This change is done before any other accuracy modifying effects.",shortDesc:"Status moves with accuracy checks are 50% accurate when used on this Pokemon."},zenmode:{onResidualOrder:29,condition:{},isPermanent:true,name:"Zen Mode",rating:0,num:161,desc:"If this Pokemon is a Darmanitan or Darmanitan-Galar, it changes to Zen Mode if it has 1/2 or less of its maximum HP at the end of a turn. If Darmanitan's HP is above 1/2 of its maximum HP at the end of a turn, it changes back to Standard Mode. This Ability cannot be removed or suppressed.",shortDesc:"If Darmanitan, at end of turn changes Mode to Standard if > 1/2 max HP, else Zen."},mountaineer:{isNonstandard:"CAP",isBreakable:true,name:"Mountaineer",rating:3,num:-2,desc:"On switch-in, this Pokemon avoids all Rock-type attacks and Stealth Rock.",shortDesc:"On switch-in, this Pokemon avoids all Rock-type attacks and Stealth Rock."},rebound:{isNonstandard:"CAP",name:"Rebound",onTryHitPriority:1,condition:{duration:1},isBreakable:true,rating:3,num:-3,desc:"On switch-in, this Pokemon blocks certain status moves and instead uses the move against the original user.",shortDesc:"On switch-in, blocks certain status moves and bounces them back to the user."},persistent:{isNonstandard:"CAP",name:"Persistent",rating:3,num:-4,desc:"The duration of Gravity, Heal Block, Magic Room, Safeguard, Tailwind, Trick Room, and Wonder Room is increased by 2 turns if the effect is started by this Pokemon.",shortDesc:"When used, Gravity/Heal Block/Safeguard/Tailwind/Room effects last 2 more turns."}};
+"use strict";
+
+exports.BattleAbilities = {
+	noability: {
+		isNonstandard: "Past",
+		name: "No Ability",
+		rating: 0.1,
+		num: 0,
+	},
+	adaptability: {
+		onModifyMove(move) {
+			move.stab = 2;
+		},
+		name: "Adaptability",
+		rating: 4,
+		num: 91,
+	},
+	aerilate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Flying';
+				move.aerilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.aerilateBoosted) return this.chainModify([4915, 4096]);
+		},
+		name: "Aerilate",
+		rating: 4,
+		num: 184,
+	},
+	aftermath: {
+		name: "Aftermath",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp && this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+			}
+		},
+		rating: 2.5,
+		num: 106,
+	},
+	airlock: {
+		onSwitchIn(pokemon) {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Air Lock does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectState.switchingIn) return;
+			this.add('-ability', pokemon, 'Air Lock');
+			this.effectState.switchingIn = false;
+		},
+		suppressWeather: true,
+		name: "Air Lock",
+		rating: 2,
+		num: 76,
+	},
+	analytic: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon) {
+			let boosted = true;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (this.queue.willMove(target)) {
+					boosted = false;
+					break;
+				}
+			}
+			if (boosted) {
+				this.debug('Analytic boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		name: "Analytic",
+		rating: 2.5,
+		num: 148,
+	},
+	angerpoint: {
+		onHit(target, source, move) {
+			if (!target.hp) return;
+			if (_optionalChain([move, 'optionalAccess', _ => _.effectType]) === 'Move' && target.getMoveHitData(move).crit) {
+				target.setBoost({atk: 6});
+				this.add('-setboost', target, 'atk', 12, '[from] ability: Anger Point');
+			}
+		},
+		name: "Anger Point",
+		rating: 1.5,
+		num: 83,
+	},
+	anticipation: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					if (move.category === 'Status') continue;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
+					if (
+						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
+						move.ohko
+					) {
+						this.add('-ability', pokemon, 'Anticipation');
+						return;
+					}
+				}
+			}
+		},
+		name: "Anticipation",
+		rating: 0.5,
+		num: 107,
+	},
+	arenatrap: {
+		onFoeTrapPokemon(pokemon) {
+			if (!pokemon.isAdjacent(this.effectState.target)) return;
+			if (pokemon.isGrounded()) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (pokemon.isGrounded(!pokemon.knownType)) { // Negate immunity if the type is unknown
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Arena Trap",
+		rating: 5,
+		num: 71,
+	},
+	aromaveil: {
+		onAllyTryAddVolatile(status, target, source, effect) {
+			if (['attract', 'disable', 'encore', 'healblock', 'taunt', 'torment'].includes(status.id)) {
+				if (effect.effectType === 'Move') {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Aroma Veil', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Aroma Veil",
+		rating: 2,
+		num: 165,
+	},
+	asoneglastrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source, source, this.dex.abilities.get('chillingneigh'));
+			}
+		},
+		isPermanent: true,
+		name: "As One (Glastrier)",
+		rating: 3.5,
+		num: 266,
+	},
+	asonespectrier: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'As One');
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source, source, this.dex.abilities.get('grimneigh'));
+			}
+		},
+		isPermanent: true,
+		name: "As One (Spectrier)",
+		rating: 3.5,
+		num: 267,
+	},
+	aurabreak: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Aura Break');
+		},
+		onAnyTryPrimaryHit(target, source, move) {
+			if (target === source || move.category === 'Status') return;
+			move.hasAuraBreak = true;
+		},
+		isBreakable: true,
+		name: "Aura Break",
+		rating: 1,
+		num: 188,
+	},
+	baddreams: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				if (target.status === 'slp' || target.hasAbility('comatose')) {
+					this.damage(target.baseMaxhp / 8, target, pokemon);
+				}
+			}
+		},
+		name: "Bad Dreams",
+		rating: 1.5,
+		num: 123,
+	},
+	ballfetch: {
+		name: "Ball Fetch",
+		rating: 0,
+		num: 237,
+	},
+	battery: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target && move.category === 'Special') {
+				this.debug('Battery boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		name: "Battery",
+		rating: 0,
+		num: 217,
+	},
+	battlearmor: {
+		onCriticalHit: false,
+		isBreakable: true,
+		name: "Battle Armor",
+		rating: 1,
+		num: 4,
+	},
+	battlebond: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (_optionalChain([effect, 'optionalAccess', _2 => _2.effectType]) !== 'Move') {
+				return;
+			}
+			if (source.species.id === 'greninja' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
+				this.add('-activate', source, 'ability: Battle Bond');
+				source.formeChange('Greninja-Ash', this.effect, true);
+			}
+		},
+		onModifyMovePriority: -1,
+		onModifyMove(move, attacker) {
+			if (move.id === 'watershuriken' && attacker.species.name === 'Greninja-Ash') {
+				move.multihit = 3;
+			}
+		},
+		isPermanent: true,
+		name: "Battle Bond",
+		rating: 4,
+		num: 210,
+	},
+	beastboost: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				let statName = 'atk';
+				let bestStat = 0;
+				let s;
+				for (s in source.storedStats) {
+					if (source.storedStats[s] > bestStat) {
+						statName = s;
+						bestStat = source.storedStats[s];
+					}
+				}
+				this.boost({[statName]: length}, source);
+			}
+		},
+		name: "Beast Boost",
+		rating: 3.5,
+		num: 224,
+	},
+	berserk: {
+		onDamage(damage, target, source, effect) {
+			if (
+				effect.effectType === "Move" &&
+				!effect.multihit &&
+				(!effect.negateSecondary && !(effect.hasSheerForce && source.hasAbility('sheerforce')))
+			) {
+				target.abilityState.checkedBerserk = false;
+			} else {
+				target.abilityState.checkedBerserk = true;
+			}
+		},
+		onTryEatItem(item, pokemon) {
+			const healingItems = [
+				'aguavberry', 'enigmaberry', 'figyberry', 'iapapaberry', 'magoberry', 'sitrusberry', 'wikiberry', 'oranberry', 'berryjuice',
+			];
+			if (healingItems.includes(item.id)) {
+				return pokemon.abilityState.checkedBerserk;
+			}
+			return true;
+		},
+		onAfterMoveSecondary(target, source, move) {
+			target.abilityState.checkedBerserk = true;
+			if (!source || source === target || !target.hp || !move.totalDamage) return;
+			const lastAttackedBy = target.getLastAttackedBy();
+			if (!lastAttackedBy) return;
+			const damage = move.multihit ? move.totalDamage : lastAttackedBy.damage;
+			if (target.hp <= target.maxhp / 2 && target.hp + damage > target.maxhp / 2) {
+				this.boost({spa: 1});
+			}
+		},
+		name: "Berserk",
+		rating: 2,
+		num: 201,
+	},
+	bigpecks: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.def && boost.def < 0) {
+				delete boost.def;
+				if (!(effect ).secondaries && effect.id !== 'octolock') {
+					this.add("-fail", target, "unboost", "Defense", "[from] ability: Big Pecks", "[of] " + target);
+				}
+			}
+		},
+		isBreakable: true,
+		name: "Big Pecks",
+		rating: 0.5,
+		num: 145,
+	},
+	blaze: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Blaze boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Blaze",
+		rating: 2,
+		num: 66,
+	},
+	bulletproof: {
+		onTryHit(pokemon, target, move) {
+			if (move.flags['bullet']) {
+				this.add('-immune', pokemon, '[from] ability: Bulletproof');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Bulletproof",
+		rating: 3,
+		num: 171,
+	},
+	cheekpouch: {
+		onEatItem(item, pokemon) {
+			this.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Cheek Pouch",
+		rating: 2,
+		num: 167,
+	},
+	chillingneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		name: "Chilling Neigh",
+		rating: 3,
+		num: 264,
+	},
+	chlorophyll: {
+		onModifySpe(spe, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Chlorophyll",
+		rating: 3,
+		num: 34,
+	},
+	clearbody: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i;
+			for (i in boost) {
+				if (boost[i] < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect ).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Clear Body", "[of] " + target);
+			}
+		},
+		isBreakable: true,
+		name: "Clear Body",
+		rating: 2,
+		num: 29,
+	},
+	cloudnine: {
+		onSwitchIn(pokemon) {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Cloud Nine does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectState.switchingIn) return;
+			this.add('-ability', pokemon, 'Cloud Nine');
+			this.effectState.switchingIn = false;
+		},
+		suppressWeather: true,
+		name: "Cloud Nine",
+		rating: 2,
+		num: 13,
+	},
+	colorchange: {
+		onAfterMoveSecondary(target, source, move) {
+			if (!target.hp) return;
+			const type = move.type;
+			if (
+				target.isActive && move.effectType === 'Move' && move.category !== 'Status' &&
+				type !== '???' && !target.hasType(type)
+			) {
+				if (!target.setType(type)) return false;
+				this.add('-start', target, 'typechange', type, '[from] ability: Color Change');
+
+				if (target.side.active.length === 2 && target.position === 1) {
+					// Curse Glitch
+					const action = this.queue.willMove(target);
+					if (action && action.move.id === 'curse') {
+						action.targetLoc = -1;
+					}
+				}
+			}
+		},
+		name: "Color Change",
+		rating: 0,
+		num: 16,
+	},
+	comatose: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Comatose');
+		},
+		onSetStatus(status, target, source, effect) {
+			if (_optionalChain([(effect ), 'optionalAccess', _3 => _3.status])) {
+				this.add('-immune', target, '[from] ability: Comatose');
+			}
+			return false;
+		},
+		// Permanent sleep "status" implemented in the relevant sleep-checking effects
+		isPermanent: true,
+		name: "Comatose",
+		rating: 4,
+		num: 213,
+	},
+	competitive: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Competitive only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i;
+			for (i in boost) {
+				if (boost[i] < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Competitive');
+				this.boost({spa: 2}, target, target, null, true);
+			}
+		},
+		name: "Competitive",
+		rating: 2.5,
+		num: 172,
+	},
+	compoundeyes: {
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			this.debug('compoundeyes - enhancing accuracy');
+			return this.chainModify([5325, 4096]);
+		},
+		name: "Compound Eyes",
+		rating: 3,
+		num: 14,
+	},
+	contrary: {
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i;
+			for (i in boost) {
+				boost[i] *= -1;
+			}
+		},
+		isBreakable: true,
+		name: "Contrary",
+		rating: 4.5,
+		num: 126,
+	},
+	corrosion: {
+		// Implemented in sim/pokemon.js:Pokemon#setStatus
+		name: "Corrosion",
+		rating: 2.5,
+		num: 212,
+	},
+	cottondown: {
+		onDamagingHit(damage, target, source, move) {
+			let activated = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon === target || pokemon.fainted) continue;
+				if (!activated) {
+					this.add('-ability', target, 'Cotton Down');
+					activated = true;
+				}
+				this.boost({spe: -1}, pokemon, target, null, true);
+			}
+		},
+		name: "Cotton Down",
+		rating: 2,
+		num: 238,
+	},
+	curiousmedicine: {
+		onStart(pokemon) {
+			for (const ally of pokemon.adjacentAllies()) {
+				ally.clearBoosts();
+				this.add('-clearboost', ally, '[from] ability: Curious Medicine', '[of] ' + pokemon);
+			}
+		},
+		name: "Curious Medicine",
+		rating: 0,
+		num: 261,
+	},
+	cursedbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['disable']) return;
+			if (!move.isMax && !move.isFutureMove && move.id !== 'struggle') {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('disable', this.effectState.target);
+				}
+			}
+		},
+		name: "Cursed Body",
+		rating: 2,
+		num: 130,
+	},
+	cutecharm: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.addVolatile('attract', this.effectState.target);
+				}
+			}
+		},
+		name: "Cute Charm",
+		rating: 0.5,
+		num: 56,
+	},
+	damp: {
+		onAnyTryMove(target, source, effect) {
+			if (['explosion', 'mindblown', 'mistyexplosion', 'selfdestruct'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Damp', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onAnyDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'aftermath') {
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Damp",
+		rating: 1,
+		num: 6,
+	},
+	dancer: {
+		name: "Dancer",
+		// implemented in runMove in scripts.js
+		rating: 1.5,
+		num: 216,
+	},
+	darkaura: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Dark Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Dark') return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([move.hasAuraBreak ? 3072 : 5448, 4096]);
+		},
+		isBreakable: true,
+		name: "Dark Aura",
+		rating: 3,
+		num: 186,
+	},
+	dauntlessshield: {
+		onStart(pokemon) {
+			this.boost({def: 1}, pokemon);
+		},
+		name: "Dauntless Shield",
+		rating: 3.5,
+		num: 235,
+	},
+	dazzling: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Dazzling', move, '[of] ' + target);
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Dazzling",
+		rating: 2.5,
+		num: 219,
+	},
+	defeatist: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Defeatist",
+		rating: -1,
+		num: 129,
+	},
+	defiant: {
+		onAfterEachBoost(boost, target, source, effect) {
+			if (!source || target.isAlly(source)) {
+				if (effect.id === 'stickyweb') {
+					this.hint("Court Change Sticky Web counts as lowering your own Speed, and Defiant only affects stats lowered by foes.", true, source.side);
+				}
+				return;
+			}
+			let statsLowered = false;
+			let i;
+			for (i in boost) {
+				if (boost[i] < 0) {
+					statsLowered = true;
+				}
+			}
+			if (statsLowered) {
+				this.add('-ability', target, 'Defiant');
+				this.boost({atk: 2}, target, target, null, true);
+			}
+		},
+		name: "Defiant",
+		rating: 2.5,
+		num: 128,
+	},
+	deltastream: {
+		onStart(source) {
+			this.field.setWeather('deltastream');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('deltastream')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Delta Stream",
+		rating: 4,
+		num: 191,
+	},
+	desolateland: {
+		onStart(source) {
+			this.field.setWeather('desolateland');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'desolateland' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('desolateland')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Desolate Land",
+		rating: 4.5,
+		num: 190,
+	},
+	disguise: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' &&
+				['mimikyu', 'mimikyutotem'].includes(target.species.id) && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Disguise');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target || move.category === 'Status') return;
+			if (!['mimikyu', 'mimikyutotem'].includes(target.species.id) || target.transformed) {
+				return;
+			}
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectState.busted) {
+				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
+				pokemon.formeChange(speciesid, this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
+			}
+		},
+		isBreakable: true,
+		isPermanent: true,
+		name: "Disguise",
+		rating: 3.5,
+		num: 209,
+	},
+	download: {
+		onStart(pokemon) {
+			let totaldef = 0;
+			let totalspd = 0;
+			for (const target of pokemon.foes()) {
+				totaldef += target.getStat('def', false, true);
+				totalspd += target.getStat('spd', false, true);
+			}
+			if (totaldef && totaldef >= totalspd) {
+				this.boost({spa: 1});
+			} else if (totalspd) {
+				this.boost({atk: 1});
+			}
+		},
+		name: "Download",
+		rating: 3.5,
+		num: 88,
+	},
+	dragonsmaw: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Dragon') {
+				this.debug('Dragon\'s Maw boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Dragon's Maw",
+		rating: 3.5,
+		num: 263,
+	},
+	drizzle: {
+		onStart(source) {
+			for (const action of this.queue) {
+				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyogre') return;
+				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+			}
+			this.field.setWeather('raindance');
+		},
+		name: "Drizzle",
+		rating: 4,
+		num: 2,
+	},
+	drought: {
+		onStart(source) {
+			for (const action of this.queue) {
+				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'groudon') return;
+				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
+			}
+			this.field.setWeather('sunnyday');
+		},
+		name: "Drought",
+		rating: 4,
+		num: 70,
+	},
+	dryskin: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Dry Skin');
+				}
+				return null;
+			}
+		},
+		onFoeBasePowerPriority: 17,
+		onFoeBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.target !== defender) return;
+			if (move.type === 'Fire') {
+				return this.chainModify(1.25);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 8);
+			} else if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		isBreakable: true,
+		name: "Dry Skin",
+		rating: 3,
+		num: 87,
+	},
+	earlybird: {
+		name: "Early Bird",
+		// Implemented in statuses.js
+		rating: 1.5,
+		num: 48,
+	},
+	effectspore: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target) && !source.status && source.runStatusImmunity('powder')) {
+				const r = this.random(100);
+				if (r < 11) {
+					source.setStatus('slp', target);
+				} else if (r < 21) {
+					source.setStatus('par', target);
+				} else if (r < 30) {
+					source.setStatus('psn', target);
+				}
+			}
+		},
+		name: "Effect Spore",
+		rating: 2,
+		num: 27,
+	},
+	electricsurge: {
+		onStart(source) {
+			this.field.setTerrain('electricterrain');
+		},
+		name: "Electric Surge",
+		rating: 4,
+		num: 226,
+	},
+	emergencyexit: {
+		onEmergencyExit(target) {
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.switchFlag = true;
+			this.add('-activate', target, 'ability: Emergency Exit');
+		},
+		name: "Emergency Exit",
+		rating: 1,
+		num: 194,
+	},
+	fairyaura: {
+		onStart(pokemon) {
+			if (this.suppressingAbility(pokemon)) return;
+			this.add('-ability', pokemon, 'Fairy Aura');
+		},
+		onAnyBasePowerPriority: 20,
+		onAnyBasePower(basePower, source, target, move) {
+			if (target === source || move.category === 'Status' || move.type !== 'Fairy') return;
+			if (!move.auraBooster) move.auraBooster = this.effectState.target;
+			if (move.auraBooster !== this.effectState.target) return;
+			return this.chainModify([move.hasAuraBreak ? 3072 : 5448, 4096]);
+		},
+		isBreakable: true,
+		name: "Fairy Aura",
+		rating: 3,
+		num: 187,
+	},
+	filter: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Filter neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		isBreakable: true,
+		name: "Filter",
+		rating: 3,
+		num: 111,
+	},
+	flamebody: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('brn', target);
+				}
+			}
+		},
+		name: "Flame Body",
+		rating: 2,
+		num: 49,
+	},
+	flareboost: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.status === 'brn' && move.category === 'Special') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Flare Boost",
+		rating: 2,
+		num: 138,
+	},
+	flashfire: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Fire') {
+				move.accuracy = true;
+				if (!target.addVolatile('flashfire')) {
+					this.add('-immune', target, '[from] ability: Flash Fire');
+				}
+				return null;
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('flashfire');
+		},
+		condition: {
+			noCopy: true, // doesn't get copied by Baton Pass
+			onStart(target) {
+				this.add('-start', target, 'ability: Flash Fire');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('flashfire')) {
+					this.debug('Flash Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(atk, attacker, defender, move) {
+				if (move.type === 'Fire' && attacker.hasAbility('flashfire')) {
+					this.debug('Flash Fire boost');
+					return this.chainModify(1.5);
+				}
+			},
+			onEnd(target) {
+				this.add('-end', target, 'ability: Flash Fire', '[silent]');
+			},
+		},
+		isBreakable: true,
+		name: "Flash Fire",
+		rating: 3.5,
+		num: 18,
+	},
+	flowergift: {
+		onStart(pokemon) {
+			delete this.effectState.forme;
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Cherrim' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				if (pokemon.species.id !== 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim-Sunshine', this.effect, false, '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'cherrimsunshine') {
+					pokemon.formeChange('Cherrim', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onAllyModifyAtkPriority: 3,
+		onAllyModifyAtk(atk, pokemon) {
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onAllyModifySpDPriority: 4,
+		onAllyModifySpD(spd, pokemon) {
+			if (this.effectState.target.baseSpecies.baseSpecies !== 'Cherrim') return;
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		isBreakable: true,
+		name: "Flower Gift",
+		rating: 1,
+		num: 122,
+	},
+	flowerveil: {
+		onAllyBoost(boost, target, source, effect) {
+			if ((source && target === source) || !target.hasType('Grass')) return;
+			let showMsg = false;
+			let i;
+			for (i in boost) {
+				if (boost[i] < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect ).secondaries) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+			}
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (target.hasType('Grass') && source && target !== source && effect && effect.id !== 'yawn') {
+				this.debug('interrupting setStatus with Flower Veil');
+				if (effect.id === 'synchronize' || (effect.effectType === 'Move' && !effect.secondaries)) {
+					const effectHolder = this.effectState.target;
+					this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				}
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (target.hasType('Grass') && status.id === 'yawn') {
+				this.debug('Flower Veil blocking yawn');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Flower Veil', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Flower Veil",
+		rating: 0,
+		num: 166,
+	},
+	fluffy: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Fire') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		isBreakable: true,
+		name: "Fluffy",
+		rating: 3.5,
+		num: 218,
+	},
+	forecast: {
+		onUpdate(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+				break;
+			case 'raindance':
+			case 'primordialsea':
+				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+				break;
+			case 'hail':
+				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		name: "Forecast",
+		rating: 2,
+		num: 59,
+	},
+	forewarn: {
+		onStart(pokemon) {
+			let warnMoves = [];
+			let warnBp = 1;
+			for (const target of pokemon.foes()) {
+				for (const moveSlot of target.moveSlots) {
+					const move = this.dex.moves.get(moveSlot.move);
+					let bp = move.basePower;
+					if (move.ohko) bp = 150;
+					if (move.id === 'counter' || move.id === 'metalburst' || move.id === 'mirrorcoat') bp = 120;
+					if (bp === 1) bp = 80;
+					if (!bp && move.category !== 'Status') bp = 80;
+					if (bp > warnBp) {
+						warnMoves = [[move, target]];
+						warnBp = bp;
+					} else if (bp === warnBp) {
+						warnMoves.push([move, target]);
+					}
+				}
+			}
+			if (!warnMoves.length) return;
+			const [warnMoveName, warnTarget] = this.sample(warnMoves);
+			this.add('-activate', pokemon, 'ability: Forewarn', warnMoveName, '[of] ' + warnTarget);
+		},
+		name: "Forewarn",
+		rating: 0.5,
+		num: 108,
+	},
+	friendguard: {
+		name: "Friend Guard",
+		onAnyModifyDamage(damage, source, target, move) {
+			if (target !== this.effectState.target && target.isAlly(this.effectState.target)) {
+				this.debug('Friend Guard weaken');
+				return this.chainModify(0.75);
+			}
+		},
+		isBreakable: true,
+		rating: 0,
+		num: 132,
+	},
+	frisk: {
+		onStart(pokemon) {
+			for (const target of pokemon.foes()) {
+				if (target.item) {
+					this.add('-item', target, target.getItem().name, '[from] ability: Frisk', '[of] ' + pokemon, '[identify]');
+				}
+			}
+		},
+		name: "Frisk",
+		rating: 1.5,
+		num: 119,
+	},
+	fullmetalbody: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i;
+			for (i in boost) {
+				if (boost[i] < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect ).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: Full Metal Body", "[of] " + target);
+			}
+		},
+		name: "Full Metal Body",
+		rating: 2,
+		num: 230,
+	},
+	furcoat: {
+		onModifyDefPriority: 6,
+		onModifyDef(def) {
+			return this.chainModify(2);
+		},
+		isBreakable: true,
+		name: "Fur Coat",
+		rating: 4,
+		num: 169,
+	},
+	galewings: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (_optionalChain([move, 'optionalAccess', _4 => _4.type]) === 'Flying' && pokemon.hp === pokemon.maxhp) return priority + 1;
+		},
+		name: "Gale Wings",
+		rating: 3,
+		num: 177,
+	},
+	galvanize: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Electric';
+				move.galvanizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.galvanizeBoosted) return this.chainModify([4915, 4096]);
+		},
+		name: "Galvanize",
+		rating: 4,
+		num: 206,
+	},
+	gluttony: {
+		name: "Gluttony",
+		rating: 1.5,
+		num: 82,
+	},
+	gooey: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Gooey');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		name: "Gooey",
+		rating: 2,
+		num: 183,
+	},
+	gorillatactics: {
+		onStart(pokemon) {
+			pokemon.abilityState.choiceLock = "";
+		},
+		onBeforeMove(pokemon, target, move) {
+			if (move.isZOrMaxPowered || move.id === 'struggle') return;
+			if (pokemon.abilityState.choiceLock && pokemon.abilityState.choiceLock !== move.id) {
+				// Fails unless ability is being ignored (these events will not run), no PP lost.
+				this.addMove('move', pokemon, move.name);
+				this.attrLastMove('[still]');
+				this.debug("Disabled by Gorilla Tactics");
+				this.add('-fail', pokemon);
+				return false;
+			}
+		},
+		onModifyMove(move, pokemon) {
+			if (pokemon.abilityState.choiceLock || move.isZOrMaxPowered || move.id === 'struggle') return;
+			pokemon.abilityState.choiceLock = move.id;
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.volatiles['dynamax']) return;
+			// PLACEHOLDER
+			this.debug('Gorilla Tactics Atk Boost');
+			return this.chainModify(1.5);
+		},
+		onDisableMove(pokemon) {
+			if (!pokemon.abilityState.choiceLock) return;
+			if (pokemon.volatiles['dynamax']) return;
+			for (const moveSlot of pokemon.moveSlots) {
+				if (moveSlot.id !== pokemon.abilityState.choiceLock) {
+					pokemon.disableMove(moveSlot.id, false, this.effectState.sourceEffect);
+				}
+			}
+		},
+		onEnd(pokemon) {
+			pokemon.abilityState.choiceLock = "";
+		},
+		name: "Gorilla Tactics",
+		rating: 4.5,
+		num: 255,
+	},
+	grasspelt: {
+		onModifyDefPriority: 6,
+		onModifyDef(pokemon) {
+			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		},
+		isBreakable: true,
+		name: "Grass Pelt",
+		rating: 0.5,
+		num: 179,
+	},
+	grassysurge: {
+		onStart(source) {
+			this.field.setTerrain('grassyterrain');
+		},
+		name: "Grassy Surge",
+		rating: 4,
+		num: 229,
+	},
+	grimneigh: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({spa: length}, source);
+			}
+		},
+		name: "Grim Neigh",
+		rating: 3,
+		num: 265,
+	},
+	gulpmissile: {
+		onDamagingHit(damage, target, source, move) {
+			if (!source.hp || !source.isActive || target.transformed || target.isSemiInvulnerable()) return;
+			if (['cramorantgulping', 'cramorantgorging'].includes(target.species.id)) {
+				this.damage(source.baseMaxhp / 4, source, target);
+				if (target.species.id === 'cramorantgulping') {
+					this.boost({def: -1}, source, target, null, true);
+				} else {
+					source.trySetStatus('par', target, move);
+				}
+				target.formeChange('cramorant', move);
+			}
+		},
+		// The Dive part of this mechanic is implemented in Dive's `onTryMove` in moves.ts
+		onSourceTryPrimaryHit(target, source, effect) {
+			if (
+				effect && effect.id === 'surf' && source.hasAbility('gulpmissile') &&
+				source.species.name === 'Cramorant' && !source.transformed
+			) {
+				const forme = source.hp <= source.maxhp / 2 ? 'cramorantgorging' : 'cramorantgulping';
+				source.formeChange(forme, effect);
+			}
+		},
+		isPermanent: true,
+		name: "Gulp Missile",
+		rating: 2.5,
+		num: 241,
+	},
+	guts: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Guts",
+		rating: 3,
+		num: 62,
+	},
+	harvest: {
+		name: "Harvest",
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (this.field.isWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
+				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
+					pokemon.setItem(pokemon.lastItem);
+					pokemon.lastItem = '';
+					this.add('-item', pokemon, pokemon.getItem(), '[from] ability: Harvest');
+				}
+			}
+		},
+		rating: 2.5,
+		num: 139,
+	},
+	healer: {
+		name: "Healer",
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const allyActive of pokemon.adjacentAllies()) {
+				if (allyActive.status && this.randomChance(3, 10)) {
+					this.add('-activate', pokemon, 'ability: Healer');
+					allyActive.cureStatus();
+				}
+			}
+		},
+		rating: 0,
+		num: 131,
+	},
+	heatproof: {
+		onSourceBasePowerPriority: 18,
+		onSourceBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'brn') {
+				return damage / 2;
+			}
+		},
+		isBreakable: true,
+		name: "Heatproof",
+		rating: 2,
+		num: 85,
+	},
+	heavymetal: {
+		onModifyWeightPriority: 1,
+		onModifyWeight(weighthg) {
+			return weighthg * 2;
+		},
+		isBreakable: true,
+		name: "Heavy Metal",
+		rating: 0,
+		num: 134,
+	},
+	honeygather: {
+		name: "Honey Gather",
+		rating: 0,
+		num: 118,
+	},
+	hugepower: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(2);
+		},
+		name: "Huge Power",
+		rating: 5,
+		num: 37,
+	},
+	hungerswitch: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.species.baseSpecies !== 'Morpeko' || pokemon.transformed) return;
+			const targetForme = pokemon.species.name === 'Morpeko' ? 'Morpeko-Hangry' : 'Morpeko';
+			pokemon.formeChange(targetForme);
+		},
+		name: "Hunger Switch",
+		rating: 1,
+		num: 258,
+	},
+	hustle: {
+		// This should be applied directly to the stat as opposed to chaining with the others
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.modify(atk, 1.5);
+		},
+		onSourceModifyAccuracyPriority: -1,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Physical' && typeof accuracy === 'number') {
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		name: "Hustle",
+		rating: 3.5,
+		num: 55,
+	},
+	hydration: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				this.debug('hydration');
+				this.add('-activate', pokemon, 'ability: Hydration');
+				pokemon.cureStatus();
+			}
+		},
+		name: "Hydration",
+		rating: 1.5,
+		num: 93,
+	},
+	hypercutter: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.atk && boost.atk < 0) {
+				delete boost.atk;
+				if (!(effect ).secondaries) {
+					this.add("-fail", target, "unboost", "Attack", "[from] ability: Hyper Cutter", "[of] " + target);
+				}
+			}
+		},
+		isBreakable: true,
+		name: "Hyper Cutter",
+		rating: 1.5,
+		num: 52,
+	},
+	icebody: {
+		onWeather(target, source, effect) {
+			if (effect.id === 'hail') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		name: "Ice Body",
+		rating: 1,
+		num: 115,
+	},
+	iceface: {
+		onStart(pokemon) {
+			if (this.field.isWeather('hail') && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
+				target.species.id === 'eiscue' && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Ice Face');
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'eiscue' || target.transformed) return;
+			if (target.volatiles['substitute'] && !(move.flags['authentic'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'eiscue' || target.transformed) return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['authentic'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id === 'eiscue' && this.effectState.busted) {
+				pokemon.formeChange('Eiscue-Noice', this.effect, true);
+			}
+		},
+		onAnyWeatherStart() {
+			const pokemon = this.effectState.target;
+			if (!pokemon.hp) return;
+			if (this.field.isWeather('hail') && pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+				this.add('-activate', pokemon, 'ability: Ice Face');
+				this.effectState.busted = false;
+				pokemon.formeChange('Eiscue', this.effect, true);
+			}
+		},
+		isBreakable: true,
+		isPermanent: true,
+		name: "Ice Face",
+		rating: 3,
+		num: 248,
+	},
+	icescales: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.category === 'Special') {
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Ice Scales",
+		rating: 4,
+		num: 246,
+	},
+	illuminate: {
+		name: "Illuminate",
+		rating: 0,
+		num: 35,
+	},
+	illusion: {
+		onBeforeSwitchIn(pokemon) {
+			pokemon.illusion = null;
+			// yes, you can Illusion an active pokemon but only if it's to your right
+			for (let i = pokemon.side.pokemon.length - 1; i > pokemon.position; i--) {
+				const possibleTarget = pokemon.side.pokemon[i];
+				if (!possibleTarget.fainted) {
+					pokemon.illusion = possibleTarget;
+					break;
+				}
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (target.illusion) {
+				this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, source, move);
+			}
+		},
+		onEnd(pokemon) {
+			if (pokemon.illusion) {
+				this.debug('illusion cleared');
+				pokemon.illusion = null;
+				const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
+					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
+				this.add('replace', pokemon, details);
+				this.add('-end', pokemon, 'Illusion');
+			}
+		},
+		onFaint(pokemon) {
+			pokemon.illusion = null;
+		},
+		name: "Illusion",
+		rating: 4.5,
+		num: 149,
+	},
+	immunity: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+				this.add('-activate', pokemon, 'ability: Immunity');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if (_optionalChain([(effect ), 'optionalAccess', _5 => _5.status])) {
+				this.add('-immune', target, '[from] ability: Immunity');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Immunity",
+		rating: 2,
+		num: 17,
+	},
+	imposter: {
+		onSwitchIn(pokemon) {
+			this.effectState.switchingIn = true;
+		},
+		onStart(pokemon) {
+			// Imposter does not activate when Skill Swapped or when Neutralizing Gas leaves the field
+			if (!this.effectState.switchingIn) return;
+			// copies across in multibattle and diagonally in free-for-all
+			// fortunately, side.foe already takes care of all that
+			const target = pokemon.side.foe.active[pokemon.side.foe.active.length - 1 - pokemon.position];
+			if (target) {
+				pokemon.transformInto(target, this.dex.abilities.get('imposter'));
+			}
+			this.effectState.switchingIn = false;
+		},
+		name: "Imposter",
+		rating: 5,
+		num: 150,
+	},
+	infiltrator: {
+		onModifyMove(move) {
+			move.infiltrates = true;
+		},
+		name: "Infiltrator",
+		rating: 2.5,
+		num: 151,
+	},
+	innardsout: {
+		name: "Innards Out",
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp) {
+				this.damage(target.getUndynamaxedHP(damage), source, target);
+			}
+		},
+		rating: 4,
+		num: 215,
+	},
+	innerfocus: {
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'flinch') return null;
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Inner Focus', '[of] ' + target);
+			}
+		},
+		isBreakable: true,
+		name: "Inner Focus",
+		rating: 1.5,
+		num: 39,
+	},
+	insomnia: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'ability: Insomnia');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if (_optionalChain([(effect ), 'optionalAccess', _6 => _6.status])) {
+				this.add('-immune', target, '[from] ability: Insomnia');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Insomnia",
+		rating: 2,
+		num: 15,
+	},
+	intimidate: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const target of pokemon.adjacentFoes()) {
+				if (!activated) {
+					this.add('-ability', pokemon, 'Intimidate', 'boost');
+					activated = true;
+				}
+				if (target.volatiles['substitute']) {
+					this.add('-immune', target);
+				} else {
+					this.boost({atk: -1}, target, pokemon, null, true);
+				}
+			}
+		},
+		name: "Intimidate",
+		rating: 3.5,
+		num: 22,
+	},
+	intrepidsword: {
+		onStart(pokemon) {
+			this.boost({atk: 1}, pokemon);
+		},
+		name: "Intrepid Sword",
+		rating: 4,
+		num: 234,
+	},
+	ironbarbs: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Iron Barbs",
+		rating: 2.5,
+		num: 160,
+	},
+	ironfist: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['punch']) {
+				this.debug('Iron Fist boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		name: "Iron Fist",
+		rating: 3,
+		num: 89,
+	},
+	justified: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Dark') {
+				this.boost({atk: 1});
+			}
+		},
+		name: "Justified",
+		rating: 2.5,
+		num: 154,
+	},
+	keeneye: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			if (boost.accuracy && boost.accuracy < 0) {
+				delete boost.accuracy;
+				if (!(effect ).secondaries) {
+					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Keen Eye", "[of] " + target);
+				}
+			}
+		},
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+		},
+		isBreakable: true,
+		name: "Keen Eye",
+		rating: 0.5,
+		num: 51,
+	},
+	klutz: {
+		// Item suppression implemented in Pokemon.ignoringItem() within sim/pokemon.js
+		name: "Klutz",
+		rating: -1,
+		num: 103,
+	},
+	leafguard: {
+		onSetStatus(status, target, source, effect) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				if (_optionalChain([(effect ), 'optionalAccess', _7 => _7.status])) {
+					this.add('-immune', target, '[from] ability: Leaf Guard');
+				}
+				return false;
+			}
+		},
+		onTryAddVolatile(status, target) {
+			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				this.add('-immune', target, '[from] ability: Leaf Guard');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Leaf Guard",
+		rating: 0.5,
+		num: 102,
+	},
+	levitate: {
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
+		isBreakable: true,
+		name: "Levitate",
+		rating: 3.5,
+		num: 26,
+	},
+	libero: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
+			}
+		},
+		name: "Libero",
+		rating: 4.5,
+		num: 236,
+	},
+	lightmetal: {
+		onModifyWeight(weighthg) {
+			return this.trunc(weighthg / 2);
+		},
+		isBreakable: true,
+		name: "Light Metal",
+		rating: 1,
+		num: 135,
+	},
+	lightningrod: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Lightning Rod');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Electric' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Lightning Rod');
+				}
+				return this.effectState.target;
+			}
+		},
+		isBreakable: true,
+		name: "Lightning Rod",
+		rating: 3,
+		num: 31,
+	},
+	limber: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'par') {
+				this.add('-activate', pokemon, 'ability: Limber');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'par') return;
+			if (_optionalChain([(effect ), 'optionalAccess', _8 => _8.status])) {
+				this.add('-immune', target, '[from] ability: Limber');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Limber",
+		rating: 2,
+		num: 7,
+	},
+	liquidooze: {
+		onSourceTryHeal(damage, target, source, effect) {
+			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
+			const canOoze = ['drain', 'leechseed', 'strengthsap'];
+			if (canOoze.includes(effect.id)) {
+				this.damage(damage);
+				return 0;
+			}
+		},
+		name: "Liquid Ooze",
+		rating: 1.5,
+		num: 64,
+	},
+	liquidvoice: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['sound'] && !pokemon.volatiles['dynamax']) { // hardcode
+				move.type = 'Water';
+			}
+		},
+		name: "Liquid Voice",
+		rating: 1.5,
+		num: 204,
+	},
+	longreach: {
+		onModifyMove(move) {
+			delete move.flags['contact'];
+		},
+		name: "Long Reach",
+		rating: 1,
+		num: 203,
+	},
+	magicbounce: {
+		name: "Magic Bounce",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			newMove.pranksterBoosted = false;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		isBreakable: true,
+		rating: 4,
+		num: 156,
+	},
+	magicguard: {
+		onDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		name: "Magic Guard",
+		rating: 4,
+		num: 98,
+	},
+	magician: {
+		onAfterMoveSecondarySelf(source, target, move) {
+			if (!move || !target) return;
+			if (target !== source && move.category !== 'Status') {
+				if (source.item || source.volatiles['gem'] || move.id === 'fling') return;
+				const yourItem = target.takeItem(source);
+				if (!yourItem) return;
+				if (!source.setItem(yourItem)) {
+					target.item = yourItem.id; // bypass setItem so we don't break choicelock or anything
+					return;
+				}
+				this.add('-item', source, yourItem, '[from] ability: Magician', '[of] ' + target);
+			}
+		},
+		name: "Magician",
+		rating: 1.5,
+		num: 170,
+	},
+	magmaarmor: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'frz') {
+				this.add('-activate', pokemon, 'ability: Magma Armor');
+				pokemon.cureStatus();
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'frz') return false;
+		},
+		isBreakable: true,
+		name: "Magma Armor",
+		rating: 1,
+		num: 40,
+	},
+	magnetpull: {
+		onFoeTrapPokemon(pokemon) {
+			if (pokemon.hasType('Steel') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.knownType || pokemon.hasType('Steel')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Magnet Pull",
+		rating: 4,
+		num: 42,
+	},
+	marvelscale: {
+		onModifyDefPriority: 6,
+		onModifyDef(def, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		isBreakable: true,
+		name: "Marvel Scale",
+		rating: 2.5,
+		num: 63,
+	},
+	megalauncher: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['pulse']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Mega Launcher",
+		rating: 3,
+		num: 178,
+	},
+	merciless: {
+		onModifyCritRatio(critRatio, source, target) {
+			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+		},
+		name: "Merciless",
+		rating: 1.5,
+		num: 196,
+	},
+	mimicry: {
+		onStart(pokemon) {
+			if (this.field.terrain) {
+				pokemon.addVolatile('mimicry');
+			} else {
+				const types = pokemon.baseSpecies.types;
+				if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+				this.add('-start', pokemon, 'typechange', types.join('/'), '[from] ability: Mimicry');
+				this.hint("Transform Mimicry changes you to your original un-transformed types.");
+			}
+		},
+		onAnyTerrainStart() {
+			const pokemon = this.effectState.target;
+			delete pokemon.volatiles['mimicry'];
+			pokemon.addVolatile('mimicry');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['mimicry'];
+		},
+		condition: {
+			onStart(pokemon) {
+				let newType;
+				switch (this.field.terrain) {
+				case 'electricterrain':
+					newType = 'Electric';
+					break;
+				case 'grassyterrain':
+					newType = 'Grass';
+					break;
+				case 'mistyterrain':
+					newType = 'Fairy';
+					break;
+				case 'psychicterrain':
+					newType = 'Psychic';
+					break;
+				}
+				if (!newType || pokemon.getTypes().join() === newType || !pokemon.setType(newType)) return;
+				this.add('-start', pokemon, 'typechange', newType, '[from] ability: Mimicry');
+			},
+			onUpdate(pokemon) {
+				if (!this.field.terrain) {
+					const types = pokemon.species.types;
+					if (pokemon.getTypes().join() === types.join() || !pokemon.setType(types)) return;
+					this.add('-activate', pokemon, 'ability: Mimicry');
+					this.add('-end', pokemon, 'typechange', '[silent]');
+					pokemon.removeVolatile('mimicry');
+				}
+			},
+		},
+		name: "Mimicry",
+		rating: 0.5,
+		num: 250,
+	},
+	minus: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['minus', 'plus'])) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Minus",
+		rating: 0,
+		num: 58,
+	},
+	mirrorarmor: {
+		onBoost(boost, target, source, effect) {
+			// Don't bounce self stat changes, or boosts that have already bounced
+			if (target === source || !boost || effect.id === 'mirrorarmor') return;
+			let b;
+			for (b in boost) {
+				if (boost[b] < 0) {
+					if (target.boosts[b] === -6) continue;
+					const negativeBoost = {};
+					negativeBoost[b] = boost[b];
+					delete boost[b];
+					this.add('-ability', target, 'Mirror Armor');
+					this.boost(negativeBoost, source, target, null, true);
+				}
+			}
+		},
+		isBreakable: true,
+		name: "Mirror Armor",
+		rating: 2,
+		num: 240,
+	},
+	mistysurge: {
+		onStart(source) {
+			this.field.setTerrain('mistyterrain');
+		},
+		name: "Misty Surge",
+		rating: 3.5,
+		num: 228,
+	},
+	moldbreaker: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Mold Breaker');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		name: "Mold Breaker",
+		rating: 3.5,
+		num: 104,
+	},
+	moody: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			let stats = [];
+			const boost = {};
+			let statPlus;
+			for (statPlus in pokemon.boosts) {
+				if (statPlus === 'accuracy' || statPlus === 'evasion') continue;
+				if (pokemon.boosts[statPlus] < 6) {
+					stats.push(statPlus);
+				}
+			}
+			let randomStat = stats.length ? this.sample(stats) : undefined;
+			if (randomStat) boost[randomStat] = 2;
+
+			stats = [];
+			let statMinus;
+			for (statMinus in pokemon.boosts) {
+				if (statMinus === 'accuracy' || statMinus === 'evasion') continue;
+				if (pokemon.boosts[statMinus] > -6 && statMinus !== randomStat) {
+					stats.push(statMinus);
+				}
+			}
+			randomStat = stats.length ? this.sample(stats) : undefined;
+			if (randomStat) boost[randomStat] = -1;
+
+			this.boost(boost);
+		},
+		name: "Moody",
+		rating: 5,
+		num: 141,
+	},
+	motordrive: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({spe: 1})) {
+					this.add('-immune', target, '[from] ability: Motor Drive');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Motor Drive",
+		rating: 3,
+		num: 78,
+	},
+	moxie: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		name: "Moxie",
+		rating: 3,
+		num: 153,
+	},
+	multiscale: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Multiscale weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Multiscale",
+		rating: 3.5,
+		num: 136,
+	},
+	multitype: {
+		// Multitype's type-changing itself is implemented in statuses.js
+		isPermanent: true,
+		name: "Multitype",
+		rating: 4,
+		num: 121,
+	},
+	mummy: {
+		name: "Mummy",
+		onDamagingHit(damage, target, source, move) {
+			const sourceAbility = source.getAbility();
+			if (sourceAbility.isPermanent || sourceAbility.id === 'mummy') {
+				return;
+			}
+			if (this.checkMoveMakesContact(move, source, target, !source.isAlly(target))) {
+				const oldAbility = source.setAbility('mummy', target);
+				if (oldAbility) {
+					this.add('-activate', target, 'ability: Mummy', this.dex.abilities.get(oldAbility).name, '[of] ' + source);
+				}
+			}
+		},
+		rating: 2,
+		num: 152,
+	},
+	naturalcure: {
+		onCheckShow(pokemon) {
+			// This is complicated
+			// For the most part, in-game, it's obvious whether or not Natural Cure activated,
+			// since you can see how many of your opponent's pokemon are statused.
+			// The only ambiguous situation happens in Doubles/Triples, where multiple pokemon
+			// that could have Natural Cure switch out, but only some of them get cured.
+			if (pokemon.side.active.length === 1) return;
+			if (pokemon.showCure === true || pokemon.showCure === false) return;
+
+			const cureList = [];
+			let noCureCount = 0;
+			for (const curPoke of pokemon.side.active) {
+				// pokemon not statused
+				if (!_optionalChain([curPoke, 'optionalAccess', _9 => _9.status])) {
+					// this.add('-message', "" + curPoke + " skipped: not statused or doesn't exist");
+					continue;
+				}
+				if (curPoke.showCure) {
+					// this.add('-message', "" + curPoke + " skipped: Natural Cure already known");
+					continue;
+				}
+				const species = curPoke.species;
+				// pokemon can't get Natural Cure
+				if (!Object.values(species.abilities).includes('Natural Cure')) {
+					// this.add('-message', "" + curPoke + " skipped: no Natural Cure");
+					continue;
+				}
+				// pokemon's ability is known to be Natural Cure
+				if (!species.abilities['1'] && !species.abilities['H']) {
+					// this.add('-message', "" + curPoke + " skipped: only one ability");
+					continue;
+				}
+				// pokemon isn't switching this turn
+				if (curPoke !== pokemon && !this.queue.willSwitch(curPoke)) {
+					// this.add('-message', "" + curPoke + " skipped: not switching");
+					continue;
+				}
+
+				if (curPoke.hasAbility('naturalcure')) {
+					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (and is)");
+					cureList.push(curPoke);
+				} else {
+					// this.add('-message', "" + curPoke + " confirmed: could be Natural Cure (but isn't)");
+					noCureCount++;
+				}
+			}
+
+			if (!cureList.length || !noCureCount) {
+				// It's possible to know what pokemon were cured
+				for (const pkmn of cureList) {
+					pkmn.showCure = true;
+				}
+			} else {
+				// It's not possible to know what pokemon were cured
+
+				// Unlike a -hint, this is real information that battlers need, so we use a -message
+				this.add('-message', "(" + cureList.length + " of " + pokemon.side.name + "'s pokemon " + (cureList.length === 1 ? "was" : "were") + " cured by Natural Cure.)");
+
+				for (const pkmn of cureList) {
+					pkmn.showCure = false;
+				}
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (!pokemon.status) return;
+
+			// if pokemon.showCure is undefined, it was skipped because its ability
+			// is known
+			if (pokemon.showCure === undefined) pokemon.showCure = true;
+
+			if (pokemon.showCure) this.add('-curestatus', pokemon, pokemon.status, '[from] ability: Natural Cure');
+			pokemon.setStatus('');
+
+			// only reset .showCure if it's false
+			// (once you know a Pokemon has Natural Cure, its cures are always known)
+			if (!pokemon.showCure) pokemon.showCure = undefined;
+		},
+		name: "Natural Cure",
+		rating: 2.5,
+		num: 30,
+	},
+	neuroforce: {
+		onModifyDamage(damage, source, target, move) {
+			if (move && target.getMoveHitData(move).typeMod > 0) {
+				return this.chainModify([5120, 4096]);
+			}
+		},
+		name: "Neuroforce",
+		rating: 2.5,
+		num: 233,
+	},
+	neutralizinggas: {
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralizing Gas');
+			pokemon.abilityState.ending = false;
+			for (const target of this.getAllActive()) {
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralizinggas');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+			}
+		},
+		onEnd(source) {
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source && pokemon.hasAbility('Neutralizing Gas')) {
+					return;
+				}
+			}
+			this.add('-end', source, 'ability: Neutralizing Gas');
+
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If you're tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			if (source.abilityState.ending) return;
+			source.abilityState.ending = true;
+			const sortedActive = this.getAllActive();
+			this.speedSort(sortedActive);
+			for (const pokemon of sortedActive) {
+				if (pokemon !== source) {
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+				}
+			}
+		},
+		name: "Neutralizing Gas",
+		rating: 4,
+		num: 256,
+	},
+	noguard: {
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		name: "No Guard",
+		rating: 4,
+		num: 99,
+	},
+	normalize: {
+		onModifyTypePriority: 1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'hiddenpower', 'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'struggle', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (!(move.isZ && move.category !== 'Status') && !noModifyType.includes(move.id)) {
+				move.type = 'Normal';
+				move.normalizeBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.normalizeBoosted) return this.chainModify([4915, 4096]);
+		},
+		name: "Normalize",
+		rating: 0,
+		num: 96,
+	},
+	oblivious: {
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['attract']) {
+				this.add('-activate', pokemon, 'ability: Oblivious');
+				pokemon.removeVolatile('attract');
+				this.add('-end', pokemon, 'move: Attract', '[from] ability: Oblivious');
+			}
+			if (pokemon.volatiles['taunt']) {
+				this.add('-activate', pokemon, 'ability: Oblivious');
+				pokemon.removeVolatile('taunt');
+				// Taunt's volatile already sends the -end message when removed
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'attract') return false;
+		},
+		onTryHit(pokemon, target, move) {
+			if (move.id === 'attract' || move.id === 'captivate' || move.id === 'taunt') {
+				this.add('-immune', pokemon, '[from] ability: Oblivious');
+				return null;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Oblivious', '[of] ' + target);
+			}
+		},
+		isBreakable: true,
+		name: "Oblivious",
+		rating: 1.5,
+		num: 12,
+	},
+	overcoat: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
+		},
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (move.flags['powder'] && target !== source && this.dex.getImmunity('powder', target)) {
+				this.add('-immune', target, '[from] ability: Overcoat');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Overcoat",
+		rating: 2,
+		num: 142,
+	},
+	overgrow: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Grass' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Overgrow boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Overgrow",
+		rating: 2,
+		num: 65,
+	},
+	owntempo: {
+		onUpdate(pokemon) {
+			if (pokemon.volatiles['confusion']) {
+				this.add('-activate', pokemon, 'ability: Own Tempo');
+				pokemon.removeVolatile('confusion');
+			}
+		},
+		onTryAddVolatile(status, pokemon) {
+			if (status.id === 'confusion') return null;
+		},
+		onHit(target, source, move) {
+			if (_optionalChain([move, 'optionalAccess', _10 => _10.volatileStatus]) === 'confusion') {
+				this.add('-immune', target, 'confusion', '[from] ability: Own Tempo');
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Own Tempo', '[of] ' + target);
+			}
+		},
+		isBreakable: true,
+		name: "Own Tempo",
+		rating: 1.5,
+		num: 20,
+	},
+	parentalbond: {
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.selfdestruct || move.multihit) return;
+			if (['endeavor', 'fling', 'iceball', 'rollout'].includes(move.id)) return;
+			if (!move.flags['charge'] && !move.spreadHit && !move.isZ && !move.isMax) {
+				move.multihit = 2;
+				move.multihitType = 'parentalbond';
+			}
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		name: "Parental Bond",
+		rating: 4.5,
+		num: 185,
+	},
+	pastelveil: {
+		onStart(pokemon) {
+			for (const ally of pokemon.alliesAndSelf()) {
+				if (['psn', 'tox'].includes(ally.status)) {
+					this.add('-activate', pokemon, 'ability: Pastel Veil');
+					ally.cureStatus();
+				}
+			}
+		},
+		onUpdate(pokemon) {
+			if (['psn', 'tox'].includes(pokemon.status)) {
+				this.add('-activate', pokemon, 'ability: Pastel Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onAllySwitchIn(pokemon) {
+			if (['psn', 'tox'].includes(pokemon.status)) {
+				this.add('-activate', this.effectState.target, 'ability: Pastel Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (!['psn', 'tox'].includes(status.id)) return;
+			if (_optionalChain([(effect ), 'optionalAccess', _11 => _11.status])) {
+				this.add('-immune', target, '[from] ability: Pastel Veil');
+			}
+			return false;
+		},
+		onAllySetStatus(status, target, source, effect) {
+			if (!['psn', 'tox'].includes(status.id)) return;
+			if (_optionalChain([(effect ), 'optionalAccess', _12 => _12.status])) {
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Pastel Veil', '[of] ' + effectHolder);
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Pastel Veil",
+		rating: 2,
+		num: 257,
+	},
+	perishbody: {
+		onDamagingHit(damage, target, source, move) {
+			if (!this.checkMoveMakesContact(move, source, target)) return;
+
+			let announced = false;
+			for (const pokemon of [target, source]) {
+				if (pokemon.volatiles['perishsong']) continue;
+				if (!announced) {
+					this.add('-ability', target, 'Perish Body');
+					announced = true;
+				}
+				pokemon.addVolatile('perishsong');
+			}
+		},
+		name: "Perish Body",
+		rating: 1,
+		num: 253,
+	},
+	pickpocket: {
+		onAfterMoveSecondary(target, source, move) {
+			if (source && source !== target && _optionalChain([move, 'optionalAccess', _13 => _13.flags, 'access', _14 => _14['contact']])) {
+				if (target.item || target.switchFlag || target.forceSwitchFlag || source.switchFlag === true) {
+					return;
+				}
+				const yourItem = source.takeItem(target);
+				if (!yourItem) {
+					return;
+				}
+				if (!target.setItem(yourItem)) {
+					source.item = yourItem.id;
+					return;
+				}
+				this.add('-enditem', source, yourItem, '[silent]', '[from] ability: Pickpocket', '[of] ' + source);
+				this.add('-item', target, yourItem, '[from] ability: Pickpocket', '[of] ' + source);
+			}
+		},
+		name: "Pickpocket",
+		rating: 1,
+		num: 124,
+	},
+	pickup: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.item) return;
+			const pickupTargets = this.getAllActive().filter(target => (
+				target.lastItem && target.usedItemThisTurn && pokemon.isAdjacent(target)
+			));
+			if (!pickupTargets.length) return;
+			const randomTarget = this.sample(pickupTargets);
+			const item = randomTarget.lastItem;
+			randomTarget.lastItem = '';
+			this.add('-item', pokemon, this.dex.items.get(item), '[from] ability: Pickup');
+			pokemon.setItem(item);
+		},
+		name: "Pickup",
+		rating: 0.5,
+		num: 53,
+	},
+	pixilate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Fairy';
+				move.pixilateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.pixilateBoosted) return this.chainModify([4915, 4096]);
+		},
+		name: "Pixilate",
+		rating: 4,
+		num: 182,
+	},
+	plus: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			for (const allyActive of pokemon.allies()) {
+				if (allyActive.hasAbility(['minus', 'plus'])) {
+					return this.chainModify(1.5);
+				}
+			}
+		},
+		name: "Plus",
+		rating: 0,
+		num: 57,
+	},
+	poisonheal: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'psn' || effect.id === 'tox') {
+				this.heal(target.baseMaxhp / 8);
+				return false;
+			}
+		},
+		name: "Poison Heal",
+		rating: 4,
+		num: 90,
+	},
+	poisonpoint: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('psn', target);
+				}
+			}
+		},
+		name: "Poison Point",
+		rating: 1.5,
+		num: 38,
+	},
+	poisontouch: {
+		// upokecenter says this is implemented as an added secondary effect
+		onModifyMove(move) {
+			if (!_optionalChain([move, 'optionalAccess', _15 => _15.flags, 'access', _16 => _16['contact']]) || move.target === 'self') return;
+			if (!move.secondaries) {
+				move.secondaries = [];
+			}
+			move.secondaries.push({
+				chance: 30,
+				status: 'psn',
+				ability: this.dex.abilities.get('poisontouch'),
+			});
+		},
+		name: "Poison Touch",
+		rating: 2,
+		num: 143,
+	},
+	powerconstruct: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Zygarde' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.species.id === 'zygardecomplete' || pokemon.hp > pokemon.maxhp / 2) return;
+			this.add('-activate', pokemon, 'ability: Power Construct');
+			pokemon.formeChange('Zygarde-Complete', this.effect, true);
+			pokemon.baseMaxhp = Math.floor(Math.floor(
+				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+			) * pokemon.level / 100 + 10);
+			const newMaxHP = pokemon.volatiles['dynamax'] ? (2 * pokemon.baseMaxhp) : pokemon.baseMaxhp;
+			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+			pokemon.maxhp = newMaxHP;
+			this.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+		},
+		isPermanent: true,
+		name: "Power Construct",
+		rating: 5,
+		num: 211,
+	},
+	powerofalchemy: {
+		onAllyFaint(target) {
+			if (!this.effectState.target.hp) return;
+			const ability = target.getAbility();
+			const additionalBannedAbilities = [
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+			];
+			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
+			this.add('-ability', this.effectState.target, ability, '[from] ability: Power of Alchemy', '[of] ' + target);
+			this.effectState.target.setAbility(ability);
+		},
+		name: "Power of Alchemy",
+		rating: 0,
+		num: 223,
+	},
+	powerspot: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (attacker !== this.effectState.target) {
+				this.debug('Power Spot boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		name: "Power Spot",
+		rating: 1,
+		num: 249,
+	},
+	prankster: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (_optionalChain([move, 'optionalAccess', _17 => _17.category]) === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
+		},
+		name: "Prankster",
+		rating: 4,
+		num: 158,
+	},
+	pressure: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Pressure');
+		},
+		onDeductPP(target, source) {
+			if (target.isAlly(source)) return;
+			return 1;
+		},
+		name: "Pressure",
+		rating: 2.5,
+		num: 46,
+	},
+	primordialsea: {
+		onStart(source) {
+			this.field.setWeather('primordialsea');
+		},
+		onAnySetWeather(target, source, weather) {
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
+			if (this.field.getWeather().id === 'primordialsea' && !strongWeathers.includes(weather.id)) return false;
+		},
+		onEnd(pokemon) {
+			if (this.field.weatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('primordialsea')) {
+					this.field.weatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearWeather();
+		},
+		name: "Primordial Sea",
+		rating: 4.5,
+		num: 189,
+	},
+	prismarmor: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Prism Armor neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		name: "Prism Armor",
+		rating: 3,
+		num: 232,
+	},
+	propellertail: {
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			// most of the implementation is in Battle#getTarget
+			move.tracksTarget = move.target !== 'scripted';
+		},
+		name: "Propeller Tail",
+		rating: 0,
+		num: 239,
+	},
+	protean: {
+		onPrepareHit(source, target, move) {
+			if (move.hasBounced || move.sourceEffect === 'snatch') return;
+			const type = move.type;
+			if (type && type !== '???' && source.getTypes().join() !== type) {
+				if (!source.setType(type)) return;
+				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
+			}
+		},
+		name: "Protean",
+		rating: 4.5,
+		num: 168,
+	},
+	psychicsurge: {
+		onStart(source) {
+			this.field.setTerrain('psychicterrain');
+		},
+		name: "Psychic Surge",
+		rating: 4,
+		num: 227,
+	},
+	punkrock: {
+		onBasePowerPriority: 7,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['sound']) {
+				this.debug('Punk Rock boost');
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		onSourceModifyDamage(damage, source, target, move) {
+			if (move.flags['sound']) {
+				this.debug('Punk Rock weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Punk Rock",
+		rating: 3.5,
+		num: 244,
+	},
+	purepower: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk) {
+			return this.chainModify(2);
+		},
+		name: "Pure Power",
+		rating: 5,
+		num: 74,
+	},
+	queenlymajesty: {
+		onFoeTryMove(target, source, move) {
+			const targetAllExceptions = ['perishsong', 'flowershield', 'rototiller'];
+			if (move.target === 'foeSide' || (move.target === 'all' && !targetAllExceptions.includes(move.id))) {
+				return;
+			}
+
+			const dazzlingHolder = this.effectState.target;
+			if ((source.isAlly(dazzlingHolder) || move.target === 'all') && move.priority > 0.1) {
+				this.attrLastMove('[still]');
+				this.add('cant', dazzlingHolder, 'ability: Queenly Majesty', move, '[of] ' + target);
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Queenly Majesty",
+		rating: 2.5,
+		num: 214,
+	},
+	quickdraw: {
+		onFractionalPriorityPriority: -1,
+		onFractionalPriority(priority, pokemon, target, move) {
+			if (move.category !== "Status" && this.randomChance(3, 10)) {
+				this.add('-activate', pokemon, 'ability: Quick Draw');
+				return 0.1;
+			}
+		},
+		name: "Quick Draw",
+		rating: 2.5,
+		num: 259,
+	},
+	quickfeet: {
+		onModifySpe(spe, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Quick Feet",
+		rating: 2.5,
+		num: 95,
+	},
+	raindish: {
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		name: "Rain Dish",
+		rating: 1.5,
+		num: 44,
+	},
+	rattled: {
+		onDamagingHit(damage, target, source, move) {
+			if (['Dark', 'Bug', 'Ghost'].includes(move.type)) {
+				this.boost({spe: 1});
+			}
+		},
+		onAfterBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'intimidate') {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Rattled",
+		rating: 1.5,
+		num: 155,
+	},
+	receiver: {
+		onAllyFaint(target) {
+			if (!this.effectState.target.hp) return;
+			const ability = target.getAbility();
+			const additionalBannedAbilities = [
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'wonderguard',
+			];
+			if (target.getAbility().isPermanent || additionalBannedAbilities.includes(target.ability)) return;
+			this.add('-ability', this.effectState.target, ability, '[from] ability: Receiver', '[of] ' + target);
+			this.effectState.target.setAbility(ability);
+		},
+		name: "Receiver",
+		rating: 0,
+		num: 222,
+	},
+	reckless: {
+		onBasePowerPriority: 23,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.recoil || move.hasCrashDamage) {
+				this.debug('Reckless boost');
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		name: "Reckless",
+		rating: 3,
+		num: 120,
+	},
+	refrigerate: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) && !(move.isZ && move.category !== 'Status')) {
+				move.type = 'Ice';
+				move.refrigerateBoosted = true;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.refrigerateBoosted) return this.chainModify([4915, 4096]);
+		},
+		name: "Refrigerate",
+		rating: 4,
+		num: 174,
+	},
+	regenerator: {
+		onSwitchOut(pokemon) {
+			pokemon.heal(pokemon.baseMaxhp / 3);
+		},
+		name: "Regenerator",
+		rating: 4.5,
+		num: 144,
+	},
+	ripen: {
+		onTryHeal(damage, target, source, effect) {
+			if (!effect) return;
+			if (effect.id === 'berryjuice' || effect.id === 'leftovers') {
+				this.add('-activate', target, 'ability: Ripen');
+			}
+			if ((effect ).isBerry) return this.chainModify(2);
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect && (effect ).isBerry) {
+				let b;
+				for (b in boost) {
+					boost[b] *= 2;
+				}
+			}
+		},
+		onSourceModifyDamagePriority: -1,
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.abilityState.berryWeaken) {
+				target.abilityState.berryWeaken = false;
+				return this.chainModify(0.5);
+			}
+		},
+		onTryEatItemPriority: -1,
+		onTryEatItem(item, pokemon) {
+			this.add('-activate', pokemon, 'ability: Ripen');
+		},
+		onEatItem(item, pokemon) {
+			const weakenBerries = [
+				'Babiri Berry', 'Charti Berry', 'Chilan Berry', 'Chople Berry', 'Coba Berry', 'Colbur Berry', 'Haban Berry', 'Kasib Berry', 'Kebia Berry', 'Occa Berry', 'Passho Berry', 'Payapa Berry', 'Rindo Berry', 'Roseli Berry', 'Shuca Berry', 'Tanga Berry', 'Wacan Berry', 'Yache Berry',
+			];
+			// Record if the pokemon ate a berry to resist the attack
+			pokemon.abilityState.berryWeaken = weakenBerries.includes(item.name);
+		},
+		name: "Ripen",
+		rating: 2,
+		num: 247,
+	},
+	rivalry: {
+		onBasePowerPriority: 24,
+		onBasePower(basePower, attacker, defender, move) {
+			if (attacker.gender && defender.gender) {
+				if (attacker.gender === defender.gender) {
+					this.debug('Rivalry boost');
+					return this.chainModify(1.25);
+				} else {
+					this.debug('Rivalry weaken');
+					return this.chainModify(0.75);
+				}
+			}
+		},
+		name: "Rivalry",
+		rating: 0,
+		num: 79,
+	},
+	rkssystem: {
+		// RKS System's type-changing itself is implemented in statuses.js
+		isPermanent: true,
+		name: "RKS System",
+		rating: 4,
+		num: 225,
+	},
+	rockhead: {
+		onDamage(damage, target, source, effect) {
+			if (effect.id === 'recoil') {
+				if (!this.activeMove) throw new Error("Battle.activeMove is null");
+				if (this.activeMove.id !== 'struggle') return null;
+			}
+		},
+		name: "Rock Head",
+		rating: 3,
+		num: 69,
+	},
+	roughskin: {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.damage(source.baseMaxhp / 8, source, target);
+			}
+		},
+		name: "Rough Skin",
+		rating: 2.5,
+		num: 24,
+	},
+	runaway: {
+		name: "Run Away",
+		rating: 0,
+		num: 50,
+	},
+	sandforce: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.field.isWeather('sandstorm')) {
+				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
+					this.debug('Sand Force boost');
+					return this.chainModify([5325, 4096]);
+				}
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Force",
+		rating: 2,
+		num: 159,
+	},
+	sandrush: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('sandstorm')) {
+				return this.chainModify(2);
+			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		name: "Sand Rush",
+		rating: 3,
+		num: 146,
+	},
+	sandspit: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.field.getWeather().id !== 'sandstorm') {
+				this.field.setWeather('sandstorm');
+			}
+		},
+		name: "Sand Spit",
+		rating: 2,
+		num: 245,
+	},
+	sandstream: {
+		onStart(source) {
+			this.field.setWeather('sandstorm');
+		},
+		name: "Sand Stream",
+		rating: 4,
+		num: 45,
+	},
+	sandveil: {
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('sandstorm')) {
+				this.debug('Sand Veil - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		isBreakable: true,
+		name: "Sand Veil",
+		rating: 1.5,
+		num: 8,
+	},
+	sapsipper: {
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Grass') {
+				if (!this.boost({atk: 1})) {
+					this.add('-immune', target, '[from] ability: Sap Sipper');
+				}
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (source === this.effectState.target || !target.isAlly(source)) return;
+			if (move.type === 'Grass') {
+				this.boost({atk: 1}, this.effectState.target);
+			}
+		},
+		isBreakable: true,
+		name: "Sap Sipper",
+		rating: 3,
+		num: 157,
+	},
+	schooling: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Wishiwashi' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'wishiwashi') {
+					pokemon.formeChange('Wishiwashi-School');
+				}
+			} else {
+				if (pokemon.species.id === 'wishiwashischool') {
+					pokemon.formeChange('Wishiwashi');
+				}
+			}
+		},
+		isPermanent: true,
+		name: "Schooling",
+		rating: 3,
+		num: 208,
+	},
+	scrappy: {
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Fighting'] = true;
+				move.ignoreImmunity['Normal'] = true;
+			}
+		},
+		onBoost(boost, target, source, effect) {
+			if (effect.id === 'intimidate') {
+				delete boost.atk;
+				this.add('-fail', target, 'unboost', 'Attack', '[from] ability: Scrappy', '[of] ' + target);
+			}
+		},
+		name: "Scrappy",
+		rating: 3,
+		num: 113,
+	},
+	screencleaner: {
+		onStart(pokemon) {
+			let activated = false;
+			for (const sideCondition of ['reflect', 'lightscreen', 'auroraveil']) {
+				for (const side of [pokemon.side, ...pokemon.side.foeSidesWithConditions()]) {
+					if (side.getSideCondition(sideCondition)) {
+						if (!activated) {
+							this.add('-activate', pokemon, 'ability: Screen Cleaner');
+							activated = true;
+						}
+						side.removeSideCondition(sideCondition);
+					}
+				}
+			}
+		},
+		name: "Screen Cleaner",
+		rating: 2,
+		num: 251,
+	},
+	serenegrace: {
+		onModifyMovePriority: -2,
+		onModifyMove(move) {
+			if (move.secondaries) {
+				this.debug('doubling secondary chance');
+				for (const secondary of move.secondaries) {
+					if (secondary.chance) secondary.chance *= 2;
+				}
+			}
+			if (_optionalChain([move, 'access', _18 => _18.self, 'optionalAccess', _19 => _19.chance])) move.self.chance *= 2;
+		},
+		name: "Serene Grace",
+		rating: 3.5,
+		num: 32,
+	},
+	shadowshield: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.hp >= target.maxhp) {
+				this.debug('Shadow Shield weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Shadow Shield",
+		rating: 3.5,
+		num: 231,
+	},
+	shadowtag: {
+		onFoeTrapPokemon(pokemon) {
+			if (!pokemon.hasAbility('shadowtag') && pokemon.isAdjacent(this.effectState.target)) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.hasAbility('shadowtag')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		name: "Shadow Tag",
+		rating: 5,
+		num: 23,
+	},
+	shedskin: {
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.hp && pokemon.status && this.randomChance(33, 100)) {
+				this.debug('shed skin');
+				this.add('-activate', pokemon, 'ability: Shed Skin');
+				pokemon.cureStatus();
+			}
+		},
+		name: "Shed Skin",
+		rating: 3,
+		num: 61,
+	},
+	sheerforce: {
+		onModifyMove(move, pokemon) {
+			if (move.secondaries) {
+				delete move.secondaries;
+				// Technically not a secondary effect, but it is negated
+				delete move.self;
+				if (move.id === 'clangoroussoulblaze') delete move.selfBoost;
+				// Actual negation of `AfterMoveSecondary` effects implemented in scripts.js
+				move.hasSheerForce = true;
+			}
+		},
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.hasSheerForce) return this.chainModify([5325, 4096]);
+		},
+		name: "Sheer Force",
+		rating: 3.5,
+		num: 125,
+	},
+	shellarmor: {
+		onCriticalHit: false,
+		isBreakable: true,
+		name: "Shell Armor",
+		rating: 1,
+		num: 75,
+	},
+	shielddust: {
+		onModifySecondaries(secondaries) {
+			this.debug('Shield Dust prevent secondary');
+			return secondaries.filter(effect => !!(effect.self || effect.dustproof));
+		},
+		isBreakable: true,
+		name: "Shield Dust",
+		rating: 2,
+		num: 19,
+	},
+	shieldsdown: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Minior' || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Minior' || pokemon.transformed || !pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 2) {
+				if (pokemon.species.forme !== 'Meteor') {
+					pokemon.formeChange('Minior-Meteor');
+				}
+			} else {
+				if (pokemon.species.forme === 'Meteor') {
+					pokemon.formeChange(pokemon.set.species);
+				}
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (target.species.id !== 'miniormeteor' || target.transformed) return;
+			if (_optionalChain([(effect ), 'optionalAccess', _20 => _20.status])) {
+				this.add('-immune', target, '[from] ability: Shields Down');
+			}
+			return false;
+		},
+		onTryAddVolatile(status, target) {
+			if (target.species.id !== 'miniormeteor' || target.transformed) return;
+			if (status.id !== 'yawn') return;
+			this.add('-immune', target, '[from] ability: Shields Down');
+			return null;
+		},
+		isPermanent: true,
+		name: "Shields Down",
+		rating: 3,
+		num: 197,
+	},
+	simple: {
+		onBoost(boost, target, source, effect) {
+			if (effect && effect.id === 'zpower') return;
+			let i;
+			for (i in boost) {
+				boost[i] *= 2;
+			}
+		},
+		isBreakable: true,
+		name: "Simple",
+		rating: 4,
+		num: 86,
+	},
+	skilllink: {
+		onModifyMove(move) {
+			if (move.multihit && Array.isArray(move.multihit) && move.multihit.length) {
+				move.multihit = move.multihit[1];
+			}
+			if (move.multiaccuracy) {
+				delete move.multiaccuracy;
+			}
+		},
+		name: "Skill Link",
+		rating: 3,
+		num: 92,
+	},
+	slowstart: {
+		onStart(pokemon) {
+			pokemon.addVolatile('slowstart');
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['slowstart'];
+			this.add('-end', pokemon, 'Slow Start', '[silent]');
+		},
+		condition: {
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 2,
+			onStart(target) {
+				this.add('-start', target, 'ability: Slow Start');
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onModifySpe(spe, pokemon) {
+				return this.chainModify(0.5);
+			},
+			onEnd(target) {
+				this.add('-end', target, 'Slow Start');
+			},
+		},
+		name: "Slow Start",
+		rating: -1,
+		num: 112,
+	},
+	slushrush: {
+		onModifySpe(spe, pokemon) {
+			if (this.field.isWeather('hail')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Slush Rush",
+		rating: 3,
+		num: 202,
+	},
+	sniper: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).crit) {
+				this.debug('Sniper boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Sniper",
+		rating: 2,
+		num: 97,
+	},
+	snowcloak: {
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy) {
+			if (typeof accuracy !== 'number') return;
+			if (this.field.isWeather('hail')) {
+				this.debug('Snow Cloak - decreasing accuracy');
+				return this.chainModify([3277, 4096]);
+			}
+		},
+		isBreakable: true,
+		name: "Snow Cloak",
+		rating: 1.5,
+		num: 81,
+	},
+	snowwarning: {
+		onStart(source) {
+			this.field.setWeather('hail');
+		},
+		name: "Snow Warning",
+		rating: 4,
+		num: 117,
+	},
+	solarpower: {
+		onModifySpAPriority: 5,
+		onModifySpA(spa, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(1.5);
+			}
+		},
+		onWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		name: "Solar Power",
+		rating: 2,
+		num: 94,
+	},
+	solidrock: {
+		onSourceModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod > 0) {
+				this.debug('Solid Rock neutralize');
+				return this.chainModify(0.75);
+			}
+		},
+		isBreakable: true,
+		name: "Solid Rock",
+		rating: 3,
+		num: 116,
+	},
+	soulheart: {
+		onAnyFaintPriority: 1,
+		onAnyFaint() {
+			this.boost({spa: 1}, this.effectState.target);
+		},
+		name: "Soul-Heart",
+		rating: 3.5,
+		num: 220,
+	},
+	soundproof: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['sound']) {
+				this.add('-immune', target, '[from] ability: Soundproof');
+				return null;
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.flags['sound']) {
+				this.add('-immune', this.effectState.target, '[from] ability: Soundproof');
+			}
+		},
+		isBreakable: true,
+		name: "Soundproof",
+		rating: 1.5,
+		num: 43,
+	},
+	speedboost: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 2,
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				this.boost({spe: 1});
+			}
+		},
+		name: "Speed Boost",
+		rating: 4.5,
+		num: 3,
+	},
+	stakeout: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender) {
+			if (!defender.activeTurns) {
+				this.debug('Stakeout boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Stakeout",
+		rating: 4.5,
+		num: 198,
+	},
+	stall: {
+		onFractionalPriority: -0.1,
+		name: "Stall",
+		rating: -1,
+		num: 100,
+	},
+	stalwart: {
+		onModifyMovePriority: 1,
+		onModifyMove(move) {
+			// most of the implementation is in Battle#getTarget
+			move.tracksTarget = move.target !== 'scripted';
+		},
+		name: "Stalwart",
+		rating: 0,
+		num: 242,
+	},
+	stamina: {
+		onDamagingHit(damage, target, source, effect) {
+			this.boost({def: 1});
+		},
+		name: "Stamina",
+		rating: 3.5,
+		num: 192,
+	},
+	stancechange: {
+		onModifyMovePriority: 1,
+		onModifyMove(move, attacker, defender) {
+			if (attacker.species.baseSpecies !== 'Aegislash' || attacker.transformed) return;
+			if (move.category === 'Status' && move.id !== 'kingsshield') return;
+			const targetForme = (move.id === 'kingsshield' ? 'Aegislash' : 'Aegislash-Blade');
+			if (attacker.species.name !== targetForme) attacker.formeChange(targetForme);
+		},
+		isPermanent: true,
+		name: "Stance Change",
+		rating: 4,
+		num: 176,
+	},
+	static: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target)) {
+				if (this.randomChance(3, 10)) {
+					source.trySetStatus('par', target);
+				}
+			}
+		},
+		name: "Static",
+		rating: 2,
+		num: 9,
+	},
+	steadfast: {
+		onFlinch(pokemon) {
+			this.boost({spe: 1});
+		},
+		name: "Steadfast",
+		rating: 1,
+		num: 80,
+	},
+	steamengine: {
+		onDamagingHit(damage, target, source, move) {
+			if (['Water', 'Fire'].includes(move.type)) {
+				this.boost({spe: 6});
+			}
+		},
+		name: "Steam Engine",
+		rating: 2,
+		num: 243,
+	},
+	steelworker: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Steelworker boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Steelworker",
+		rating: 3.5,
+		num: 200,
+	},
+	steelyspirit: {
+		onAllyBasePowerPriority: 22,
+		onAllyBasePower(basePower, attacker, defender, move) {
+			if (move.type === 'Steel') {
+				this.debug('Steely Spirit boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Steely Spirit",
+		rating: 3.5,
+		num: 252,
+	},
+	stench: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.category !== "Status") {
+				this.debug('Adding Stench flinch');
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 10,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		name: "Stench",
+		rating: 0.5,
+		num: 1,
+	},
+	stickyhold: {
+		onTakeItem(item, pokemon, source) {
+			if (!this.activeMove) throw new Error("Battle.activeMove is null");
+			if (!pokemon.hp || pokemon.item === 'stickybarb') return;
+			if ((source && source !== pokemon) || this.activeMove.id === 'knockoff') {
+				this.add('-activate', pokemon, 'ability: Sticky Hold');
+				return false;
+			}
+		},
+		isBreakable: true,
+		name: "Sticky Hold",
+		rating: 2,
+		num: 60,
+	},
+	stormdrain: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spa: 1})) {
+					this.add('-immune', target, '[from] ability: Storm Drain');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.type !== 'Water' || ['firepledge', 'grasspledge', 'waterpledge'].includes(move.id)) return;
+			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+				if (move.smartTarget) move.smartTarget = false;
+				if (this.effectState.target !== target) {
+					this.add('-activate', this.effectState.target, 'ability: Storm Drain');
+				}
+				return this.effectState.target;
+			}
+		},
+		isBreakable: true,
+		name: "Storm Drain",
+		rating: 3,
+		num: 114,
+	},
+	strongjaw: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['bite']) {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Strong Jaw",
+		rating: 3,
+		num: 173,
+	},
+	sturdy: {
+		onTryHit(pokemon, target, move) {
+			if (move.ohko) {
+				this.add('-immune', pokemon, '[from] ability: Sturdy');
+				return null;
+			}
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				this.add('-ability', target, 'Sturdy');
+				return target.hp - 1;
+			}
+		},
+		isBreakable: true,
+		name: "Sturdy",
+		rating: 3,
+		num: 5,
+	},
+	suctioncups: {
+		onDragOutPriority: 1,
+		onDragOut(pokemon) {
+			this.add('-activate', pokemon, 'ability: Suction Cups');
+			return null;
+		},
+		isBreakable: true,
+		name: "Suction Cups",
+		rating: 1,
+		num: 21,
+	},
+	superluck: {
+		onModifyCritRatio(critRatio) {
+			return critRatio + 1;
+		},
+		name: "Super Luck",
+		rating: 1.5,
+		num: 105,
+	},
+	surgesurfer: {
+		onModifySpe(spe) {
+			if (this.field.isTerrain('electricterrain')) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Surge Surfer",
+		rating: 3,
+		num: 207,
+	},
+	swarm: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Swarm boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Swarm boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Swarm",
+		rating: 2,
+		num: 68,
+	},
+	sweetveil: {
+		name: "Sweet Veil",
+		onAllySetStatus(status, target, source, effect) {
+			if (status.id === 'slp') {
+				this.debug('Sweet Veil interrupts sleep');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Sweet Veil', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		onAllyTryAddVolatile(status, target) {
+			if (status.id === 'yawn') {
+				this.debug('Sweet Veil blocking yawn');
+				const effectHolder = this.effectState.target;
+				this.add('-block', target, 'ability: Sweet Veil', '[of] ' + effectHolder);
+				return null;
+			}
+		},
+		isBreakable: true,
+		rating: 2,
+		num: 175,
+	},
+	swiftswim: {
+		onModifySpe(spe, pokemon) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		name: "Swift Swim",
+		rating: 3,
+		num: 33,
+	},
+	symbiosis: {
+		onAllyAfterUseItem(item, pokemon) {
+			if (pokemon.switchFlag) return;
+			const source = this.effectState.target;
+			const myItem = source.takeItem();
+			if (!myItem) return;
+			if (
+				!this.singleEvent('TakeItem', myItem, source.itemState, pokemon, source, this.effect, myItem) ||
+				!pokemon.setItem(myItem)
+			) {
+				source.item = myItem.id;
+				return;
+			}
+			this.add('-activate', source, 'ability: Symbiosis', myItem, '[of] ' + pokemon);
+		},
+		name: "Symbiosis",
+		rating: 0,
+		num: 180,
+	},
+	synchronize: {
+		onAfterSetStatus(status, target, source, effect) {
+			if (!source || source === target) return;
+			if (effect && effect.id === 'toxicspikes') return;
+			if (status.id === 'slp' || status.id === 'frz') return;
+			this.add('-activate', target, 'ability: Synchronize');
+			// Hack to make status-prevention abilities think Synchronize is a status move
+			// and show messages when activating against it.
+			source.trySetStatus(status, target, {status: status.id, id: 'synchronize'} );
+		},
+		name: "Synchronize",
+		rating: 2,
+		num: 28,
+	},
+	tangledfeet: {
+		onModifyAccuracyPriority: -1,
+		onModifyAccuracy(accuracy, target) {
+			if (typeof accuracy !== 'number') return;
+			if (_optionalChain([target, 'optionalAccess', _21 => _21.volatiles, 'access', _22 => _22['confusion']])) {
+				this.debug('Tangled Feet - decreasing accuracy');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Tangled Feet",
+		rating: 1,
+		num: 77,
+	},
+	tanglinghair: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.checkMoveMakesContact(move, source, target, true)) {
+				this.add('-ability', target, 'Tangling Hair');
+				this.boost({spe: -1}, source, target, null, true);
+			}
+		},
+		name: "Tangling Hair",
+		rating: 2,
+		num: 221,
+	},
+	technician: {
+		onBasePowerPriority: 30,
+		onBasePower(basePower, attacker, defender, move) {
+			const basePowerAfterMultiplier = this.modify(basePower, this.event.modifier);
+			this.debug('Base Power: ' + basePowerAfterMultiplier);
+			if (basePowerAfterMultiplier <= 60) {
+				this.debug('Technician boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Technician",
+		rating: 3.5,
+		num: 101,
+	},
+	telepathy: {
+		onTryHit(target, source, move) {
+			if (target !== source && target.isAlly(source) && move.category !== 'Status') {
+				this.add('-activate', target, 'ability: Telepathy');
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Telepathy",
+		rating: 0,
+		num: 140,
+	},
+	teravolt: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Teravolt');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		name: "Teravolt",
+		rating: 3.5,
+		num: 164,
+	},
+	thickfat: {
+		onSourceModifyAtkPriority: 6,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Ice' || move.type === 'Fire') {
+				this.debug('Thick Fat weaken');
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Thick Fat",
+		rating: 3.5,
+		num: 47,
+	},
+	tintedlens: {
+		onModifyDamage(damage, source, target, move) {
+			if (target.getMoveHitData(move).typeMod < 0) {
+				this.debug('Tinted Lens boost');
+				return this.chainModify(2);
+			}
+		},
+		name: "Tinted Lens",
+		rating: 4,
+		num: 110,
+	},
+	torrent: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Torrent boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water' && attacker.hp <= attacker.maxhp / 3) {
+				this.debug('Torrent boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Torrent",
+		rating: 2,
+		num: 67,
+	},
+	toughclaws: {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['contact']) {
+				return this.chainModify([5325, 4096]);
+			}
+		},
+		name: "Tough Claws",
+		rating: 3.5,
+		num: 181,
+	},
+	toxicboost: {
+		onBasePowerPriority: 19,
+		onBasePower(basePower, attacker, defender, move) {
+			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Toxic Boost",
+		rating: 2.5,
+		num: 137,
+	},
+	trace: {
+		onStart(pokemon) {
+			// n.b. only affects Hackmons
+			// interaction with No Ability is complicated: https://www.smogon.com/forums/threads/pokemon-sun-moon-battle-mechanics-research.3586701/page-76#post-7790209
+			if (pokemon.adjacentFoes().some(foeActive => foeActive.ability === 'noability')) {
+				this.effectState.gaveUp = true;
+			}
+		},
+		onUpdate(pokemon) {
+			if (!pokemon.isStarted || this.effectState.gaveUp) return;
+
+			const additionalBannedAbilities = [
+				// Zen Mode included here for compatability with Gen 5-6
+				'noability', 'flowergift', 'forecast', 'hungerswitch', 'illusion', 'imposter', 'neutralizinggas', 'powerofalchemy', 'receiver', 'trace', 'zenmode',
+			];
+			const possibleTargets = pokemon.adjacentFoes().filter(target => (
+				!target.getAbility().isPermanent && !additionalBannedAbilities.includes(target.ability)
+			));
+			if (!possibleTargets.length) return;
+
+			const target = this.sample(possibleTargets);
+			const ability = target.getAbility();
+			this.add('-ability', pokemon, ability, '[from] ability: Trace', '[of] ' + target);
+			pokemon.setAbility(ability);
+		},
+		name: "Trace",
+		rating: 2.5,
+		num: 36,
+	},
+	transistor: {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Electric') {
+				this.debug('Transistor boost');
+				return this.chainModify(1.5);
+			}
+		},
+		name: "Transistor",
+		rating: 3.5,
+		num: 262,
+	},
+	triage: {
+		onModifyPriority(priority, pokemon, target, move) {
+			if (_optionalChain([move, 'optionalAccess', _23 => _23.flags, 'access', _24 => _24['heal']])) return priority + 3;
+		},
+		name: "Triage",
+		rating: 3.5,
+		num: 205,
+	},
+	truant: {
+		onStart(pokemon) {
+			pokemon.removeVolatile('truant');
+			if (pokemon.activeTurns && (pokemon.moveThisTurnResult !== undefined || !this.queue.willMove(pokemon))) {
+				pokemon.addVolatile('truant');
+			}
+		},
+		onBeforeMovePriority: 9,
+		onBeforeMove(pokemon) {
+			if (pokemon.removeVolatile('truant')) {
+				this.add('cant', pokemon, 'ability: Truant');
+				return false;
+			}
+			pokemon.addVolatile('truant');
+		},
+		condition: {},
+		name: "Truant",
+		rating: -1,
+		num: 54,
+	},
+	turboblaze: {
+		onStart(pokemon) {
+			this.add('-ability', pokemon, 'Turboblaze');
+		},
+		onModifyMove(move) {
+			move.ignoreAbility = true;
+		},
+		name: "Turboblaze",
+		rating: 3.5,
+		num: 163,
+	},
+	unaware: {
+		name: "Unaware",
+		onAnyModifyBoost(boosts, pokemon) {
+			const unawareUser = this.effectState.target;
+			if (unawareUser === pokemon) return;
+			if (unawareUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
+				boosts['evasion'] = 0;
+			}
+			if (pokemon === this.activePokemon && unawareUser === this.activeTarget) {
+				boosts['atk'] = 0;
+				boosts['def'] = 0;
+				boosts['spa'] = 0;
+				boosts['accuracy'] = 0;
+			}
+		},
+		isBreakable: true,
+		rating: 4,
+		num: 109,
+	},
+	unburden: {
+		onAfterUseItem(item, pokemon) {
+			if (pokemon !== this.effectState.target) return;
+			pokemon.addVolatile('unburden');
+		},
+		onTakeItem(item, pokemon) {
+			pokemon.addVolatile('unburden');
+		},
+		onEnd(pokemon) {
+			pokemon.removeVolatile('unburden');
+		},
+		condition: {
+			onModifySpe(spe, pokemon) {
+				if (!pokemon.item && !pokemon.ignoringAbility()) {
+					return this.chainModify(2);
+				}
+			},
+		},
+		name: "Unburden",
+		rating: 3.5,
+		num: 84,
+	},
+	unnerve: {
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onStart(pokemon) {
+			if (this.effectState.unnerved) return;
+			this.add('-ability', pokemon, 'Unnerve');
+			this.effectState.unnerved = true;
+		},
+		onEnd() {
+			this.effectState.unnerved = false;
+		},
+		onFoeTryEatItem() {
+			return !this.effectState.unnerved;
+		},
+		name: "Unnerve",
+		rating: 1.5,
+		num: 127,
+	},
+	unseenfist: {
+		onModifyMove(move) {
+			if (move.flags['contact']) delete move.flags['protect'];
+		},
+		name: "Unseen Fist",
+		rating: 2,
+		num: 260,
+	},
+	victorystar: {
+		onAnyModifyAccuracyPriority: -1,
+		onAnyModifyAccuracy(accuracy, target, source) {
+			if (source.isAlly(this.effectState.target) && typeof accuracy === 'number') {
+				return this.chainModify([4506, 4096]);
+			}
+		},
+		name: "Victory Star",
+		rating: 2,
+		num: 162,
+	},
+	vitalspirit: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'slp') {
+				this.add('-activate', pokemon, 'ability: Vital Spirit');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'slp') return;
+			if (_optionalChain([(effect ), 'optionalAccess', _25 => _25.status])) {
+				this.add('-immune', target, '[from] ability: Vital Spirit');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Vital Spirit",
+		rating: 2,
+		num: 72,
+	},
+	voltabsorb: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Volt Absorb');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Volt Absorb",
+		rating: 3.5,
+		num: 10,
+	},
+	wanderingspirit: {
+		onDamagingHit(damage, target, source, move) {
+			const additionalBannedAbilities = ['hungerswitch', 'illusion', 'neutralizinggas', 'wonderguard'];
+			if (source.getAbility().isPermanent || additionalBannedAbilities.includes(source.ability) ||
+				target.volatiles['dynamax']
+			) {
+				return;
+			}
+
+			if (this.checkMoveMakesContact(move, source, target)) {
+				const sourceAbility = source.setAbility('wanderingspirit', target);
+				if (!sourceAbility) return;
+				if (target.isAlly(source)) {
+					this.add('-activate', target, 'Skill Swap', '', '', '[of] ' + source);
+				} else {
+					this.add('-activate', target, 'ability: Wandering Spirit', this.dex.abilities.get(sourceAbility).name, 'Wandering Spirit', '[of] ' + source);
+				}
+				target.setAbility(sourceAbility);
+			}
+		},
+		name: "Wandering Spirit",
+		rating: 2.5,
+		num: 254,
+	},
+	waterabsorb: {
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.heal(target.baseMaxhp / 4)) {
+					this.add('-immune', target, '[from] ability: Water Absorb');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Water Absorb",
+		rating: 3.5,
+		num: 11,
+	},
+	waterbubble: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Fire') {
+				return this.chainModify(0.5);
+			}
+		},
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(2);
+			}
+		},
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Bubble');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if (_optionalChain([(effect ), 'optionalAccess', _26 => _26.status])) {
+				this.add('-immune', target, '[from] ability: Water Bubble');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Water Bubble",
+		rating: 4.5,
+		num: 199,
+	},
+	watercompaction: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.type === 'Water') {
+				this.boost({def: 2});
+			}
+		},
+		name: "Water Compaction",
+		rating: 1.5,
+		num: 195,
+	},
+	waterveil: {
+		onUpdate(pokemon) {
+			if (pokemon.status === 'brn') {
+				this.add('-activate', pokemon, 'ability: Water Veil');
+				pokemon.cureStatus();
+			}
+		},
+		onSetStatus(status, target, source, effect) {
+			if (status.id !== 'brn') return;
+			if (_optionalChain([(effect ), 'optionalAccess', _27 => _27.status])) {
+				this.add('-immune', target, '[from] ability: Water Veil');
+			}
+			return false;
+		},
+		isBreakable: true,
+		name: "Water Veil",
+		rating: 2,
+		num: 41,
+	},
+	weakarmor: {
+		onDamagingHit(damage, target, source, move) {
+			if (move.category === 'Physical') {
+				this.boost({def: -1, spe: 2}, target, target);
+			}
+		},
+		name: "Weak Armor",
+		rating: 1,
+		num: 133,
+	},
+	whitesmoke: {
+		onBoost(boost, target, source, effect) {
+			if (source && target === source) return;
+			let showMsg = false;
+			let i;
+			for (i in boost) {
+				if (boost[i] < 0) {
+					delete boost[i];
+					showMsg = true;
+				}
+			}
+			if (showMsg && !(effect ).secondaries && effect.id !== 'octolock') {
+				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
+			}
+		},
+		isBreakable: true,
+		name: "White Smoke",
+		rating: 2,
+		num: 73,
+	},
+	wimpout: {
+		onEmergencyExit(target) {
+			if (!this.canSwitch(target.side) || target.forceSwitchFlag || target.switchFlag) return;
+			for (const side of this.sides) {
+				for (const active of side.active) {
+					active.switchFlag = false;
+				}
+			}
+			target.switchFlag = true;
+			this.add('-activate', target, 'ability: Wimp Out');
+		},
+		name: "Wimp Out",
+		rating: 1,
+		num: 193,
+	},
+	wonderguard: {
+		onTryHit(target, source, move) {
+			if (target === source || move.category === 'Status' || move.type === '???' || move.id === 'struggle') return;
+			if (move.id === 'skydrop' && !source.volatiles['skydrop']) return;
+			this.debug('Wonder Guard immunity: ' + move.id);
+			if (target.runEffectiveness(move) <= 0) {
+				if (move.smartTarget) {
+					move.smartTarget = false;
+				} else {
+					this.add('-immune', target, '[from] ability: Wonder Guard');
+				}
+				return null;
+			}
+		},
+		isBreakable: true,
+		name: "Wonder Guard",
+		rating: 5,
+		num: 25,
+	},
+	wonderskin: {
+		onModifyAccuracyPriority: 10,
+		onModifyAccuracy(accuracy, target, source, move) {
+			if (move.category === 'Status' && typeof accuracy === 'number') {
+				this.debug('Wonder Skin - setting accuracy to 50');
+				return 50;
+			}
+		},
+		isBreakable: true,
+		name: "Wonder Skin",
+		rating: 2,
+		num: 147,
+	},
+	zenmode: {
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Darmanitan' || pokemon.transformed) {
+				return;
+			}
+			if (pokemon.hp <= pokemon.maxhp / 2 && !['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode');
+			} else if (pokemon.hp > pokemon.maxhp / 2 && ['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+				pokemon.addVolatile('zenmode'); // in case of base Darmanitan-Zen
+				pokemon.removeVolatile('zenmode');
+			}
+		},
+		onEnd(pokemon) {
+			if (!pokemon.volatiles['zenmode'] || !pokemon.hp) return;
+			pokemon.transformed = false;
+			delete pokemon.volatiles['zenmode'];
+			if (pokemon.species.baseSpecies === 'Darmanitan' && pokemon.species.battleOnly) {
+				pokemon.formeChange(pokemon.species.battleOnly , this.effect, false, '[silent]');
+			}
+		},
+		condition: {
+			onStart(pokemon) {
+				if (!pokemon.species.name.includes('Galar')) {
+					if (pokemon.species.id !== 'darmanitanzen') pokemon.formeChange('Darmanitan-Zen');
+				} else {
+					if (pokemon.species.id !== 'darmanitangalarzen') pokemon.formeChange('Darmanitan-Galar-Zen');
+				}
+			},
+			onEnd(pokemon) {
+				if (['Zen', 'Galar-Zen'].includes(pokemon.species.forme)) {
+					pokemon.formeChange(pokemon.species.battleOnly );
+				}
+			},
+		},
+		isPermanent: true,
+		name: "Zen Mode",
+		rating: 0,
+		num: 161,
+	},
+
+	// CAP
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isNonstandard: "CAP",
+		isBreakable: true,
+		name: "Mountaineer",
+		rating: 3,
+		num: -2,
+	},
+	rebound: {
+		isNonstandard: "CAP",
+		name: "Rebound",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		isBreakable: true,
+		rating: 3,
+		num: -3,
+	},
+	persistent: {
+		isNonstandard: "CAP",
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: -4,
+	},
+};
