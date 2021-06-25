@@ -222,6 +222,7 @@ module.exports = {
 		poke.active = false;
 		poke.passing = false;
 		poke.hp = 0;
+		this.makeDecision();
 		if (!isIntro) this.message("faint", det.side, poke.name);
 	},
 
