@@ -1,7 +1,7 @@
 'use strict';
 const mode = "bid";
-const initialMoney = 60000; //Money each team should start with
-const minPlayers = 7; //Forces managers to buy a certain amount of players. To disable, set this to 1
+const initialMoney = 140000; //Money each team should start with
+const minPlayers = 16; //Forces managers to buy a certain amount of players. To disable, set this to 1
 const defaultTeams = { //If you want teams set automatically, they can be placed here
     /*
         "Eastern Ruiners":"no41st",
@@ -29,16 +29,26 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "SLOPPY DREEPY": ["will it rain", "fyfyk"],
         "DANCING KYUREM": ["Neveal", "old_zhiming"],
     */
+    /*
         "Made in Heaven": ["Metallica126"],
         "Hammerlocke Spartacus": ["drogba in shenhua"],
         "Never Be Go": ["compection"],
         "Pirouette Meloetta": ["DYWY"],
+    */
+    "SLATEPORT TORPEDO": ["DYWY"],
+    "SINJOH'S EXPLORER": ["dragonitenb", "Separation"],
+    "NIMBASA ROMANCE": ["kitoothe", "gggguang"],
+    "HIGAN NO HANABATAKE": ["lzaaaaa", "youke"],
+    "MT.SILVER LEGEND": ["Unowndragon"],
+    "HAMMERLOCKE SPARTACUS": ["Drogba in Shenhua", "nobeta"],
 };
 const CNNames = {
-    "Never Be Go": "羁绊永存",
-    "Made in Heaven": "天堂制造",
-    "Pirouette Meloetta": "旋转的歌姬",
-    "Hammerlocke Spartacus": "拳关斯巴达克",
+    "HAMMERLOCKE SPARTACUS": "拳关斯巴达克",
+    "NIMBASA ROMANCE": "雷文摩天轮",
+    "MT.SILVER LEGEND": "白银传说",
+    "SLATEPORT TORPEDO": "凯那鱼雷",
+    "SINJOH'S EXPLORER": "神都探险者",
+    "HIGAN NO HANABATAKE": "彼岸花海"
 }
 
 
@@ -283,9 +293,10 @@ class Draft {
             let tier = tiers[tierIdx].trim();
             if (tier === '') continue;
             let propertyId = toId(tier).replace('gen', 'g')
+            if (propertyId === 'ub') propertyId = 'g8ub';
             if (propertyId === 'vgc') propertyId = 'vgc2021';
-            if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
-            if (propertyId.length === 2 && propertyId[1] === 'u') propertyId = 'g8' + propertyId;
+            else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
+            else if (propertyId.length === 2 && propertyId[1] === 'u') propertyId = 'g8' + propertyId;
             let property = this.properties[propertyId];        
             if (!property) {
                 Bot.say(this.room, tier + '分级未找到。Tier not found.');
