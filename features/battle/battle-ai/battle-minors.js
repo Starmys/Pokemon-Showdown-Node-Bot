@@ -271,7 +271,7 @@ module.exports = {
 		var poke = this.getActive(args[1]);
 		var move = args[2];
 		var target = this.parsePokemonIdent(args[3]);
-		poke.prepareMove(move, target.slot);
+		if (target.slot) poke.prepareMove(move, target.slot);
 	},
 
 	"-status": function (args, kwargs, isIntro) {

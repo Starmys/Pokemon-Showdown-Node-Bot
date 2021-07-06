@@ -179,6 +179,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.makeDecision = function (forced) {
+		return;
 		if (!this.self) return; // Not playing
 		debug(this.id + "->MakeDecision");
 		if (!forced && this.lastSend.rqid >= 0 && this.lastSend.rqid === this.rqid) {
