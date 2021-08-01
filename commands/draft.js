@@ -45,7 +45,7 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
     */
    "SPARTACUS BUND": ["Drogba in Shenhua", "Allen-Xia"],
    "FANTASTY WINGS": ["Slow_Dream", "Dare to Love XKH"],
-   "LEAGUE OF SHADOW": ["vusty fans"],
+   "LEAGUE OF SHADOW": ["vusty fans", "chickwayne"],
    "ICY-WOLF PEAK": ["Nyarlathotepwolf", "XPSH"],
 };
 const CNNames = {
