@@ -1,7 +1,7 @@
 'use strict';
 const mode = "bid";
-const initialMoney = 60000; //Money each team should start with
-const minPlayers = 7; //Forces managers to buy a certain amount of players. To disable, set this to 1
+const initialMoney = 100000; //Money each team should start with
+const minPlayers = 12; //Forces managers to buy a certain amount of players. To disable, set this to 1
 const defaultTeams = { //If you want teams set automatically, they can be placed here
     /*
         "Eastern Ruiners":"no41st",
@@ -29,16 +29,30 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "SLOPPY DREEPY": ["will it rain", "fyfyk"],
         "DANCING KYUREM": ["Neveal", "old_zhiming"],
     */
+    /*
         "Made in Heaven": ["Metallica126"],
         "Hammerlocke Spartacus": ["drogba in shenhua"],
         "Never Be Go": ["compection"],
         "Pirouette Meloetta": ["DYWY"],
+    */
+    /*
+    "SLATEPORT TORPEDO": ["DYWY"],
+    "SINJOH'S EXPLORER": ["dragonitenb", "Separation"],
+    "NIMBASA ROMANCE": ["kitoothe", "gggguang"],
+    "HIGAN NO HANABATAKE": ["lzaaaaa", "youke"],
+    "MT.SILVER LEGEND": ["Unowndragon"],
+    "HAMMERLOCKE SPARTACUS": ["Drogba in Shenhua", "nobeta"],
+    */
+   "SPARTACUS BUND": ["Drogba in Shenhua", "Allen-Xia"],
+   "FANTASTY WINGS": ["Slow_Dream", "Dare to Love XKH"],
+   "LEAGUE OF SHADOW": ["vusty fans", "chickwayne"],
+   "ICY-WOLF PEAK": ["Nyarlathotepwolf", "XPSH"],
 };
 const CNNames = {
-    "Never Be Go": "羁绊永存",
-    "Made in Heaven": "天堂制造",
-    "Pirouette Meloetta": "旋转的歌姬",
-    "Hammerlocke Spartacus": "拳关斯巴达克",
+    "FANTASTY WINGS": "幻想之翼",
+    "LEAGUE OF SHADOW": "影子联盟",
+    "ICY-WOLF PEAK": "雪狼山峰",
+    "SPARTACUS BUND": "斯巴达克B",
 }
 
 
@@ -57,17 +71,17 @@ class Draft {
         this.state = "prep";
         this.managers = {};
         this.activeTeams = [];
-        
+
         this.nomination = null;
         this.currDirr = 1;
         this.nominee = null;
         this.bid = null;
         this.topBidder = null;
         this.timer = null;
-        
+
         this.draftlog = [];
     }
-    
+
     addTeam (name, leaders) {
         let teamId = toId(name);
         let bidders = {};
@@ -85,7 +99,7 @@ class Draft {
         this.activeTeams.push(teamId);
         this.save();
     }
-    
+
     loadPlayers (url) {
         Tools.httpGet(url, data => {
             if (!data) return Bot.say(this.room, '无法读入选手列表。Could not load data.');
@@ -107,7 +121,7 @@ class Draft {
             Bot.say(this.room, '选手列表已录入。Playerlist succesfully loaded.');
         });
     }
-    
+
     start () {
         this.state = "nominate";
         this.showAll(true);
@@ -116,7 +130,7 @@ class Draft {
         Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
                            ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
     }
-    
+
     nextNominate (force) {//Force - force nomination to go to a NEW team (instead of repeating, like in snake)
         let teams = this.activeTeams;
         let teamIndex = teams.indexOf(this.nomination) + this.currDirr;
@@ -130,7 +144,7 @@ class Draft {
         Bot.say(this.room, CNNames[nextTeam.name] + '请提名选手。' + nextTeam.name + 
                            ' are up to nominate. Bidders: ' + Object.values(nextTeam.bidders).join(', '));
     }
-    
+
     runNominate (user, target) {
         if (!this.managers[user] || this.nomination !== this.managers[user]) return false;
         let targetId = toId(target);
@@ -154,7 +168,7 @@ class Draft {
         }
         this.runBid(user, 3000);
     }
-    
+
     showAll (manual) {
         // let reiterations = 0;
         // let teamList = Object.keys(this.teams)
@@ -185,7 +199,7 @@ class Draft {
         Bot.say(this.room, htmlbox);
         if (!manual) this.nextNominate();
     }
-    
+
     runBid (user, amount) {
         if (!this.managers[user]) return false;
         if (isNaN(amount)) return false;
@@ -225,7 +239,7 @@ class Draft {
             }, mode == "bid" ? 5000 : 0); /* second left in 1k*/
         }, mode == "bid" ? 15000 : 0);
     }
-    
+
     withdraw (user) {
         let team = this.managers[user];
         if (!team) return false;
@@ -235,7 +249,7 @@ class Draft {
         if (this.activeTeams.length < 1) return this.end();
         if (this.nomination === team) this.nextNominate(true);
     }
-    
+
     constructLog () {
         let buffer = 'Draft Summary: \n';
         for (let i = 0; i < this.draftlog.length; i++) {
@@ -252,11 +266,11 @@ class Draft {
         }
         return buffer;
     }
-    
+
     save () {
         fs.writeFileSync('./data/draft.json', JSON.stringify(drafts));
     }
-    
+
     end () {
         let buffer = '';
         for (let i in this.teams) {
@@ -283,10 +297,12 @@ class Draft {
             let tier = tiers[tierIdx].trim();
             if (tier === '') continue;
             let propertyId = toId(tier).replace('gen', 'g')
+            if (propertyId === 'ub') propertyId = 'g8ub';
             if (propertyId === 'vgc') propertyId = 'vgc2021';
-            if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
-            if (propertyId.length === 2 && propertyId[1] === 'u') propertyId = 'g8' + propertyId;
-            let property = this.properties[propertyId];        
+            else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + 'ou';
+            else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
+            else if (propertyId.length === 2 && propertyId[1] === 'u') propertyId = 'g8' + propertyId;
+            let property = this.properties[propertyId];
             if (!property) {
                 Bot.say(this.room, tier + '分级未找到。Tier not found.');
                 return false;
@@ -323,7 +339,7 @@ exports.commands = {
                 delete drafts[room];
                 this.reply('已重置。Draft information erased for this room.');
                 break;
-                
+
             case 'init' : 
                 if (drafts[room]) return this.reply('请先终止当前的选人活动。There is currently a draft in progress in this room.');
                 drafts[room] = new Draft(room);
@@ -333,7 +349,7 @@ exports.commands = {
                 }
                 if (~Object.keys(drafts[room].teams)) this.reply('队长数据已录入。Default data loaded.');
                 break;
-            
+
             case 'addteam' :
                 if (!drafts[room] || drafts[room].state !== 'prep') return this.reply('未初始化。There is no draft in configuration in this room.');
                 let args = parts.slice(1).join(' ').split(',');
@@ -341,39 +357,39 @@ exports.commands = {
                 drafts[room].addTeam(args[0], args.slice(1));
                 this.reply('The team ' + args[0] + ' was added.');
                 break;
-           
+   
             case 'load' :
             case 'loadplayers' :
                 if (!drafts[room] || drafts[room].state !== 'prep') return this.reply('未初始化。There is no draft in configuration in this room.');
                 if (!parts[1]) return this.reply('Usage: /draft load <url>');
                 drafts[room].loadPlayers(parts[1]);
                 break;
-                
+
             case 'start' :
                 if (!drafts[room] || drafts[room].state !== 'prep') return this.reply('未初始化。There is no draft in configuration in this room.');
                 if (Object.keys(drafts[room].teams).length < 2) return this.reply('选手数据未录入。You cannot start a draft with less than two teams.');
                 if (!Object.keys(drafts[room].players).length > 0) return this.reply('选手数据未录入。You cannot do this without loading player data.');
                 drafts[room].start();
                 break;
-                
+
             case 'skip' :
                 if (!drafts[room] || drafts[room].state === 'prep') return false;
                 if (this.timer) clearTimeout(this.timer);
                 drafts[room].nextNominate();
                 break;
-                
+
             case 'pause' :
                 if (!drafts[room] || drafts[room].state !== 'nominate') return false;
                 drafts[room].state = 'pause';
                 this.reply('已暂停。The draft was paused');
                 break;
-                
+
             case 'resume' :
                 if (!drafts[room] || drafts[room].state !== 'pause') return false;
                 drafts[room].state = 'nominate';
                 this.reply('已恢复。The draft was resumed!');
                 break;
-                
+
             case 'addbidder' :
                 if (!drafts[room]) return false;
                 let subargs = parts.slice(1).join(' ').split(',');
@@ -384,7 +400,7 @@ exports.commands = {
                 drafts[room].managers[toId(subargs[1])] = teamId;
                 this.reply(subargs[1] + ' was added as a bidder for ' + subargs[0] + '.');
                 break;
-                
+
             case 'removebidder' :
                 if (!drafts[room]) return false;
                 let subparts = parts.slice(1).join(' ').split(',');
@@ -397,12 +413,12 @@ exports.commands = {
                 delete drafts[room].managers[userId];
                 this.reply(subparts[1] + ' was removed from bidding for ' + subparts[0] + '.');
                 break;
-                
+
             case 'end' :
                 if (!drafts[room]) return this.reply('There is no draft in this room.');
                 drafts[room].end();
                 break;
-                
+
             /*case 'override': //YES THIS CODE IS MESSY
                 if (!drafts[room] || drafts[room].state === 'prep') return false;
                 if (!parts[2]) return this.reply('You are not using this command correctly. Type .draft help for help.');
@@ -459,41 +475,42 @@ exports.commands = {
                         break;
                     }
                 break;*/
-            
+
             case 'showall' :
             case 'display' :
                 if (!drafts[room]) return false;
                 drafts[room].showAll(true);
                 break;
-                
+
             case 'help' :
             default :
                 return this.reply('Help: http://pastebin.com/rX91iTnu');
         }
     },
-    
+
     b: 'bid',
     bid: function (arg, by, room) {
         if (!drafts[room] || drafts[room].state !== "start" || !drafts[room].nominee) return false;
         drafts[room].runBid(toId(by), arg);
     },
-    
+
     nom: 'nominate',
     nominate: function (arg, by, room) {
         if (!drafts[room] || drafts[room].state !== "nominate") return false;
         drafts[room].runNominate(toId(by), arg);
     },
-    
+
     withdraw: function (arg, by, room) {
         if (!drafts[room] || (drafts[room].state !== "start" && drafts[room].state !== "nominate")) return false;
         drafts[room].withdraw(toId(by));
     },
-    
+
     /*overpay: function (arg, by, room) {
         if (!drafts[room]) return this.reply('未初始化。There is no draft in configuration in this room.');;
         this.reply('/wall OVERPAY');
     },*/
 
+    s: 'search',
     search: function (arg, by, room) {
         if (!drafts[room]) return this.reply('未初始化。There is no draft in configuration in this room.');;
         drafts[room].search(arg);

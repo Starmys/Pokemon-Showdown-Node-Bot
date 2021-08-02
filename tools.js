@@ -5,7 +5,7 @@
 /* String utils */
 
 global.toId = exports.toId = function (text) {
-	return text.toLowerCase().replace(/[^a-z0-9]/g, '');
+	return text ? text.toLowerCase().replace(/[^a-z0-9]/g, '') : '';
 };
 
 global.toRoomid = exports.toRoomid = function (roomid) {

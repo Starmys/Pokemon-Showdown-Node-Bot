@@ -179,6 +179,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.makeDecision = function (forced) {
+		return;
 		if (!this.self) return; // Not playing
 		debug(this.id + "->MakeDecision");
 		if (!forced && this.lastSend.rqid >= 0 && this.lastSend.rqid === this.rqid) {
@@ -237,6 +238,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.run = function (str, isIntro) {
+		return;
 		if (!str) return;
 		if (str.charAt(0) !== '|' || str.substr(0, 2) === '||') {
 			return;
@@ -261,6 +263,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.runMinor = function (args, kwargs, isIntro) {
+		return;
 		if (args) {
 			if (args[2] === 'Sturdy' && args[0] === '-activate') args[2] = 'ability: Sturdy';
 		}
@@ -286,6 +289,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.runMajor = function (args, kwargs, isIntro) {
+		return;
 		if (majors[args[0]]) {
 			var major = majors[args[0]];
 			var r = 0;
