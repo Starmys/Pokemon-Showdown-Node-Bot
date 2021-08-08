@@ -238,6 +238,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.run = function (str, isIntro) {
+		this.ended = true;
 		return this.leave();
 		if (!str) return;
 		if (str.charAt(0) !== '|' || str.substr(0, 2) === '||') {
