@@ -233,7 +233,7 @@ var Battle = exports.Battle = (function () {
 	};
 
 	Battle.prototype.add = function (line, isIntro) {
-		this.run(line, isIntro);
+		if (!this.ended) this.run(line, isIntro);
 		this.log(line);
 	};
 
