@@ -36,23 +36,24 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "Pirouette Meloetta": ["DYWY"],
     */
     /*
-    "SLATEPORT TORPEDO": ["DYWY"],
-    "SINJOH'S EXPLORER": ["dragonitenb", "Separation"],
-    "NIMBASA ROMANCE": ["kitoothe", "gggguang"],
-    "HIGAN NO HANABATAKE": ["lzaaaaa", "youke"],
-    "MT.SILVER LEGEND": ["Unowndragon"],
-    "HAMMERLOCKE SPARTACUS": ["Drogba in Shenhua", "nobeta"],
+        "SLATEPORT TORPEDO": ["DYWY"],
+        "SINJOH'S EXPLORER": ["dragonitenb", "Separation"],
+        "NIMBASA ROMANCE": ["kitoothe", "gggguang"],
+        "HIGAN NO HANABATAKE": ["lzaaaaa", "youke"],
+        "MT.SILVER LEGEND": ["Unowndragon"],
+        "HAMMERLOCKE SPARTACUS": ["Drogba in Shenhua", "nobeta"],
     */
-   "SPARTACUS BUND": ["Drogba in Shenhua", "Allen-Xia"],
-   "FANTASTY WINGS": ["Slow_Dream", "Dare to Love XKH"],
-   "LEAGUE OF SHADOW": ["vusty fans", "chickwayne"],
-   "ICY-WOLF PEAK": ["Nyarlathotepwolf", "XPSH"],
+ 
+   "Crazy Diamond": ["Slow_Dream"],
+   "Moonlight Shadow": ["dragonitenb", "chengduoldsuperbro"],
+   "A-Soul": ["gostop", "The Steel Shadow"],
+   "Roast Magikarp": ["vusty fans", "chickwayne"],
 };
 const CNNames = {
-    "FANTASTY WINGS": "幻想之翼",
-    "LEAGUE OF SHADOW": "影子联盟",
-    "ICY-WOLF PEAK": "雪狼山峰",
-    "SPARTACUS BUND": "斯巴达克B",
+    "Moonlight Shadow": "皓月之光",
+    "Roast Magikarp": "鲷鱼烧鸡",
+    "A-Soul": "天堂之门",
+    "Crazy Diamond": "疯狂钻石",
 }
 
 
@@ -297,11 +298,11 @@ class Draft {
             let tier = tiers[tierIdx].trim();
             if (tier === '') continue;
             let propertyId = toId(tier).replace('gen', 'g')
-            if (propertyId === 'ub') propertyId = 'g8ub';
             if (propertyId === 'vgc') propertyId = 'vgc2021';
+            else if (propertyId === 'lgpe') propertyId = 'lgpeou';
             else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + 'ou';
             else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
-            else if (propertyId.length === 2 && propertyId[1] === 'u') propertyId = 'g8' + propertyId;
+            else if (propertyId.length < 4) propertyId = 'g8' + propertyId;
             let property = this.properties[propertyId];
             if (!property) {
                 Bot.say(this.room, tier + '分级未找到。Tier not found.');
