@@ -1,7 +1,10 @@
 'use strict';
-const mode = "bid";
-const initialMoney = 100000; //Money each team should start with
-const minPlayers = 12; //Forces managers to buy a certain amount of players. To disable, set this to 1
+const mode = 'bid';
+const selfNom = true;
+const selfNomPrice = 15000;
+const startPrice = 3000;
+const initialMoney = 70000; //Money each team should start with
+const minPlayers = 9; //Forces managers to buy a certain amount of players. To disable, set this to 1
 const defaultTeams = { //If you want teams set automatically, they can be placed here
     /*
         "Eastern Ruiners":"no41st",
@@ -43,17 +46,28 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "MT.SILVER LEGEND": ["Unowndragon"],
         "HAMMERLOCKE SPARTACUS": ["Drogba in Shenhua", "nobeta"],
     */
- 
-   "Crazy Diamond": ["Slow_Dream"],
-   "Moonlight Shadow": ["dragonitenb", "chengduoldsuperbro"],
-   "A-Soul": ["gostop", "The Steel Shadow"],
-   "Roast Magikarp": ["vusty fans", "chickwayne"],
+    /*
+        "Crazy Diamond": ["Slow_Dream"],
+        "Moonlight Shadow": ["dragonitenb", "chengduoldsuperbro"],
+        "A-Soul": ["gostop", "The Steel Shadow"],
+        "Roast Magikarp": ["vusty fans", "chickwayne"],
+    */
+    /*
+        "Platform 9¾": ["yoppie", "kitoothe"],
+        "Metronome": ["IG Jackeylove", "Let’sgosixers"],
+        "Sparkling Shinx": ["old_zhiming", "vusty"],
+        "Half Dimension": ["chengduoldsuperbro", "The Steel Shadow"],
+    */
+   "Fantasy Wings": ["Slow_Dream"],
+   "Re:miniscence": ["cscl"],
+   "Fk Calyrex-Shadow": ["l0uisix"],
+   "Flying Press": ["yzii"],
 };
 const CNNames = {
-    "Moonlight Shadow": "皓月之光",
-    "Roast Magikarp": "鲷鱼烧鸡",
-    "A-Soul": "天堂之门",
-    "Crazy Diamond": "疯狂钻石",
+    "Fk Calyrex-Shadow": "法克卡萊雷斯沙朵露",
+    "Re:miniscence": "追忆之庭",
+    "Flying Press": "飞身重压",
+    "Fantasy Wings": "幻想之翼",
 }
 
 
@@ -156,6 +170,22 @@ class Draft {
             }
             return Bot.say(this.room, '提名的选手不在名单内。' + 'The user ' + target + ' was not found!');
         }
+        let isSelfNom = false;
+        let price = startPrice;
+        if (this.managers[targetId]) {
+            if (selfNom) {
+                if (this.managers[targetId] === this.managers[user]) {
+                    if (mode === 'bid') {
+                        isSelfNom = true;
+                        price = selfNomPrice;
+                    }
+                } else {
+                    return Bot.say(this.room, '不可以提名其他队伍的队长。You cannot nominate a leader of another team.');
+                }
+            } else {
+                return Bot.say(this.room, '不可以提名队长或队伍管理员。You cannot nominate a leader.');
+            }
+        }
         let targetName = this.players[targetId].name;
         this.nominee = targetName;
 		this.state = "start";
@@ -163,29 +193,16 @@ class Draft {
         for (let property in this.players[targetId]) {
             if (this.players[targetId][property] === 'X') buffer.push(property);
         }
-        if (mode == "bid") {
+        if (mode === 'bid') {
             Bot.say(this.room, '> ' + '**' + targetName + '** 开始竞拍！' + targetName + ' is up for bidding!');
             Bot.say(this.room, '报名分级 Tiers: ' + buffer.join(' & '));
         }
-        this.runBid(user, 3000);
+        this.runBid(user, price, mode === 'bid' && !isSelfNom);
     }
 
     showAll (manual) {
-        // let reiterations = 0;
-        // let teamList = Object.keys(this.teams)
-        // let showAllInterval = setInterval(() => {
-        //     let team = this.teams[teamList[reiterations]];
-        //     if (!team) { 
-        //         clearInterval(showAllInterval);
-        //         if (!manual) this.nextNominate();
-        //         return;
-        //     }
-        //     Bot.say(this.room, team.name + (mode == "bid" ? ': [剩余金额Money: ' + team.money : ': [人数Strength: ' + team.players.length) + 
-        //                        ' | 队长Bidders: ' + team.bidders.join(', ') + '] 队员Players: ' + team.players.join(', '));
-        //     reiterations++;
-        // }, 800);
         let htmlbox = '!htmlbox <table border="1" style="border-collapse:collapse"><tr><th align="center">队名 Team</th><th align="center">队长 Leaders</th><th align="center">队员 Players</th>';
-        htmlbox += mode == 'bid' ? '<th align="center">余额 Money</th>' : '<th align="center">人数 Strength</th></tr>';
+        htmlbox += mode === 'bid' ? '<th align="center">余额 Money</th>' : '<th align="center">人数 Strength</th></tr>';
         for (let teamKey in this.teams) {
             let team = this.teams[teamKey];
             let bidderNames = Object.values(team.bidders);
@@ -194,30 +211,30 @@ class Draft {
                 bidderNames[bidderNames.length - 1] += ')';
             }
             htmlbox += '<tr><td align="center">' + CNNames[team.name] + ' ' + team.name + '</td><td align="center">' + bidderNames.join(', ') + '</td><td align="center">' + team.players.join(', ') + '</td>'
-            htmlbox += mode == 'bid' ? '<td align="center">' + team.money + '</td>' : '<td align="center">' + team.players.length + '</td></tr>';
+            htmlbox += mode === 'bid' ? '<td align="center">' + team.money + '</td>' : '<td align="center">' + team.players.length + '</td></tr>';
         }
         htmlbox += '</table>';
         Bot.say(this.room, htmlbox);
         if (!manual) this.nextNominate();
     }
 
-    runBid (user, amount) {
+    runBid (user, amount, wait) {
         if (!this.managers[user]) return false;
         if (isNaN(amount)) return false;
         let team = this.teams[this.managers[user]];
         let teamName = team.name;
         if (amount <= 100) amount *= 1000;
         if (amount <= this.bid) return Bot.say(this.room, teamName + ': Bid must be at least 500 more than ' + this.bid);
-        let maxBid = team.money - (minPlayers - team.players.length - 1) * 3000;
+        let maxBid = team.money - (minPlayers - team.players.length - 1) * startPrice;
 	    if (maxBid < 0 || maxBid > team.money) maxBid = team.money;
         if (amount > maxBid) return Bot.say(this.room, teamName + ': Bid exceeds max bid of ' + maxBid);
         if (amount % 500 !== 0) return Bot.say(this.room, teamName + ': Bid must be a multiple of 500');
         clearTimeout(this.timer);
-        if (mode == "bid") Bot.say(this.room, '> ' + teamName + ': **' + amount + '**');
+        if (wait) Bot.say(this.room, '> ' + teamName + ': **' + amount + '**');
         this.bid = amount;
         this.topBidder = user;
         this.timer = setTimeout(() => {
-            if (mode == "bid") Bot.say(this.room, '__剩余五秒！5 seconds remaining!__');
+            if (wait) Bot.say(this.room, '__剩余五秒！5 seconds remaining!__');
             this.timer = setTimeout(() => {
                 Bot.say(this.room, this.nominee + '加入' + CNNames[teamName] + '！' + this.nominee + ' joined ' + teamName + '!');
                 team.money -= amount;
@@ -229,16 +246,16 @@ class Draft {
                 this.nominee = null;
                 this.showAll();
                 this.save();
-                if (team.money < 3000) {
-                    if (mode == "bid") {
+                if (team.money < startPrice) {
+                    if (wait) {
                         Bot.say(this.room, CNNames[team.name] + '金额耗尽。' + team.name + ' has run out of money.');
                     } else {
                         Bot.say(this.room, CNNames[team.name] + '名额已满。' + team.name + ' is full.')
                     }
                     this.withdraw(user);
                 }
-            }, mode == "bid" ? 5000 : 0); /* second left in 1k*/
-        }, mode == "bid" ? 15000 : 0);
+            }, wait ? 5000 : 0); /* second left in 1k*/
+        }, wait ? 15000 : 0);
     }
 
     withdraw (user) {
@@ -298,11 +315,14 @@ class Draft {
             let tier = tiers[tierIdx].trim();
             if (tier === '') continue;
             let propertyId = toId(tier).replace('gen', 'g')
-            if (propertyId === 'vgc') propertyId = 'vgc2021';
-            else if (propertyId === 'lgpe') propertyId = 'lgpeou';
-            else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + 'ou';
-            else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
-            else if (propertyId.length < 4) propertyId = 'g8' + propertyId;
+            if (!this.properties[propertyId]) {
+                if (propertyId === 'vgc') propertyId = 'vgc2022';
+                else if (propertyId === 'lgpe') propertyId = 'lgpeou';
+                else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + 'ou';
+                else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
+                else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + 'ou';
+                else if (propertyId.length <= 5) propertyId = 'g8' + propertyId;
+            }
             let property = this.properties[propertyId];
             if (!property) {
                 Bot.say(this.room, tier + '分级未找到。Tier not found.');
@@ -492,7 +512,7 @@ exports.commands = {
     b: 'bid',
     bid: function (arg, by, room) {
         if (!drafts[room] || drafts[room].state !== "start" || !drafts[room].nominee) return false;
-        drafts[room].runBid(toId(by), arg);
+        drafts[room].runBid(toId(by), arg, mode === 'bid');
     },
 
     nom: 'nominate',
