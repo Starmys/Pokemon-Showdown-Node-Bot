@@ -1,8 +1,10 @@
 'use strict';
 const mode = "bid";
-const initialMoney = 60000; //Money each team should start with
-const minPlayers = 7; //Forces managers to buy a certain amount of players. To disable, set this to 1
-const maxPlayers = 8;
+const initialMoney = 110000; //Money each team should start with
+const minPlayers = 11; //Forces managers to buy a certain amount of players. To disable, set this to 1
+const maxPlayers = 13;
+const startPrice = 3000;
+const stepPrice = 500;
 const defaultTeams = { //If you want teams set automatically, they can be placed here
     /*
         "Eastern Ruiners":"no41st",
@@ -70,18 +72,24 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "Team 3": ["Allen-xia"],
         "Team 4": ["Metallica126"],
     */
-    "Moon the bastet": ["qdhwefdw", "Chaos23333"],
-    "Kung Fu doll": ["Searabbit"],
-    "Cyndi who braves winds and waves": ["idol1900"],
-    "the Last Sword Dance": ["drogba in shenhua"],
+    "Angelotto": ["Aro Nova"],
+    "Number Guys": ["dragonitenb"],
+    "Platform 9¾": ["yoppie"],
+    "Hopeful Dreamer": ["Metallica126"],
 };
 const CNNames = {
-    "Moon the bastet": "圆月贝斯特",
-    "Kung Fu doll": "功夫娃娃",
-    "Cyndi who braves winds and waves": "乘风破浪王心凌",    
-    "the Last Sword Dance": "剑舞惊鸿",
+    "Hopeful Dreamer": "黄金鲷鱼烧",
+    "Platform 9¾": "9¾站台",
+    "Angelotto": "相遇天使",    
+    "Number Guys": "日月同错",
 };
-const defaultTier = "lc";
+const retains = {
+    "Hopeful Dreamer": {"Metallica126": 20000},
+    "Platform 9¾": {},
+    "Angelotto": {},    
+    "Number Guys": {},
+}
+const defaultTier = "ou";
 
 
 const { strict } = require('assert');
@@ -152,10 +160,14 @@ class Draft {
     }
 
     start () {
+        Object.entries(retains).forEach(([teamName, teamRetains]) => {
+            let team = this.teams[toId(teamName)];
+            Object.entries(teamRetains).forEach(([nominee, amount]) => this.addPlayer(team, nominee, amount));
+        });
         this.state = "nominate";
         this.showAll(true);
         this.nomination = Object.keys(this.teams)[0];
-        Bot.say(this.room, '选人开始！The draft is up!')
+        Bot.say(this.room, '选人开始! The draft is up!');
         Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
                            ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
     }
@@ -208,10 +220,10 @@ class Draft {
             if (this.players[targetId][property] === 'X') buffer.push(property);
         }
         if (mode == "bid") {
-            Bot.say(this.room, '> ' + '**' + targetName + '** 开始竞拍！' + targetName + ' is up for bidding!');
+            Bot.say(this.room, '> ' + '**' + targetName + '** 开始竞拍! ' + targetName + ' is up for bidding!');
             Bot.say(this.room, '报名分级 Tiers: ' + buffer.join(' & '));
         }
-        this.runBid(user, 3000);
+        this.runBid(user, startPrice);
     }
 
     showAll (manual) {
@@ -245,35 +257,39 @@ class Draft {
         if (!manual) this.nextNominate();
     }
 
+    addPlayer (team, nominee, amount) {
+        Bot.say(this.room, nominee + '加入' + CNNames[team.name] + '! ' + nominee + ' joined ' + team.name + '!');
+        team.money -= amount;
+        team.players.push(nominee);
+        this.nomedPlayers[toId(nominee)] = team;
+        this.draftlog.push(['purchase', nominee, amount, team.name]);
+        delete this.players[toId(nominee)];
+    }
+
     runBid (user, amount) {
         if (!this.managers[user]) return false;
         if (isNaN(amount)) return false;
         let team = this.teams[this.managers[user]];
         let teamName = team.name;
         if (amount <= 100) amount *= 1000;
-        if (amount <= this.bid) return Bot.say(this.room, teamName + ': Bid must be at least 500 more than ' + this.bid);
-        let maxBid = team.money - (minPlayers - team.players.length - 1) * 3000;
+        if (amount <= this.bid) return Bot.say(this.room, teamName + `: Bid must be at least ${stepPrice} more than ` + this.bid);
+        let maxBid = team.money - (minPlayers - team.players.length - 1) * startPrice;
 	    if (maxBid < 0 || maxBid > team.money) maxBid = team.money;
         if (amount > maxBid) return Bot.say(this.room, teamName + ': Bid exceeds max bid of ' + maxBid);
-        if (amount % 500 !== 0) return Bot.say(this.room, teamName + ': Bid must be a multiple of 500');
+        if (amount % stepPrice !== 0) return Bot.say(this.room, teamName + `: Bid must be a multiple of ${stepPrice}`);
         clearTimeout(this.timer);
         if (mode == "bid") Bot.say(this.room, '> ' + teamName + ': **' + amount + '**');
         this.bid = amount;
         this.topBidder = user;
         this.timer = setTimeout(() => {
-            if (mode == "bid") Bot.say(this.room, '__剩余五秒！5 seconds remaining!__');
+            if (mode == "bid") Bot.say(this.room, '__剩余五秒! 5 seconds remaining!__');
             this.timer = setTimeout(() => {
-                Bot.say(this.room, this.nominee + '加入' + CNNames[teamName] + '！' + this.nominee + ' joined ' + teamName + '!');
-                team.money -= amount;
-                team.players.push(this.nominee);
-                this.nomedPlayers[toId(this.nominee)] = team;
-                this.draftlog.push(['purchase', this.nominee, amount, teamName]);
+                this.addPlayer(team, this.nominee, amount);
                 this.bid = null;
-                delete this.players[toId(this.nominee)];
                 this.nominee = null;
                 this.showAll();
                 this.save();
-                if (team.money < 3000) {
+                if (team.money < startPrice) {
                     if (mode == "bid") {
                         Bot.say(this.room, CNNames[team.name] + '金额耗尽。' + team.name + ' has run out of money.');
                     } else {
@@ -345,12 +361,15 @@ class Draft {
         for (let tierIdx in tiers) {
             let tier = tiers[tierIdx].trim();
             if (tier === '') continue;
-            let propertyId = toId(tier).replace('gen', 'g')
-            if (propertyId === 'vgc') propertyId = 'vgc2022';
-            else if (propertyId === 'lgpe') propertyId = 'lgpe' + defaultTier;
-            else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + defaultTier;
-            else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + defaultTier;
-            else if (propertyId.length < 4) propertyId = 'g8' + propertyId;
+            let propertyId = toId(tier);
+            if (!this.properties[propertyId]) {
+                propertyId = propertyId.replace('gen', 'g');
+                if (propertyId === 'vgc') propertyId = 'vgc2022';
+                else if (propertyId === 'lgpe') propertyId = 'lgpe' + defaultTier;
+                else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + defaultTier;
+                else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + defaultTier;
+                else if (propertyId.length < 4) propertyId = 'g8' + propertyId;
+            }
             let property = this.properties[propertyId];
             if (!property) {
                 Bot.say(this.room, tier + '分级未找到。Tier not found.');
