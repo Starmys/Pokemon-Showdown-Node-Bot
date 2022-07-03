@@ -84,10 +84,10 @@ const CNNames = {
     "Number Guys": "日月同错",
 };
 const retains = {
-    "Hopeful Dreamer": {"Metallica126": 20000},
-    "Platform 9¾": {},
-    "Angelotto": {},    
-    "Number Guys": {},
+    "Angelotto": {"SCEAM": 8000, "wangyu": 5000},
+    "Number Guys": {"Separation": 21000, "xujing691691": 11000, },
+    "Platform 9¾": {"Allen-xia": 11000, "shawyu": 8000},
+    "Hopeful Dreamer": {"Metallica126": 20000, "Chaos23333": 14500, "yuudachi0811": 8500, "Jinitaimei 龙慧": 3500},
 }
 const defaultTier = "ou";
 
@@ -160,16 +160,22 @@ class Draft {
     }
 
     start () {
+        let i = 0;
         Object.entries(retains).forEach(([teamName, teamRetains]) => {
             let team = this.teams[toId(teamName)];
-            Object.entries(teamRetains).forEach(([nominee, amount]) => this.addPlayer(team, nominee, amount));
+            Object.entries(teamRetains).forEach(([nominee, amount]) => {
+                i++;
+                setTimeout(() => this.addPlayer(team, nominee, amount), 500 * i);
+            });
         });
-        this.state = "nominate";
-        this.showAll(true);
-        this.nomination = Object.keys(this.teams)[0];
-        Bot.say(this.room, '选人开始! The draft is up!');
-        Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
-                           ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
+        setTimeout(() => {
+            this.state = "nominate";
+            this.showAll(true);
+            this.nomination = Object.keys(this.teams)[0];
+            Bot.say(this.room, '选人开始! The draft is up!');
+            Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
+                               ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
+        }, 500 * (i + 1));
     }
 
     nextNominate (force) {//Force - force nomination to go to a NEW team (instead of repeating, like in snake)
