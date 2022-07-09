@@ -1,8 +1,8 @@
 'use strict';
 const mode = "bid";
-const initialMoney = 110000; //Money each team should start with
-const minPlayers = 11; //Forces managers to buy a certain amount of players. To disable, set this to 1
-const maxPlayers = 13;
+const initialMoney = 100000; //Money each team should start with
+const minPlayers = 12; //Forces managers to buy a certain amount of players. To disable, set this to 1
+const maxPlayers = 100;
 const startPrice = 3000;
 const stepPrice = 500;
 const defaultTeams = { //If you want teams set automatically, they can be placed here
@@ -72,22 +72,34 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "Team 3": ["Allen-xia"],
         "Team 4": ["Metallica126"],
     */
-    "Angelotto": ["Aro Nova"],
-    "Number Guys": ["dragonitenb"],
-    "Platform 9¾": ["yoppie"],
-    "Hopeful Dreamer": ["Metallica126"],
+    /*
+        "Number Guys": ["dragonitenb"],
+        "Hopeful Dreamer": ["Metallica126"],
+        "Angelotto": ["Aro Nova"],
+        "Platform 9¾": ["yoppie"],
+    */
+        "SINJOH'S EXPLORER": ["Slow_Dream", "IGJackeyLove"],
+        "MT.SILVER LEGEND": ["idol1900", "CurePersona"],
+        "HAMMERLOCKE SPARTACUS": ["Allen-xia", "Chaos23333"],
+        "SLATEPORT TORPEDO": ["hot_dogs666", "rubv"],
+        "HIGAN NO HANABATAKE": ["cscl", "youke"],
+        "NIMBASA ROMANCE": ["gostop", "SeaRabbit"],
 };
 const CNNames = {
-    "Hopeful Dreamer": "黄金鲷鱼烧",
-    "Platform 9¾": "9¾站台",
-    "Angelotto": "相遇天使",    
-    "Number Guys": "日月同错",
+        "SLATEPORT TORPEDO": "凯那鱼雷",
+        "SINJOH'S EXPLORER": "神都探险者",
+        "NIMBASA ROMANCE": "雷文摩天轮",
+        "HIGAN NO HANABATAKE": "彼岸花海",
+        "MT.SILVER LEGEND": "白银传说",
+        "HAMMERLOCKE SPARTACUS": "拳关斯巴达克",
 };
 const retains = {
-    "Hopeful Dreamer": {"Metallica126": 20000},
-    "Platform 9¾": {},
-    "Angelotto": {},    
-    "Number Guys": {},
+        "SLATEPORT TORPEDO": {"rubv": 8000},
+        "SINJOH'S EXPLORER": {"IGJackeyLove": 8000},
+        "NIMBASA ROMANCE": {"SeaRabbit": 8000},
+        "HIGAN NO HANABATAKE": {"hybone": 10000},
+        "MT.SILVER LEGEND": {"CurePersona": 8000},
+        "HAMMERLOCKE SPARTACUS": {"Chaos23333": 21000},
 }
 const defaultTier = "ou";
 
@@ -160,16 +172,22 @@ class Draft {
     }
 
     start () {
+        let i = 0;
         Object.entries(retains).forEach(([teamName, teamRetains]) => {
             let team = this.teams[toId(teamName)];
-            Object.entries(teamRetains).forEach(([nominee, amount]) => this.addPlayer(team, nominee, amount));
+            Object.entries(teamRetains).forEach(([nominee, amount]) => {
+                i++;
+                setTimeout(() => this.addPlayer(team, nominee, amount), 200 * i);
+            });
         });
-        this.state = "nominate";
-        this.showAll(true);
-        this.nomination = Object.keys(this.teams)[0];
-        Bot.say(this.room, '选人开始! The draft is up!');
-        Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
-                           ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
+        setTimeout(() => {
+            this.state = "nominate";
+            this.showAll(true);
+            this.nomination = Object.keys(this.teams)[0];
+            Bot.say(this.room, '选人开始! The draft is up!');
+            Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
+                               ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
+        }, 200 * (i + 1));
     }
 
     nextNominate (force) {//Force - force nomination to go to a NEW team (instead of repeating, like in snake)
