@@ -1,7 +1,6 @@
 # Config
 config
-config.js
-config-tmp-*.js
+config*.js
 
 # Private files
 commands/private.js
@@ -92,4 +91,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+package-lock.json
 nohup.out

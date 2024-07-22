@@ -1,10 +1,12 @@
 'use strict';
 const mode = "bid";
-const initialMoney = 100000; //Money each team should start with
-const minPlayers = 12; //Forces managers to buy a certain amount of players. To disable, set this to 1
-const maxPlayers = 100;
+const initialMoney = 120000; // Money each team should start with
+const minPlayers = 13; // Forces managers to buy a certain amount of players. To disable, set this to 1
+const maxPlayers = 15;
 const startPrice = 3000;
 const stepPrice = 500;
+const canSelfNom = false;
+const selfNomPrice = 12000;
 const defaultTeams = { //If you want teams set automatically, they can be placed here
     /*
         "Eastern Ruiners":"no41st",
@@ -78,31 +80,292 @@ const defaultTeams = { //If you want teams set automatically, they can be placed
         "Angelotto": ["Aro Nova"],
         "Platform 9¾": ["yoppie"],
     */
+    /*
         "SINJOH'S EXPLORER": ["Slow_Dream", "IGJackeyLove"],
         "MT.SILVER LEGEND": ["idol1900", "CurePersona"],
         "HAMMERLOCKE SPARTACUS": ["Allen-xia", "Chaos23333"],
         "SLATEPORT TORPEDO": ["hot_dogs666", "rubv"],
         "HIGAN NO HANABATAKE": ["cscl", "youke"],
         "NIMBASA ROMANCE": ["gostop", "SeaRabbit"],
+    */
+    /*
+        "Tactical Sweep": ["IGJackeyLove", "dragonitenb"],
+        "Syrup": ["Dawnmoon", "Lusteristic"],
+        "Bet On We": ["YZII", "Metallica126"],
+        "Desolate Land": ["gostop", "Allen-xia"],
+    */
+    /*
+        "Precision Protocol": ["IGJackeyLove", "XPSH"],
+        "Clannad": ["Allen-xia", "chickwayne"],
+        "Dawn Troupe": ["baibaiats", "burstbean"],
+        "Emperor Piplup": ["vusty fans3", "vusty"],
+    */
+    /*
+        "OPELUCID CRUSADERS": ["starmind"],
+        "ETERNAL CROWN": ["cscl"],
+        "S.I. MUGEN": ["The Steel Shadow"],
+        "MIRAGE PHANTOM": ["XPSH"],
+    */
+    /*
+        "Port Ormos":["burstbean","searabbit"],
+        "Fuck Maushold":["lusteristic"],
+        "Scattered star debris":["niaosui","duguo"],
+        "Ending Blitz":["Jinitaimei"],
+    */
+    /* 
+    "Take Me Higher": ["Raiden Mei"],
+    "Gracidea": ["burstbean"],
+    "Fantasy Wings": ["Slow_Dream"],
+    "Sidalin Beam": ["sidalin"],
+    */
+    /*
+    "Abendregen":["musashi109"],
+    "Utayuo MIRACLE":["burstbean"],
+    "Fully prepared":["Mestronwest"],
+    "Flaming Crusaders":["Raceding"],
+    */
+    /*
+    "Go get some fries":["gewwge","Northumberland"],
+    "glorious arrow wish":["kaifengyyds","XPSH"],
+    "Diana Sweet":["Metallica126","baibaiats"],
+    "Rainbow Slowbro Army":["Raceding","sleeptalking"],
+    
+	"NIMBASA ROMANCE": ["the steel shadow", "yoppie"],  
+        "HAMMERLOCKE SPARTACUS": ["Allen-xia", "Amethyst pupil"],
+        "HIGAN NO HANABATAKE": ["cscl", "vulpot"],
+        "MT.SILVER LEGEND": ["metallica126", "baibaiats"],
+	*/
+/*
+	"Dog Tired": ["gostop", "newyokobaby"],
+        "Sakura Wars": ["daidaiwo", "dragonitenb"],
+        "Mission Of Her Majesty": ["zhongyeernai", "searabbit"],
+        "Ending Blitz": ["raceding", "kaifengyyds"],
+*/
+/*
+"Royal Never Give Up": ["jdk knight"],
+	"Metore Enforcer": ["Asou&Chihiro"],
+	"Useful Copy Players": ["hybone"],
+	"miku fans": ["xqiht"],
+*/
+/*
+	"Spica": ["mliya","metallica126"],
+        "Pegasian Sight": ["burstbean"],
+        "fly sun": ["wya"],
+        "underworld from tangshan": ["dragonitenb"],
+*/
+/*
+        "Kingambit & Sucher Punch": ["soulking0", "Nor known to Life"],
+        "Flying Frost Stepping Snow": ["Memoriies", "GDWYuudachi"],
+        "Baoshan Poochyena": ["dragonitenb", "old_zhiming"],
+        "Wuhan Yamper": ["yzii", "aro nova"],
+*/
+/*
+	"Omanyte Blast": ["jinitaimei", "sidalin"],
+	"Dancing Like Crane": ["zhongyeernai", "metallica126"],
+	"Overdrive": ["igjackeylove", "aronova"],
+	"Pantheon": ["pyernhuy", "chickwayne"],
+*/
+	
+/*
+	"OPELUCID CRUSADERS": ["metallica126","KissSheep"],
+        "ETERNAL CROWN": ["dare to love xkh"],
+        "S.I. MUGEN": ["searabbit","oldzhiming"],
+        "MIRAGE PHANTOM": ["Greenland Shadow","XPSH"],
+*/
+/*
+	"A Confession under the Smoke": ["cen344uu "],
+        "sleeping starship": ["Sawra2.71828"],
+        "hidden plum bossom in snow": ["Soul king0"],
+        "kangaskloem": ["Metallica126"],
+	*/
+	/*
+	"super shadow sneak": ["Sawra2.71828","lusteristic"],
+        "Frenzy Flygon": ["dawntothedusk","rakukeika"],
+        "Horizon to zero": ["metallica","nashrock"],
+        "Gallop like thunder": ["soulking0","zhongyeernai"],
+
+	"Double Fake Out": ["Raiden Mei","Metallica126"],
+        "Strange Scale Shot": ["greenland shadow","swabluue"],
+        "Sleepy Kitten": ["gostop","Sardonyx_Amber"],
+        "Mega Kangagolem-Alola Club": ["archer927","cen344u"],
+*/
+/*
+	"Lovely Nekomusume": ["Sawra2.71828","yiyue"],
+        "phoenix flutes make music": ["zhongyeernai"],
+        "Opelucid Crusaders": ["jinitaimei","metallica126"],
+        "Crychic": ["indulge in dreams","cen344uu"],
+*/
+/*
+        "Dream about South Pillar": ["Metallica126","cen344uu"],
+        "Circle of Life": ["Rimarinalove","SakakibaraKotone"],
+        "Magical Hajimi": ["greenland shadow","duguo"],
+        "Kill Your Nine Generation Ancestors": ["xu9","Sardonyx_Amber"],
+*/
+        "Mt.Silver Legend": ["Metallica126","Mentalsoft"],
+        "Higan no Hanabatake": ["Aro Nova","Cscl"],
+        "Nimbasa Romance": ["Dare to love xkh","memoriies"],
+        "Hammerlocke Spartacus": ["Tkyszl","Lusteristic"],
 };
 const CNNames = {
-        "SLATEPORT TORPEDO": "凯那鱼雷",
-        "SINJOH'S EXPLORER": "神都探险者",
-        "NIMBASA ROMANCE": "雷文摩天轮",
+    /*
+        "OPELUCID CRUSADERS": "双龙十字军",
+        "ETERNAL CROWN": "无极神冠",
+        "S.I. MUGEN": "南岛无限",
+        "MIRAGE PHANTOM": "橘影幻灵",
+    
+    */
+    /*
+	"Port Ormos":"奥摩斯港",
+	"Fuck Maushold":"乐不思鼠",
+	"Scattered star debris":"散落的星骸",
+	"Ending Blitz":"终焉的闪焰冲锋",
+    */
+    /*
+    lin Beam": "慈父的光辉",
+    "Gracidea": "天空花束",
+    "Take Me Higher": "飞得更高",
+    "Fantasy Wings": "幻想之翼",*/
+    /*
+    "Utayuo MIRACLE":"奇迹之歌",
+    "Abendregen":"骤雨的隙间",
+    "Flaming Crusaders":"双龙赤焰",
+    "Fully prepared":"未雨绸缪",
+    */
+    /*
+    "Go get some fries":"整点薯条",
+    "glorious arrow wish":"光辉矢愿",
+    "Diana Sweet":"嘉然家今天的饭",
+    "Rainbow Slowbro Army":"彩虹呆河马军团",
+    
+	"NIMBASA ROMANCE": "雷文摩天轮",  
+        "HAMMERLOCKE SPARTACUS": "拳关斯巴达克",
         "HIGAN NO HANABATAKE": "彼岸花海",
         "MT.SILVER LEGEND": "白银传说",
-        "HAMMERLOCKE SPARTACUS": "拳关斯巴达克",
+	*/
+	/*
+	"Dog Tired": "狗生有了点疲惫",
+        "Sakura Wars": "夏日大作战",
+        "Mission Of Her Majesty": "还未完成的高贵使命",
+        "Ending Blitz": "终焉的闪焰冲锋",
+	*/
+/*
+"Royal Never Give Up": "永不言弃",	
+	"Metore Enforcer": "流星惩罚者",
+	"Useful Copy Players": "有用的抄队玩家",
+	"miku fans": "醉卧沙场",
+*/
+/*
+	"Spica": "璀璨流星",
+        "Pegasian Sight": "天马视域",
+        "underworld from tangshan": "唐山黑社会",
+        "fly sun": "天翊和曦",
+*/
+/*
+        "Kingambit & Sucher Punch": "酱与突袭",
+        "Flying Frost Stepping Snow": "飞霜踏雪",
+        "Baoshan Poochyena": "宝山土狼犬",
+        "Wuhan Yamper": "武汉来电汪",
+*/
+/*
+        "Omanyte Blast": "皇家爆炎2.0",
+        "Dancing Like Crane": "琼芳鹤舞",
+        "Overdrive": "超限暴走",
+        "Pantheon": "没有影子的小孩",
+
+        "A Confession under the Smoke": "青烟下的告白",
+        "sleeping starship": "眠梦星河",
+        "hidden plum bossom in snow": "踏雪寻梅",
+        "kangaskloem": "袋隆十字军",
+
+	"super shadow sneak": "超级影袭",
+        "Frenzy Flygon": "热砂蜻蜓",
+        "Horizon to zero": "重造地平线",
+        "Gallop like thunder": "星驰电掣",
+
+
+	"Double Fake Out": "击掌双袭",
+        "Strange Scale Shot": "神奇鳞射",
+        "Sleepy Kitten": "咪咪糊糊",
+        "Mega Kangagolem-Alola Club": "袋隆俱乐部",
+*/
+/*
+	"Lovely Nekomusume": "萌混过关",
+        "phoenix flutes make music": "凤箫声动",
+        "Opelucid Crusaders": "双龙十字军",
+        "Crychic": "春日影",
+*/
+/*
+	"Dream about South Pillar": "南梁一梦",
+        "Circle of Life": "生生不息的激荡",
+        "Magical Hajimi": "神奇哈基米",
+        "Kill Your Nine Generation Ancestors": "九族男孩重度依赖",
+*/
+        "Mt.Silver Legend": "白银传说",
+        "Higan no Hanabatake": "彼岸花海",
+        "Nimbasa Romance": "雷文摩天轮",
+        "Hammerlocke Spartacus": "拳关斯巴达克",
 };
 const retains = {
-        "SLATEPORT TORPEDO": {"rubv": 8000},
-        "SINJOH'S EXPLORER": {"IGJackeyLove": 8000},
-        "NIMBASA ROMANCE": {"SeaRabbit": 8000},
-        "HIGAN NO HANABATAKE": {"hybone": 10000},
-        "MT.SILVER LEGEND": {"CurePersona": 8000},
-        "HAMMERLOCKE SPARTACUS": {"Chaos23333": 21000},
+/*
+        "Clannad": {"chickwayne": 12000},
+        "Dawn Troupe": {},
+        "Precision Protocol": {},
+        "Emperor Piplup": {},
+
+*/
+	/*"NIMBASA ROMANCE": {},
+        "HAMMERLOCKE SPARTACUS": {"allenxia":17000},
+        "HIGAN NO HANABATAKE": {"cscl":17000,"vulpot":17000},
+        "MT.SILVER LEGEND": {"baibaiats":17000},
+	*/
+/*
+        "Spica": {"metallica126": 10000},
+	"Pegasian Sight": {"burstbean":10000},
+        "underworld from tangshan": {},
+        "fly sun": {},
+*/
+/*
+        "Kingambit & Sucher Punch": {"Nor known to Life": 11000},
+        "Flying Frost Stepping Snow": {"GDWYuudachi": 11000},
+        "Baoshan Poochyena": {},
+        "Wuhan Yamper": {},
+*/
+/*
+	"Omanyte Blast": {"jinitaimei": 15000},
+        "Dancing Like Crane": {"metallica126": 15000},
+        "Overdrive": {"aronova": 15000},
+        "Pantheon": {"chickwayne": 15000},
+
+	"super shadow sneak": {"Sawra2.71828": 12000},
+        "Frenzy Flygon": {"dawntothedusk":12000,"rakukeika":12000},
+        "Horizon to zero": {"metallica":12000},
+        "Gallop like thunder": {"soulking0":12000},
+
+
+	"Double Fake Out": {"Metallica126": 15000},
+        "Strange Scale Shot": {"greenland shadow":15000},
+        "Sleepy Kitten": {"gostop":15000},
+	"Mega Kangagolem-Alola Club": {},
+*/
+/*
+	"Lovely Nekomusume": {"yiyue":12000},
+        "phoenix flutes make music": {},
+        "Opelucid Crusaders": {"jinitaimei":12000},
+        "Crychic": {"cen344uu":12000},
+*/
+/*
+	"Dream about South Pillar": {},
+	"Circle of Life": {"SakakibaraKotone": 9500},
+        "Magical Hajimi": {},
+        "Kill Your Nine Generation Ancestors": {},
+*/
+        "Mt.Silver Legend": {"Metallica126": 18000, "Mentalsoft": 18000},
+        "Higan no Hanabatake": {"cscl": 18000},
+        "Nimbasa Romance": {},
+        "Hammerlocke Spartacus": {},
 }
 const defaultTier = "ou";
-
+const defaultGen = "g9";
 
 const { strict } = require('assert');
 const fs = require('fs');
@@ -150,24 +413,28 @@ class Draft {
 
     loadPlayers (url) {
         Tools.httpGet(url, data => {
-            if (!data) return Bot.say(this.room, '无法读入选手列表。Could not load data.');
-            let lines = data.replace(/\r/g, '').split('\n');
-            let categories = lines[0].split(',');
-            for (let j = 1; j < categories.length; j++) this.properties[toId(categories[j]).replace('gen', 'g')] = categories[j];
-            if (!categories[0]) categories[0] = 'Name';
-            for (let i = 1; i < lines.length; i++) {
-                let parts = lines[i].split(',');
-                let player = parts[0].trim();
-                let playerId = toId(player);
-                this.players[playerId] = {
-                    "name": player
-                };
-                for (let j = 0; j < categories.length; j++) {
-                    this.players[playerId][categories[j]] = parts[j];
+            if (data) {
+                let lines = data.replace(/\r/g, '').split('\n');
+                let categories = lines[0].split(',');
+                if (categories.length > 1) {
+                    for (let j = 1; j < categories.length; j++) {
+                        this.properties[toId(categories[j]).replace('gen', 'g')] = categories[j];
+                    }
+                    if (!categories[0]) categories[0] = 'Name';
+                    for (let i = 1; i < lines.length; i++) {
+                        let parts = lines[i].split(',');
+                        let player = parts[0].trim();
+                        let playerId = toId(player);
+                        this.players[playerId] = {"name": player};
+                        for (let j = 0; j < categories.length; j++) {
+                            this.players[playerId][categories[j]] = parts[j];
+                        }
+                    }
+                    delete this.players[''];
+                    return Bot.say(this.room, '选手列表已录入。Playerlist succesfully loaded.');
                 }
             }
-            Bot.say(this.room, '选手列表已录入。Playerlist succesfully loaded.');
-            delete this.players[''];
+            Bot.say(this.room, '无效链接或格式错误。Invalid URL or format error.');
         });
     }
 
@@ -214,13 +481,11 @@ class Draft {
             }
             return Bot.say(this.room, '提名的选手不在名单内。' + 'The user ' + target + ' was not found!');
         }
-        let isSelfNom = false;
         let price = startPrice;
         if (this.managers[targetId]) {
-            if (selfNom) {
+            if (canSelfNom) {
                 if (this.managers[targetId] === this.managers[user]) {
                     if (mode === 'bid') {
-                        isSelfNom = true;
                         price = selfNomPrice;
                     }
                 } else {
@@ -239,7 +504,7 @@ class Draft {
         }
         if (mode == "bid") {
             Bot.say(this.room, '> ' + '**' + targetName + '** 开始竞拍! ' + targetName + ' is up for bidding!');
-            Bot.say(this.room, '报名分级 Tiers: ' + buffer.join(' & '));
+            Bot.say(this.room, '报名分级 Tiers: ' + buffer.join(', '));
         }
         this.runBid(user, startPrice);
     }
@@ -361,10 +626,11 @@ class Draft {
             buffer += team.name + ': [Money: ' + team.money + ' | Bidders: ' + Object.values(team.bidders).join(', ') + '] Players: ' + team.players.join(', ') + '\n';
         } 
         buffer += '\n' + this.constructLog();
-        Tools.uploadToHastebin(buffer, (success, link) => {
+        /* Tools.uploadToHastebin(buffer, (success, link) => {
             if (success) Bot.say(this.room, '选人结束。The draft is over. Log: ' + link);
             else Bot.say(this.room, '无法上传记录。Error connecting to hastebin.');
-        });
+        });*/
+        Bot.say(this.room, '选人结束。The draft is over.');
         console.log(buffer);
         delete drafts[this.room];
     }
@@ -381,12 +647,13 @@ class Draft {
             if (tier === '') continue;
             let propertyId = toId(tier);
             if (!this.properties[propertyId]) {
-                propertyId = propertyId.replace('gen', 'g');
+                propertyId = propertyId.replace('gen', 'g').replace('rb', 'rdb');
+                // if (propertyId.endsWith('nd')) propertyId = propertyId.replace('nd', 'nddou');
                 if (propertyId === 'vgc') propertyId = 'vgc2022';
                 else if (propertyId === 'lgpe') propertyId = 'lgpe' + defaultTier;
                 else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + defaultTier;
                 else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + defaultTier;
-                else if (propertyId.length < 4) propertyId = 'g8' + propertyId;
+                else if (propertyId[0] !== 'g') propertyId = defaultGen + propertyId;
             }
             let property = this.properties[propertyId];
             if (!property) {
@@ -590,7 +857,6 @@ exports.commands = {
         if (!drafts[room] || (drafts[room].state !== "start" && drafts[room].state !== "nominate")) return false;
         drafts[room].withdraw(toId(by));
     },
-
     /*overpay: function (arg, by, room) {
         if (!drafts[room]) return this.reply('未初始化。There is no draft in configuration in this room.');;
         this.reply('/wall OVERPAY');
