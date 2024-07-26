@@ -363,6 +363,12 @@ const retains = {
         "Higan no Hanabatake": {"cscl": 18000},
         "Nimbasa Romance": {},
         "Hammerlocke Spartacus": {},
+/*
+    "Angelotto": {"SCEAM": 8000, "wangyu": 5000},
+    "Number Guys": {"Separation": 21000, "xujing691691": 11000, },
+    "Platform 9¾": {"Allen-xia": 11000, "shawyu": 8000},
+    "Hopeful Dreamer": {"Metallica126": 20000, "Chaos23333": 14500, "yuudachi0811": 8500, "Jinitaimei 龙慧": 3500},
+*/
 }
 const defaultTier = "ou";
 const defaultGen = "g9";
