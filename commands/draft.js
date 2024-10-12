@@ -1,385 +1,12 @@
 'use strict';
-const mode = "bid";
-const initialMoney = 120000; // Money each team should start with
-const minPlayers = 13; // Forces managers to buy a certain amount of players. To disable, set this to 1
-const maxPlayers = 15;
-const startPrice = 3000;
-const stepPrice = 500;
-const canSelfNom = false;
-const selfNomPrice = 12000;
-const defaultTeams = { //If you want teams set automatically, they can be placed here
-    /*
-        "Eastern Ruiners":"no41st",
-        "Adamas":"mmrrk",
-        "Creative Camp":"kitoothe",
-        "Free Palatinate of Dyrwood":"separation",
-    */
-    /*
-        "Longkou Vericelli":"drogbainshenhua",
-        "Yawning Kingdra":"separation",
-        "Soul Dew":"mmrrk",
-        "Draco Kilometeor":"vusty",
-    */
-    /*
-        "Dyrwood": "separation",
-        "Shinx": "vusty",
-        "Soul Dew": "mmrrk",
-        "Xros Heart": "vulpot",
-    */
-    /*
-        "WILDFIRE": ["Cure bball"],
-        "BRILLIANT DRAGONOID": ["EDG kangri"],
-        "EGAINORISOU": ["Unowndragon", "Tninking"],
-        "CELESTIC ATHLETIC": ["Drogba in Shenhua", "Ash Lovers"],
-        "SLOPPY DREEPY": ["will it rain", "fyfyk"],
-        "DANCING KYUREM": ["Neveal", "old_zhiming"],
-    */
-    /*
-        "Made in Heaven": ["Metallica126"],
-        "Hammerlocke Spartacus": ["drogba in shenhua"],
-        "Never Be Go": ["compection"],
-        "Pirouette Meloetta": ["DYWY"],
-    */
-    /*
-        "SLATEPORT TORPEDO": ["DYWY"],
-        "SINJOH'S EXPLORER": ["dragonitenb", "Separation"],
-        "NIMBASA ROMANCE": ["kitoothe", "gggguang"],
-        "HIGAN NO HANABATAKE": ["lzaaaaa", "youke"],
-        "MT.SILVER LEGEND": ["Unowndragon"],
-        "HAMMERLOCKE SPARTACUS": ["Drogba in Shenhua", "nobeta"],
-    */
-    /*
-        "Crazy Diamond": ["Slow_Dream"],
-        "Moonlight Shadow": ["dragonitenb", "chengduoldsuperbro"],
-        "A-Soul": ["gostop", "The Steel Shadow"],
-        "Roast Magikarp": ["vusty fans", "chickwayne"],
-   */
-   /*
-       "Platform 9¾": ["yoppie", "kitoothe"],
-       "Metronome": ["IG Jackeylove", "Let’sgosixers"],
-       "Sparkling Shinx": ["old_zhiming", "vusty"],
-       "Half Dimension": ["chengduoldsuperbro", "The Steel Shadow"],
-   */
-    /*
-        "TERMINUS GUARDIAN": ["akengs", "old_zhiming"],
-        "S.I. MUGEN": ["Rampagewebber"],
-        "MIRAGE PHANTOM": ["XPSH"],
-        "ETERNAL CROWN": ["Slow_Dream"],
-        "PONI FORTE": ["Drogba in Shenhua"],
-        "OPELUCID CRUSADERS": ["Metallica126"],
-    */
-    /*
-        "Team 1": ["SeaRabbit"],
-        "Team 2": ["xujing691691"],
-        "Team 3": ["Allen-xia"],
-        "Team 4": ["Metallica126"],
-    */
-    /*
-        "Number Guys": ["dragonitenb"],
-        "Hopeful Dreamer": ["Metallica126"],
-        "Angelotto": ["Aro Nova"],
-        "Platform 9¾": ["yoppie"],
-    */
-    /*
-        "SINJOH'S EXPLORER": ["Slow_Dream", "IGJackeyLove"],
-        "MT.SILVER LEGEND": ["idol1900", "CurePersona"],
-        "HAMMERLOCKE SPARTACUS": ["Allen-xia", "Chaos23333"],
-        "SLATEPORT TORPEDO": ["hot_dogs666", "rubv"],
-        "HIGAN NO HANABATAKE": ["cscl", "youke"],
-        "NIMBASA ROMANCE": ["gostop", "SeaRabbit"],
-    */
-    /*
-        "Tactical Sweep": ["IGJackeyLove", "dragonitenb"],
-        "Syrup": ["Dawnmoon", "Lusteristic"],
-        "Bet On We": ["YZII", "Metallica126"],
-        "Desolate Land": ["gostop", "Allen-xia"],
-    */
-    /*
-        "Precision Protocol": ["IGJackeyLove", "XPSH"],
-        "Clannad": ["Allen-xia", "chickwayne"],
-        "Dawn Troupe": ["baibaiats", "burstbean"],
-        "Emperor Piplup": ["vusty fans3", "vusty"],
-    */
-    /*
-        "OPELUCID CRUSADERS": ["starmind"],
-        "ETERNAL CROWN": ["cscl"],
-        "S.I. MUGEN": ["The Steel Shadow"],
-        "MIRAGE PHANTOM": ["XPSH"],
-    */
-    /*
-        "Port Ormos":["burstbean","searabbit"],
-        "Fuck Maushold":["lusteristic"],
-        "Scattered star debris":["niaosui","duguo"],
-        "Ending Blitz":["Jinitaimei"],
-    */
-    /* 
-    "Take Me Higher": ["Raiden Mei"],
-    "Gracidea": ["burstbean"],
-    "Fantasy Wings": ["Slow_Dream"],
-    "Sidalin Beam": ["sidalin"],
-    */
-    /*
-    "Abendregen":["musashi109"],
-    "Utayuo MIRACLE":["burstbean"],
-    "Fully prepared":["Mestronwest"],
-    "Flaming Crusaders":["Raceding"],
-    */
-    /*
-    "Go get some fries":["gewwge","Northumberland"],
-    "glorious arrow wish":["kaifengyyds","XPSH"],
-    "Diana Sweet":["Metallica126","baibaiats"],
-    "Rainbow Slowbro Army":["Raceding","sleeptalking"],
-    
-	"NIMBASA ROMANCE": ["the steel shadow", "yoppie"],  
-        "HAMMERLOCKE SPARTACUS": ["Allen-xia", "Amethyst pupil"],
-        "HIGAN NO HANABATAKE": ["cscl", "vulpot"],
-        "MT.SILVER LEGEND": ["metallica126", "baibaiats"],
-	*/
-/*
-	"Dog Tired": ["gostop", "newyokobaby"],
-        "Sakura Wars": ["daidaiwo", "dragonitenb"],
-        "Mission Of Her Majesty": ["zhongyeernai", "searabbit"],
-        "Ending Blitz": ["raceding", "kaifengyyds"],
-*/
-/*
-"Royal Never Give Up": ["jdk knight"],
-	"Metore Enforcer": ["Asou&Chihiro"],
-	"Useful Copy Players": ["hybone"],
-	"miku fans": ["xqiht"],
-*/
-/*
-	"Spica": ["mliya","metallica126"],
-        "Pegasian Sight": ["burstbean"],
-        "fly sun": ["wya"],
-        "underworld from tangshan": ["dragonitenb"],
-*/
-/*
-        "Kingambit & Sucher Punch": ["soulking0", "Nor known to Life"],
-        "Flying Frost Stepping Snow": ["Memoriies", "GDWYuudachi"],
-        "Baoshan Poochyena": ["dragonitenb", "old_zhiming"],
-        "Wuhan Yamper": ["yzii", "aro nova"],
-*/
-/*
-	"Omanyte Blast": ["jinitaimei", "sidalin"],
-	"Dancing Like Crane": ["zhongyeernai", "metallica126"],
-	"Overdrive": ["igjackeylove", "aronova"],
-	"Pantheon": ["pyernhuy", "chickwayne"],
-*/
-	
-/*
-	"OPELUCID CRUSADERS": ["metallica126","KissSheep"],
-        "ETERNAL CROWN": ["dare to love xkh"],
-        "S.I. MUGEN": ["searabbit","oldzhiming"],
-        "MIRAGE PHANTOM": ["Greenland Shadow","XPSH"],
-*/
-/*
-	"A Confession under the Smoke": ["cen344uu "],
-        "sleeping starship": ["Sawra2.71828"],
-        "hidden plum bossom in snow": ["Soul king0"],
-        "kangaskloem": ["Metallica126"],
-	*/
-	/*
-	"super shadow sneak": ["Sawra2.71828","lusteristic"],
-        "Frenzy Flygon": ["dawntothedusk","rakukeika"],
-        "Horizon to zero": ["metallica","nashrock"],
-        "Gallop like thunder": ["soulking0","zhongyeernai"],
 
-	"Double Fake Out": ["Raiden Mei","Metallica126"],
-        "Strange Scale Shot": ["greenland shadow","swabluue"],
-        "Sleepy Kitten": ["gostop","Sardonyx_Amber"],
-        "Mega Kangagolem-Alola Club": ["archer927","cen344u"],
-*/
-/*
-	"Lovely Nekomusume": ["Sawra2.71828","yiyue"],
-        "phoenix flutes make music": ["zhongyeernai"],
-        "Opelucid Crusaders": ["jinitaimei","metallica126"],
-        "Crychic": ["indulge in dreams","cen344uu"],
-*/
-/*
-        "Dream about South Pillar": ["Metallica126","cen344uu"],
-        "Circle of Life": ["Rimarinalove","SakakibaraKotone"],
-        "Magical Hajimi": ["greenland shadow","duguo"],
-        "Kill Your Nine Generation Ancestors": ["xu9","Sardonyx_Amber"],
-*/
-        "Mt.Silver Legend": ["Metallica126","Mentalsoft"],
-        "Higan no Hanabatake": ["Aro Nova","Cscl"],
-        "Nimbasa Romance": ["Dare to love xkh","memoriies"],
-        "Hammerlocke Spartacus": ["Tkyszl","Lusteristic"],
-};
-const CNNames = {
-    /*
-        "OPELUCID CRUSADERS": "双龙十字军",
-        "ETERNAL CROWN": "无极神冠",
-        "S.I. MUGEN": "南岛无限",
-        "MIRAGE PHANTOM": "橘影幻灵",
-    
-    */
-    /*
-	"Port Ormos":"奥摩斯港",
-	"Fuck Maushold":"乐不思鼠",
-	"Scattered star debris":"散落的星骸",
-	"Ending Blitz":"终焉的闪焰冲锋",
-    */
-    /*
-    lin Beam": "慈父的光辉",
-    "Gracidea": "天空花束",
-    "Take Me Higher": "飞得更高",
-    "Fantasy Wings": "幻想之翼",*/
-    /*
-    "Utayuo MIRACLE":"奇迹之歌",
-    "Abendregen":"骤雨的隙间",
-    "Flaming Crusaders":"双龙赤焰",
-    "Fully prepared":"未雨绸缪",
-    */
-    /*
-    "Go get some fries":"整点薯条",
-    "glorious arrow wish":"光辉矢愿",
-    "Diana Sweet":"嘉然家今天的饭",
-    "Rainbow Slowbro Army":"彩虹呆河马军团",
-    
-	"NIMBASA ROMANCE": "雷文摩天轮",  
-        "HAMMERLOCKE SPARTACUS": "拳关斯巴达克",
-        "HIGAN NO HANABATAKE": "彼岸花海",
-        "MT.SILVER LEGEND": "白银传说",
-	*/
-	/*
-	"Dog Tired": "狗生有了点疲惫",
-        "Sakura Wars": "夏日大作战",
-        "Mission Of Her Majesty": "还未完成的高贵使命",
-        "Ending Blitz": "终焉的闪焰冲锋",
-	*/
-/*
-"Royal Never Give Up": "永不言弃",	
-	"Metore Enforcer": "流星惩罚者",
-	"Useful Copy Players": "有用的抄队玩家",
-	"miku fans": "醉卧沙场",
-*/
-/*
-	"Spica": "璀璨流星",
-        "Pegasian Sight": "天马视域",
-        "underworld from tangshan": "唐山黑社会",
-        "fly sun": "天翊和曦",
-*/
-/*
-        "Kingambit & Sucher Punch": "酱与突袭",
-        "Flying Frost Stepping Snow": "飞霜踏雪",
-        "Baoshan Poochyena": "宝山土狼犬",
-        "Wuhan Yamper": "武汉来电汪",
-*/
-/*
-        "Omanyte Blast": "皇家爆炎2.0",
-        "Dancing Like Crane": "琼芳鹤舞",
-        "Overdrive": "超限暴走",
-        "Pantheon": "没有影子的小孩",
-
-        "A Confession under the Smoke": "青烟下的告白",
-        "sleeping starship": "眠梦星河",
-        "hidden plum bossom in snow": "踏雪寻梅",
-        "kangaskloem": "袋隆十字军",
-
-	"super shadow sneak": "超级影袭",
-        "Frenzy Flygon": "热砂蜻蜓",
-        "Horizon to zero": "重造地平线",
-        "Gallop like thunder": "星驰电掣",
-
-
-	"Double Fake Out": "击掌双袭",
-        "Strange Scale Shot": "神奇鳞射",
-        "Sleepy Kitten": "咪咪糊糊",
-        "Mega Kangagolem-Alola Club": "袋隆俱乐部",
-*/
-/*
-	"Lovely Nekomusume": "萌混过关",
-        "phoenix flutes make music": "凤箫声动",
-        "Opelucid Crusaders": "双龙十字军",
-        "Crychic": "春日影",
-*/
-/*
-	"Dream about South Pillar": "南梁一梦",
-        "Circle of Life": "生生不息的激荡",
-        "Magical Hajimi": "神奇哈基米",
-        "Kill Your Nine Generation Ancestors": "九族男孩重度依赖",
-*/
-        "Mt.Silver Legend": "白银传说",
-        "Higan no Hanabatake": "彼岸花海",
-        "Nimbasa Romance": "雷文摩天轮",
-        "Hammerlocke Spartacus": "拳关斯巴达克",
-};
-const retains = {
-/*
-        "Clannad": {"chickwayne": 12000},
-        "Dawn Troupe": {},
-        "Precision Protocol": {},
-        "Emperor Piplup": {},
-
-*/
-	/*"NIMBASA ROMANCE": {},
-        "HAMMERLOCKE SPARTACUS": {"allenxia":17000},
-        "HIGAN NO HANABATAKE": {"cscl":17000,"vulpot":17000},
-        "MT.SILVER LEGEND": {"baibaiats":17000},
-	*/
-/*
-        "Spica": {"metallica126": 10000},
-	"Pegasian Sight": {"burstbean":10000},
-        "underworld from tangshan": {},
-        "fly sun": {},
-*/
-/*
-        "Kingambit & Sucher Punch": {"Nor known to Life": 11000},
-        "Flying Frost Stepping Snow": {"GDWYuudachi": 11000},
-        "Baoshan Poochyena": {},
-        "Wuhan Yamper": {},
-*/
-/*
-	"Omanyte Blast": {"jinitaimei": 15000},
-        "Dancing Like Crane": {"metallica126": 15000},
-        "Overdrive": {"aronova": 15000},
-        "Pantheon": {"chickwayne": 15000},
-
-	"super shadow sneak": {"Sawra2.71828": 12000},
-        "Frenzy Flygon": {"dawntothedusk":12000,"rakukeika":12000},
-        "Horizon to zero": {"metallica":12000},
-        "Gallop like thunder": {"soulking0":12000},
-
-
-	"Double Fake Out": {"Metallica126": 15000},
-        "Strange Scale Shot": {"greenland shadow":15000},
-        "Sleepy Kitten": {"gostop":15000},
-	"Mega Kangagolem-Alola Club": {},
-*/
-/*
-	"Lovely Nekomusume": {"yiyue":12000},
-        "phoenix flutes make music": {},
-        "Opelucid Crusaders": {"jinitaimei":12000},
-        "Crychic": {"cen344uu":12000},
-*/
-/*
-	"Dream about South Pillar": {},
-	"Circle of Life": {"SakakibaraKotone": 9500},
-        "Magical Hajimi": {},
-        "Kill Your Nine Generation Ancestors": {},
-*/
-        "Mt.Silver Legend": {"Metallica126": 18000, "Mentalsoft": 18000},
-        "Higan no Hanabatake": {"cscl": 18000},
-        "Nimbasa Romance": {},
-        "Hammerlocke Spartacus": {},
-/*
-    "Angelotto": {"SCEAM": 8000, "wangyu": 5000},
-    "Number Guys": {"Separation": 21000, "xujing691691": 11000, },
-    "Platform 9¾": {"Allen-xia": 11000, "shawyu": 8000},
-    "Hopeful Dreamer": {"Metallica126": 20000, "Chaos23333": 14500, "yuudachi0811": 8500, "Jinitaimei 龙慧": 3500},
-*/
-}
-const defaultTier = "ou";
-const defaultGen = "g9";
-
-const { strict } = require('assert');
+const { assert } = require('assert');
 const fs = require('fs');
 
 let drafts = {}; 
 
 class Draft {
-    constructor(room) {
+    constructor(room, info) {
         this.room = room;
         this.teams = {};
         this.players = {};
@@ -397,6 +24,24 @@ class Draft {
         this.timer = null;
 
         this.draftlog = [];
+
+        this.mode = info["mode"];
+        this.initialMoney = info["initialMoney"];
+        this.minPlayers = info["minPlayers"];
+        this.maxPlayers = info["maxPlayers"];
+        this.startPrice = info["startPrice"];
+        this.stepPrice = info["stepPrice"];
+        this.canSelfNom = info["canSelfNom"];
+        this.selfNomPrice = info["selfNomPrice"];
+        this.defaultTeams = info["defaultTeams"];
+        this.CNNames = info["CNNames"];
+        this.retains = info["retains"];
+        this.defaultTier = info["defaultTier"];
+        this.defaultGen = info["defaultGen"];
+
+        for (let k in this.defaultTeams) {
+            this.addTeam(k, this.defaultTeams[k]);
+        }
     }
 
     addTeam (name, leaders) {
@@ -411,7 +56,7 @@ class Draft {
             "name": name,
             "bidders": bidders,
             "players": [],
-            "money": initialMoney
+            "money": this.initialMoney
         };
         this.activeTeams.push(teamId);
         this.save();
@@ -433,7 +78,7 @@ class Draft {
                         let playerId = toId(player);
                         this.players[playerId] = {"name": player};
                         for (let j = 0; j < categories.length; j++) {
-                            this.players[playerId][categories[j]] = parts[j];
+                            this.players[playerId][categories[j]] = !!parts[j];
                         }
                     }
                     delete this.players[''];
@@ -446,7 +91,7 @@ class Draft {
 
     start () {
         let i = 0;
-        Object.entries(retains).forEach(([teamName, teamRetains]) => {
+        Object.entries(this.retains).forEach(([teamName, teamRetains]) => {
             let team = this.teams[toId(teamName)];
             Object.entries(teamRetains).forEach(([nominee, amount]) => {
                 i++;
@@ -458,7 +103,7 @@ class Draft {
             this.showAll(true);
             this.nomination = Object.keys(this.teams)[0];
             Bot.say(this.room, '选人开始! The draft is up!');
-            Bot.say(this.room, CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
+            Bot.say(this.room, this.CNNames[this.teams[this.nomination].name] + '请提名选手。' + this.teams[this.nomination].name + 
                                ' are up to nominate. Bidders: ' + Object.values(this.teams[this.nomination].bidders).join(', '));
         }, 200 * (i + 1));
     }
@@ -473,7 +118,7 @@ class Draft {
         this.nomination = teams[teamIndex];
         let nextTeam = this.teams[this.nomination];
         this.state = "nominate";
-        Bot.say(this.room, CNNames[nextTeam.name] + '请提名选手。' + nextTeam.name + 
+        Bot.say(this.room, this.CNNames[nextTeam.name] + '请提名选手。' + nextTeam.name + 
                            ' are up to nominate. Bidders: ' + Object.values(nextTeam.bidders).join(', '));
     }
 
@@ -483,16 +128,16 @@ class Draft {
         if (!this.players[targetId]) {
             if (this.nomedPlayers[targetId]) {
                 let teamName = this.nomedPlayers[targetId].name;
-                return Bot.say(this.room, '提名的选手已加入' + CNNames[teamName] + '。' + 'The user ' + target + ' has joined ' + teamName + '!');
+                return Bot.say(this.room, '提名的选手已加入' + this.CNNames[teamName] + '。' + 'The user ' + target + ' has joined ' + teamName + '!');
             }
             return Bot.say(this.room, '提名的选手不在名单内。' + 'The user ' + target + ' was not found!');
         }
-        let price = startPrice;
+        let price = this.startPrice;
         if (this.managers[targetId]) {
-            if (canSelfNom) {
+            if (this.canSelfNom) {
                 if (this.managers[targetId] === this.managers[user]) {
-                    if (mode === 'bid') {
-                        price = selfNomPrice;
+                    if (this.mode === 'bid') {
+                        price = this.selfNomPrice;
                     }
                 } else {
                     return Bot.say(this.room, '不可以提名其他队伍的队长。You cannot nominate a leader of another team.');
@@ -506,13 +151,13 @@ class Draft {
 		this.state = "start";
         let buffer = [];
         for (let property in this.players[targetId]) {
-            if (this.players[targetId][property] === 'X') buffer.push(property);
+            if (this.players[targetId][property]) buffer.push(property);
         }
-        if (mode == "bid") {
+        if (this.mode == "bid") {
             Bot.say(this.room, '> ' + '**' + targetName + '** 开始竞拍! ' + targetName + ' is up for bidding!');
             Bot.say(this.room, '报名分级 Tiers: ' + buffer.join(', '));
         }
-        this.runBid(user, startPrice);
+        this.runBid(user, this.startPrice);
     }
 
     showAll (manual) {
@@ -525,12 +170,12 @@ class Draft {
         //         if (!manual) this.nextNominate();
         //         return;
         //     }
-        //     Bot.say(this.room, team.name + (mode == "bid" ? ': [剩余金额Money: ' + team.money : ': [人数Strength: ' + team.players.length) + 
+        //     Bot.say(this.room, team.name + (this.mode == "bid" ? ': [剩余金额Money: ' + team.money : ': [人数Strength: ' + team.players.length) + 
         //                        ' | 队长Bidders: ' + team.bidders.join(', ') + '] 队员Players: ' + team.players.join(', '));
         //     reiterations++;
         // }, 800);
         let htmlbox = '!htmlbox <table border="1" style="border-collapse:collapse"><tr><th align="center">队名 Team</th><th align="center">队长 Leaders</th><th align="center">队员 Players</th>';
-        htmlbox += mode == 'bid' ? '<th align="center">余额 Money</th>' : '<th align="center">人数 Strength</th></tr>';
+        htmlbox += this.mode == 'bid' ? '<th align="center">余额 Money</th>' : '<th align="center">人数 Strength</th></tr>';
         for (let teamKey in this.teams) {
             let team = this.teams[teamKey];
             let bidderNames = Object.values(team.bidders);
@@ -538,8 +183,8 @@ class Draft {
                 bidderNames[1] = '(' + bidderNames[1];
                 bidderNames[bidderNames.length - 1] += ')';
             }
-            htmlbox += '<tr><td align="center">' + CNNames[team.name] + ' ' + team.name + '</td><td align="center">' + bidderNames.join(', ') + '</td><td align="center">' + team.players.join(', ') + '</td>'
-            htmlbox += mode == 'bid' ? '<td align="center">' + team.money + '</td>' : '<td align="center">' + team.players.length + '</td></tr>';
+            htmlbox += '<tr><td align="center">' + this.CNNames[team.name] + ' ' + team.name + '</td><td align="center">' + bidderNames.join(', ') + '</td><td align="center">' + team.players.join(', ') + '</td>'
+            htmlbox += this.mode == 'bid' ? '<td align="center">' + team.money + '</td>' : '<td align="center">' + team.players.length + '</td></tr>';
         }
         htmlbox += '</table>';
         Bot.say(this.room, htmlbox);
@@ -547,7 +192,7 @@ class Draft {
     }
 
     addPlayer (team, nominee, amount) {
-        Bot.say(this.room, nominee + '加入' + CNNames[team.name] + '! ' + nominee + ' joined ' + team.name + '!');
+        Bot.say(this.room, nominee + '加入' + this.CNNames[team.name] + '! ' + nominee + ' joined ' + team.name + '!');
         team.money -= amount;
         team.players.push(nominee);
         this.nomedPlayers[toId(nominee)] = team;
@@ -561,44 +206,44 @@ class Draft {
         let team = this.teams[this.managers[user]];
         let teamName = team.name;
         if (amount <= 100) amount *= 1000;
-        if (amount <= this.bid) return Bot.say(this.room, teamName + `: Bid must be at least ${stepPrice} more than ` + this.bid);
-        let maxBid = team.money - (minPlayers - team.players.length - 1) * startPrice;
+        if (amount <= this.bid) return Bot.say(this.room, teamName + `: Bid must be at least ${this.stepPrice} more than ` + this.bid);
+        let maxBid = team.money - (this.minPlayers - team.players.length - 1) * this.startPrice;
 	    if (maxBid < 0 || maxBid > team.money) maxBid = team.money;
         if (amount > maxBid) return Bot.say(this.room, teamName + ': Bid exceeds max bid of ' + maxBid);
-        if (amount % stepPrice !== 0) return Bot.say(this.room, teamName + `: Bid must be a multiple of ${stepPrice}`);
+        if (amount % this.stepPrice !== 0) return Bot.say(this.room, teamName + `: Bid must be a multiple of ${this.stepPrice}`);
         clearTimeout(this.timer);
-        if (mode == "bid") Bot.say(this.room, '> ' + teamName + ': **' + amount + '**');
+        if (this.mode == "bid") Bot.say(this.room, '> ' + teamName + ': **' + amount + '**');
         this.bid = amount;
         this.topBidder = user;
         this.timer = setTimeout(() => {
-            if (mode == "bid") Bot.say(this.room, '__剩余五秒! 5 seconds remaining!__');
+            if (this.mode == "bid") Bot.say(this.room, '__剩余五秒! 5 seconds remaining!__');
             this.timer = setTimeout(() => {
                 this.addPlayer(team, this.nominee, amount);
                 this.bid = null;
                 this.nominee = null;
                 this.showAll();
                 this.save();
-                if (team.money < startPrice) {
-                    if (mode == "bid") {
-                        Bot.say(this.room, CNNames[team.name] + '金额耗尽。' + team.name + ' has run out of money.');
+                if (team.money < this.startPrice) {
+                    if (this.mode == "bid") {
+                        Bot.say(this.room, this.CNNames[team.name] + '金额耗尽。' + team.name + ' has run out of money.');
                     } else {
-                        Bot.say(this.room, CNNames[team.name] + '名额已满。' + team.name + ' is full.');
+                        Bot.say(this.room, this.CNNames[team.name] + '名额已满。' + team.name + ' is full.');
                     }
                     this.withdraw(user);
                 }
-                if (maxPlayers && team.players.length >= maxPlayers) {
-                    Bot.say(this.room, CNNames[team.name] + '名额已满。' + team.name + ' is full.');
+                if (this.maxPlayers && team.players.length >= this.maxPlayers) {
+                    Bot.say(this.room, this.CNNames[team.name] + '名额已满。' + team.name + ' is full.');
                     this.withdraw(user);
                 }
-            }, mode == "bid" ? 5000 : 0); /* second left in 1k*/
-        }, mode == "bid" ? 15000 : 0);
+            }, this.mode == "bid" ? 5000 : 0); /* second left in 1k*/
+        }, this.mode == "bid" ? 15000 : 0);
     }
 
     withdraw (user) {
         let team = this.managers[user];
         if (!team) return false;
         if (!~this.activeTeams.indexOf(team)) return Bot.say(this.room, "您的队伍已退出。Your team has already withdrawn from the auction.");
-        Bot.say(this.room, CNNames[this.teams[team].name] + '已退出。' + this.teams[team].name + ' have withdrawn from the auction.');
+        Bot.say(this.room, this.CNNames[this.teams[team].name] + '已退出。' + this.teams[team].name + ' have withdrawn from the auction.');
         this.activeTeams.splice(this.activeTeams.indexOf(team), 1);
         if (this.activeTeams.length < 1) return this.end();
         if (this.nomination === team) this.nextNominate(true);
@@ -636,6 +281,7 @@ class Draft {
             if (success) Bot.say(this.room, '选人结束。The draft is over. Log: ' + link);
             else Bot.say(this.room, '无法上传记录。Error connecting to hastebin.');
         });*/
+        this.save();
         Bot.say(this.room, '选人结束。The draft is over.');
         console.log(buffer);
         delete drafts[this.room];
@@ -656,10 +302,10 @@ class Draft {
                 propertyId = propertyId.replace('gen', 'g').replace('rb', 'rdb');
                 // if (propertyId.endsWith('nd')) propertyId = propertyId.replace('nd', 'nddou');
                 if (propertyId === 'vgc') propertyId = 'vgc2022';
-                else if (propertyId === 'lgpe') propertyId = 'lgpe' + defaultTier;
-                else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + defaultTier;
-                else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + defaultTier;
-                else if (propertyId[0] !== 'g') propertyId = defaultGen + propertyId;
+                else if (propertyId === 'lgpe') propertyId = 'lgpe' + this.defaultTier;
+                else if (propertyId.length === 1 && parseInt(propertyId)) propertyId = 'g' + propertyId + this.defaultTier;
+                else if (propertyId.length === 2 && propertyId[0] === 'g') propertyId = propertyId + this.defaultTier;
+                else if (propertyId[0] !== 'g') propertyId = this.defaultGen + propertyId;
             }
             let property = this.properties[propertyId];
             if (!property) {
@@ -672,7 +318,7 @@ class Draft {
         for (let playerId in this.players) {
             let matched = true;
             for (let property in propertiesToMatch) {
-                if (this.players[playerId][property] !== 'X') {
+                if (!this.players[playerId][property]) {
                     matched = false;
                     break;
                 }
@@ -701,12 +347,35 @@ exports.commands = {
 
             case 'init' : 
                 if (drafts[room]) return this.reply('请先终止当前的选人活动。There is currently a draft in progress in this room.');
-                drafts[room] = new Draft(room);
-                this.reply('初始化完成。A new draft has started!');
-                for (let k in defaultTeams) {
-                    drafts[room].addTeam(k, defaultTeams[k]);
+                if (!parts[1]) return this.reply('Usage: /draft init <url>');
+
+                try {
+                    // TODO: async -> sync
+                    Tools.httpGet(parts[1], data => {
+                        info = JSON.parse(data.trim());
+                        // TODO: typeof info["mode"] == 'string';
+                        // assert.ok(info.has("mode"), "mode required");
+                        // assert.ok(info.has("initialMoney"), "initialMoney required");
+                        // assert.ok(info.has("minPlayers"), "minPlayers required");
+                        // assert.ok(info.has("maxPlayers"), "maxPlayers required");
+                        // assert.ok(info.has("startPrice"), "startPrice required");
+                        // assert.ok(info.has("stepPrice"), "stepPrice required");
+                        // assert.ok(info.has("canSelfNom"), "canSelfNom required");
+                        // assert.ok(info.has("selfNomPrice"), "selfNomPrice required");
+                        // assert.ok(info.has("defaultTeams"), "defaultTeams required");
+                        // assert.ok(info.has("CNNames"), "CNNames required");
+                        // assert.ok(info.has("retains"), "retains required");
+                        // assert.ok(info.has("defaultTier"), "defaultTier required");
+                        // assert.ok(info.has("defaultGen"), "defaultGen required");
+                        drafts[room] = new Draft(room, info);
+                    });
+                } catch (error) {
+                    this.reply('无效链接或格式错误。Invalid URL or format error.');
+                    break;
                 }
-                if (~Object.keys(drafts[room].teams)) this.reply('队长数据已录入。Default data loaded.');
+
+                this.reply('赛事信息已录入。Meta data loaded.');
+                this.reply('初始化完成。A new draft has started!');
                 break;
 
             case 'addteam' :
