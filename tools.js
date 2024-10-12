@@ -380,6 +380,17 @@ exports.httpsGet = function (url, callback) {
 	});
 };
 
+exports.autoGet = function (url, callback) {
+	if (typeof callback !== "function") return;
+	if (url.startsWith('https')) {
+		Tools.httpsGet(url, callback);
+	} else if (url.startsWith('http')) {
+		Tools.httpGet(url, callback);
+	} else {
+		callback(null, 'Invalid URL');
+	}
+}
+
 exports.uploadToHastebin = function (toUpload, callback) {
 	var reqOpts = {
 		hostname: "hastebin.com",

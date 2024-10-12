@@ -1,12 +1,12 @@
 'use strict';
 
-const { assert } = require('assert');
+const assert = require('assert');
 const fs = require('fs');
 
 let drafts = {}; 
 
 class Draft {
-    constructor(room, info) {
+    constructor(room, metadata) {
         this.room = room;
         this.teams = {};
         this.players = {};
@@ -25,19 +25,19 @@ class Draft {
 
         this.draftlog = [];
 
-        this.mode = info["mode"];
-        this.initialMoney = info["initialMoney"];
-        this.minPlayers = info["minPlayers"];
-        this.maxPlayers = info["maxPlayers"];
-        this.startPrice = info["startPrice"];
-        this.stepPrice = info["stepPrice"];
-        this.canSelfNom = info["canSelfNom"];
-        this.selfNomPrice = info["selfNomPrice"];
-        this.defaultTeams = info["defaultTeams"];
-        this.CNNames = info["CNNames"];
-        this.retains = info["retains"];
-        this.defaultTier = info["defaultTier"];
-        this.defaultGen = info["defaultGen"];
+        this.mode = metadata["mode"];
+        this.initialMoney = metadata["initialMoney"];
+        this.minPlayers = metadata["minPlayers"];
+        this.maxPlayers = metadata["maxPlayers"];
+        this.startPrice = metadata["startPrice"];
+        this.stepPrice = metadata["stepPrice"];
+        this.canSelfNom = metadata["canSelfNom"];
+        this.selfNomPrice = metadata["selfNomPrice"];
+        this.defaultTeams = metadata["defaultTeams"];
+        this.CNNames = metadata["CNNames"];
+        this.retains = metadata["retains"];
+        this.defaultTier = metadata["defaultTier"];
+        this.defaultGen = metadata["defaultGen"];
 
         for (let k in this.defaultTeams) {
             this.addTeam(k, this.defaultTeams[k]);
@@ -63,10 +63,13 @@ class Draft {
     }
 
     loadPlayers (url) {
-        Tools.httpGet(url, data => {
-            if (data) {
-                let lines = data.replace(/\r/g, '').split('\n');
+        Tools.autoGet(url, data => {
+            try {
+                let lines = data.trim().replace(/\r/g, '').split('\n');
                 let categories = lines[0].split(',');
+                for (let line of lines) {
+                    assert.ok(line.split(',').length === categories.length, 'Invalid CSV format');
+                }
                 if (categories.length > 1) {
                     for (let j = 1; j < categories.length; j++) {
                         this.properties[toId(categories[j]).replace('gen', 'g')] = categories[j];
@@ -84,8 +87,10 @@ class Draft {
                     delete this.players[''];
                     return Bot.say(this.room, '选手列表已录入。Playerlist succesfully loaded.');
                 }
+            } catch (error) {
+                console.log(error);
+                Bot.say('无效链接或格式错误。Invalid URL or format error.');
             }
-            Bot.say(this.room, '无效链接或格式错误。Invalid URL or format error.');
         });
     }
 
@@ -342,40 +347,38 @@ exports.commands = {
         switch (parts[0]) {
             case 'reset' :
                 delete drafts[room];
-                this.reply('已重置。Draft information erased for this room.');
+                this.reply('已重置。Draft metadatarmation erased for this room.');
                 break;
 
             case 'init' : 
                 if (drafts[room]) return this.reply('请先终止当前的选人活动。There is currently a draft in progress in this room.');
                 if (!parts[1]) return this.reply('Usage: /draft init <url>');
 
-                try {
-                    // TODO: async -> sync
-                    Tools.httpGet(parts[1], data => {
-                        info = JSON.parse(data.trim());
-                        // TODO: typeof info["mode"] == 'string';
-                        // assert.ok(info.has("mode"), "mode required");
-                        // assert.ok(info.has("initialMoney"), "initialMoney required");
-                        // assert.ok(info.has("minPlayers"), "minPlayers required");
-                        // assert.ok(info.has("maxPlayers"), "maxPlayers required");
-                        // assert.ok(info.has("startPrice"), "startPrice required");
-                        // assert.ok(info.has("stepPrice"), "stepPrice required");
-                        // assert.ok(info.has("canSelfNom"), "canSelfNom required");
-                        // assert.ok(info.has("selfNomPrice"), "selfNomPrice required");
-                        // assert.ok(info.has("defaultTeams"), "defaultTeams required");
-                        // assert.ok(info.has("CNNames"), "CNNames required");
-                        // assert.ok(info.has("retains"), "retains required");
-                        // assert.ok(info.has("defaultTier"), "defaultTier required");
-                        // assert.ok(info.has("defaultGen"), "defaultGen required");
-                        drafts[room] = new Draft(room, info);
-                    });
-                } catch (error) {
-                    this.reply('无效链接或格式错误。Invalid URL or format error.');
-                    break;
-                }
-
-                this.reply('赛事信息已录入。Meta data loaded.');
-                this.reply('初始化完成。A new draft has started!');
+                Tools.autoGet(parts[1], data => {
+                    try {
+                        let metadata = JSON.parse(data.trim());
+                        // TODO: typeof metadata["mode"] == 'string';
+                        assert.ok("mode" in metadata, "mode required");
+                        assert.ok("initialMoney" in metadata, "initialMoney required");
+                        assert.ok("minPlayers" in metadata, "minPlayers required");
+                        assert.ok("maxPlayers" in metadata, "maxPlayers required");
+                        assert.ok("startPrice" in metadata, "startPrice required");
+                        assert.ok("stepPrice" in metadata, "stepPrice required");
+                        assert.ok("canSelfNom" in metadata, "canSelfNom required");
+                        assert.ok("selfNomPrice" in metadata, "selfNomPrice required");
+                        assert.ok("defaultTeams" in metadata, "defaultTeams required");
+                        assert.ok("CNNames" in metadata, "CNNames required");
+                        assert.ok("retains" in metadata, "retains required");
+                        assert.ok("defaultTier" in metadata, "defaultTier required");
+                        assert.ok("defaultGen" in metadata, "defaultGen required");
+                        drafts[room] = new Draft(room, metadata);
+                        this.reply('赛事信息已录入。Meta data loaded.');
+                        this.reply('初始化完成。A new draft has started!');
+                    } catch (error) {
+                        console.log(error);
+                        this.reply('无效链接或格式错误。Invalid URL or format error.');
+                    }
+                });
                 break;
 
             case 'addteam' :
